@@ -1,0 +1,444 @@
+{include file='index/include/header'}
+
+<style>
+
+    body{    background: #f4f4f4;}
+
+    .hui-center-title h1{line-height: 24px;} .hui-header + .hui-wrap {padding-top: 43px;}
+
+    #hui-back:before{  color: #3388FF !important; }   #hui-back span{ color: #3388FF;  margin-right: 19px;    font-size: 18px;}
+
+    #hui-back2{    margin-top: 9px;margin-left: 24px;}
+
+    #hui-back2 span{     font-size: 18px;font-weight: 700;}
+
+    .hui-list-text2{         margin-top: 12px;
+
+        width: 88%;
+
+        text-align: justify;
+
+        line-height: 25px;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        margin-left: 15px;}
+
+    .hui-list-text2 p{color: #d6d6d6;}
+
+    .hui-list-text2 span{        font-size: 14px;  width: 73%;
+
+    }
+
+    .hui-list-text2 img{       width: 30%;
+
+        margin-top: 6px;
+
+        margin-left: 5px;
+
+       }
+
+    .hui-list-text{    border: none;  color: #797979;  margin-left: 29px; font-size: 12px;}
+
+    .title{    font-size: 18px;font-weight: 400;}
+
+    .title-text{    background: #2196F3;
+
+        padding: 3px;
+
+        color: white;
+
+        font-size: 10px;
+
+        margin-left: 10px;
+
+        border-radius: 50px;
+
+        line-height: 22px;}
+
+    .hui-list-icons{height: 32px;}
+
+    .hui-speed-dial-icons{
+
+        text-align: -webkit-auto;
+
+        height: 30px;
+
+        z-index: 999999;
+
+        margin-left: 7px;}
+
+    .hui-list-info-user{width: 31%;line-height: 46px;}
+
+    .hui-list-info-user span{font-size: 13px;color: #e6b53f;}
+
+</style>
+
+<header class="hui-header" style=" background: #ffffff;">
+
+    <div id="hui-back"  style=" width: 126px; ">&nbsp;<span>返回</span><span>关闭</span></div>
+
+    <div id="hui-back2"  ><span>我发起的</span></div>
+
+</header>
+
+<div class="hui-wrap">
+
+
+
+    <div class="hui-list">
+
+        <a href="javascript:;" style=" height: 45px;     margin-bottom: 12px;   border-bottom: 1px solid #dbdbdb;">
+
+            <div class="hui-list-icons" style=" margin: 7px 0;">
+
+                <div class="title-text">{$approval_info.send_user_name}</div>
+
+            </div>
+
+            <div class="hui-list-text title">  发起人{$approval_info.send_user_name} </div>
+
+            <div class="hui-list-text title" style="font-size: 13px;color: #e6b53f;">  等待XXX审批   </div>
+
+        </a>
+
+
+            <div class="hui-list-text2">
+
+                <p> 审批编号</p> <span >{$approval_info.appnum}</span>
+
+            </div>
+
+
+
+            <div class="hui-list-text2">
+
+                <p> 所在部门</p><span>{$approval_info.department_name}</span>
+
+            </div>
+
+
+
+            <div class="hui-list-text2">
+
+                <p> 审批内容</p><span>{$approval_info.content}</span>
+
+            </div>
+
+
+
+            <div class="hui-list-text2">
+
+                <p>审批详情</p><span>{$approval_info.detail}</span>
+
+            </div>
+
+
+
+            <div class="hui-list-text2" style=" margin-bottom: 18px; ">
+
+                <p>图片</p>
+
+                <div class="img-demo" style="    margin-left: 53px;">
+
+                {volist name="approval_info.images" id="vo"}
+
+                    <img src="{$vo}" class="imgs">
+
+                {/volist}
+
+                </div>
+
+            </div>
+
+
+
+    </div>
+
+
+
+    <!--审批流程-->
+
+    <div class="hui-list" style="background:#FFFFFF; margin-top:28px;">
+
+        <ul>
+
+            <!--发起人-->
+
+            <li>
+
+                <a href="javascript:void(0);">
+
+                    <div class="hui-list-icons">
+
+                        <div class="title-text">{$approval_info.send_user_name}</div>
+
+                    </div>
+
+                    <div class="hui-list-text">
+
+                      {$approval_info.send_user_name}发起申请
+
+                        <div class="hui-list-info">
+
+                            {$approval_info.create_time}
+
+                        </div>
+
+                    </div>
+
+
+
+                </a>
+
+            </li>
+
+            <div class="hui-speed-dial-icons">
+
+                <span class="hui-icons hui-icons-down"></span>
+
+            </div>
+
+            <!--End - 发起人-->
+
+            {volist name="approval_info.wait_user" id="vo"}
+
+            <li>
+
+                <a href="javascript:void(0);">
+
+                    <div class="hui-list-icons">
+
+                        <div class="title-text"><?php echo mb_substr($vo['user_name'],0,2,"utf-8");?></div>
+
+                    </div>
+
+                    <div class="hui-list-text" style="width: 13%;">
+
+                        <div class="hui-list-info">
+
+                            {$vo.user_name}
+
+                        </div>
+
+                    </div>
+
+                    <div class="hui-list-info-user">
+
+                    <span > {$vo.state_msg} </span>
+
+                    </div>
+
+                    <div class="hui-list-text">
+
+                    <span > {if $vo.state == 4 && $vo.appro_sort == 1 || $vo.state != 4 && $vo.appro_sort != 1}{$vo.wait_time}{/if}</span>
+
+                    </div>
+
+                </a>
+
+            </li>
+
+
+
+            <div class="hui-speed-dial-icons" {if $vo.appro_sort == max($vo.sort)} style="display: none;"{/if}>
+
+                <span class="hui-icons hui-icons-down"></span>
+
+            </div>
+
+
+
+            {/volist}
+
+
+
+
+
+
+
+
+
+        </ul>
+
+    </div>
+
+    <!--End 审批流程-->
+
+
+
+
+
+    <!-- 以下为 phoneSwipe  -->
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <div class="pswp__bg"></div>
+
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container" style="overflow:visible;">
+
+                <div class="pswp__item"></div>
+
+                <div class="pswp__item"></div>
+
+                <div class="pswp__item"></div>
+
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+                    <div class="pswp__counter"></div>
+
+                    <button class="pswp__button pswp__button--close" title="关闭"></button>
+
+                    <div class="pswp__preloader">
+
+                        <div class="pswp__preloader__icn">
+
+                            <div class="pswp__preloader__cut">
+
+                                <div class="pswp__preloader__donut"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+
+                    <div class="pswp__share-tooltip"></div>
+
+                </div>
+
+                <div class="pswp__caption">
+
+                    <div class="pswp__caption__center"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- End phoneSwipe  -->
+
+</div>
+
+{include file='index/include/footer'}
+
+
+
+<script>
+
+    /* 示例 1 : 普通选择器 非关联型绑定 */
+
+    var picker1 = new huiPicker('#btn1', function() {
+
+        var val = picker1.getVal(0);
+
+        var txt = picker1.getText(0);
+
+        console.log(txt)
+
+        switch (val) {
+
+            case '1': //站内提醒
+
+
+
+                //发起公众号醒醒
+
+            break;
+
+            case '2': //电话提醒
+
+                window.location.href='tel://13300300333';
+
+            break;
+
+        }
+
+        // hui('#btn1').html(txt + '[' + val + ']');
+
+    });
+
+    // 同级 picker 数量设置 默认 1
+
+    picker1.level    = 1;
+
+    //1. piker 数据
+
+    var pickerData   = [{value:1, text:'站内提醒'},{value:2, text:'电话提醒'}];
+
+    //2. 查询默认值 例如  {value:2, text:'女'} 的默认值为 2
+
+    //不设置默认值此步骤省略即可
+
+    var defaultValue  = 2;
+
+    var defaultIndex  = pickerData.pickerIndexOf(defaultValue);
+
+    //3 绑定数据时设置默认值 //不设置默认值 忽略第三个参数即可
+
+    picker1.bindData(0, pickerData, defaultIndex);
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    //js 调用插件
+
+
+
+    hui('.imgs').click(function(){
+
+        var index = hui(this).index();
+
+        previewImg(index);
+
+    });
+
+
+
+    function previewImg(index){
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+
+        var items = [];
+
+        //获取图片数据并填充近数组
+
+        hui('.imgs').each(function(eimg){
+
+            var imgObj = {src:eimg.getAttribute('src'), w:eimg.naturalWidth, h:eimg.naturalHeight};
+
+            items.push(imgObj);
+
+        });
+
+        var options = {index: index};
+
+        var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+
+        gallery.init();
+
+    }
+
+</script>

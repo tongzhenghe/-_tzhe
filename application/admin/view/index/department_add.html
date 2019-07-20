@@ -1,0 +1,31 @@
+{include file='include/static_css'}
+<form class="layui-form layui-form-pane"  onsubmit="return false;" action="##">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">部门名称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="name" value="<?php if(!empty($row)){echo $row['name'];}?>" placeholder="请输入部门名称" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <textarea name="remarks"  placeholder="备注" class="layui-textarea">{if !empty($row)}{$row.remarks}{/if}</textarea>
+            <div class="layui-form-mid layui-word-aux">选填</div>
+        </div>
+
+    </div>
+
+    {if !empty($row.id)}
+    <input type="hidden"  name="hidId" value="{$row.id}">
+    {/if}
+    <div class="layui-form-item layui-btn-lg">
+        <input type="hidden"  name="request_url" value="{:url('index/user', ['do' => 'add', 'module' => 'department'])}">
+        <button class="layui-btn layui-btn-fluid department{$do}"><i class="layui-icon layui-icon-edit"></i>提交</button>
+    </div>
+</form>
+{include file='include/static_js'}
+
+
+

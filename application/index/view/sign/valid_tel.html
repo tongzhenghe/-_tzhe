@@ -1,0 +1,63 @@
+{include file='index/include/header'}
+
+<style>
+    body:before {
+    width: 100%;
+    height: 100%;
+    content: ' ';
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: #fff;
+    }
+    .hui-button-large{    width: 94%;}
+    .hui-center-title h1{line-height: 24px;}
+    .hui-header + .hui-wrap {padding-top: 60px;}
+    .hui-form-items-title{color: #000;  font-size: 12px;}
+    .hui-input{color: #000; }
+    #hui-back:before{  color: #3388FF; }
+    #hui-back{  width: 67px; }
+    #hui-back span{ color: #3388FF;  font-size: 18px; }</style>
+
+<header class="hui-header">
+
+    <div id="hui-back" class="return-login">&nbsp;<span>返回</span></div>
+
+</header>
+
+<div class="hui-wrap">
+
+    <div class="hui-center-title reg" ><h1 style="border:0px;">新用户注册</h1></div>
+
+    <form style="padding:15px 10px;" class="hui-form" id="form1" onclick="return false;" action="##">
+
+        <div class="hui-form-items-title">手机号码</div>
+
+        <div class="hui-form-items">
+
+        <div class="hui-form-items-title" style="    font-size: 17px;">+86&nbsp;&nbsp;<span style=" color: #7171717a;">|</span></div>
+
+        <input type="text" class="hui-input hui-input-clear" style="background: no-repeat;" name="tel" value="" checkType="string" checkData="2,10" checkMsg="手机号码应为11位数字" />
+
+        </div>
+
+        <div style="margin-top: 4%" id="btn-valdtel">
+
+            <input type="hidden" name="request_url" value="{:url('sign/register',['do' => 'valid_tel'])}">
+            <button type="button" class="hui-button hui-button-large hui-primary hui-fr" id="but-valid-tel"  style="margin-right: 14px;">下一步</button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{include file='index/include/footer'}
+
+<script>
+    document.body.addEventListener('touchmove', function (e) {
+        e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
+    }, {passive: false}); //passive 参数不能省略，用来兼容ios和android
+
+</script>

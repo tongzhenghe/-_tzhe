@@ -1,0 +1,65 @@
+{include file='include/static_css'}
+<form class="layui-form layui-form-pane"  onsubmit="return false" action="##">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户名</label>
+        <div class="layui-input-inline">
+            <input type="text" name="comname"  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码</label>
+        <div class="layui-input-inline">
+            <input type="password" name="password"  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+        </div>
+        <!--<div class="layui-form-mid layui-word-aux">辅助文字</div>-->
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">确认密码</label>
+        <div class="layui-input-inline">
+            <input type="password" name="repassword"  lay-verify="required" placeholder="请输入确认密码" autocomplete="off" class="layui-input">
+        </div>
+        <!--<div class="layui-form-mid layui-word-aux">辅助文字</div>-->
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">选择图标：</label>
+        <div class="layui-input-block">
+            <a href="javascript:;">
+                <div class="zh-upload-btn uploads"><i class="layui-icon layui-icon-picture" style="font-size: 26px;"></i></div>
+                <img width="50px" class="layui-upload-img" id="upload-normal-img" {if !empty($find_data.icon)} src="{$find_data.icon}" {/if}>
+            </a>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">是否为管理员</label>
+        <div class="layui-input-block">
+            <input type="radio" name="is_manage" value="1" title="超级管理员">
+            <input type="radio" name="is_manage" value="2" title="普通管理员" checked>
+        </div>
+        <div class="layui-form-mid layui-word-aux">提示：普通管理员将无权限操作个别模块</div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label" style="Z-INDEX:9999;">公司简介</label>
+            <!-- 加载编辑器的容器 -->
+    <textarea id="editor" type="text/plain" style="width:100%;height:500px;"></textarea>
+        <!--<div class="layui-form-mid layui-word-aux">提示：普通管理员将无权限操作个别模块</div>-->
+
+    </div>
+    {if !empty($find_data.id)}
+    <input type="hidden"  name="hidId" value="{$find_data.id}">
+    {/if}
+    <div class="layui-form-item layui-btn-lg">
+        <input type="hidden"  name="request_url" value="{:url('index/admin', ['do' => 'add'])}">
+        <button class="layui-btn layui-btn-fluid admin{$do}"><i class="layui-icon layui-icon-edit"></i>提交</button>
+    </div>
+</form>
+{include file='include/static_js'}
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>helloYou我 </title>
+<link rel="stylesheet" type="text/css" href="{__HUI_PATH}css/hui.css" />
+<link rel="stylesheet" type="text/css" href="{__INDEX_PATH}css/style.css" />
+</head>
+<body>
+<header class="hui-header">
+    <div id="hui-back"></div>
+    <h1>HUI 启动动画</h1>
+</header>
+<div class="hui-wrap">
+    <div class="hui-center-title" style="margin-top:15px;"><h1>演示样例</h1></div>
+    <div class="hui-text hui-text-center" style="padding-top:20px;">启动动画演示效果</div>
+</div>
+<div class="hui-start-banner hui-swipe" id="startBanner">
+	<div class="hui-swipe-items">
+	    <div class="hui-swipe-item" style="background:#2C2342;"><img src="{__HUI_PATH}img/startbanner/1.png" /></div>
+	    <div class="hui-swipe-item" style="background:#6CC5F1;"><img src="{__HUI_PATH}img/startbanner/2.png" /></div>
+	    <div class="hui-swipe-item" style="background:#62C0CC;"><a href="javascript:huiStartBannerClose();"><img src="{__HUI_PATH}img/startbanner/3.png" /></a></div>
+	</div>
+</div>
+<div id="hui-start-banner-close" onclick="huiStartBannerClose();">关闭</div>
+<script type="text/javascript" src="{__HUI_PATH}js/hui.js" charset="UTF-8"></script>
+<script type="text/javascript" src="{__HUI_PATH}js/hui-swipe.js" charset="UTF-8"></script>
+<script type="text/javascript">
+var wininfo = hui.winInfo();
+hui('#startBanner').find('.hui-swipe-item').css({height:wininfo.height+'px'});
+hui('#startBanner').show();
+hui('#hui-start-banner-close').show();
+var swipe      = new huiSwpie('#startBanner');
+swipe.autoPlay = false;
+swipe.loop     = false;
+swipe.run();
+function huiStartBannerClose(){
+    hui('#startBanner').remove();
+    hui('#hui-start-banner-close').remove();
+}
+</script>
+</body>
+</html>

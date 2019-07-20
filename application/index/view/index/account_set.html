@@ -1,0 +1,150 @@
+{include file='index/include/header'}
+
+<style>
+    .hui-button-large{ width: 94%;}
+    .hui-center-title h1{line-height: 24px;}
+    .hui-header + .hui-wrap {padding-top: 60px;}
+    .hui-header {  background: none; }
+    .hui-form-items-title{padding-right: 20px;color: #000;  font-size: 14px;}
+    .hui-input{color: #000; } #hui-back:before{  color: #3388FF; }
+    #hui-back{width: 67px; }
+    #hui-back span{color:#3388FF;font-size: 18px; }
+    .hui-list li{height: 100px;}
+    .hui-accordion{border:unset}
+    .reg h1{margin-left:auto;}
+</style>
+
+<header class="hui-header" style=" background: #ffffff;">
+    <div id="hui-back"  style=" width: 126px; ">&nbsp;<span>返回</span><span>关闭</span></div>
+    <div id="hui-back2"  ><span>个人信息设置</span></div>
+</header>
+
+<div class="hui-wrap">
+
+    <form style="padding:15px 10px;" class="hui-form" id="form1" action="##" enctype="multipart/form-data" >
+
+
+        <div class="hui-accordion">
+            <div class="hui-accordion-title" style="color: #363535;">账号设置</div>
+            <div class="hui-accordion-content hui-list">
+
+        <div class="hui-form-items">
+
+            <div class="hui-form-items-title">用户名</div>
+
+            <input type="text" class="hui-input hui-input-clear" disabled value="{$user_info.user_name}" />
+
+        </div>
+
+        <div class="hui-form-items">
+
+            <div class="hui-form-items-title">新密码</div>
+
+            <input type="password" name="new_password" class="hui-input hui-pwd-eye"  checkType="string" id="pwd" checkData="6,20" checkMsg="密码应包含数字和字母" />
+
+        </div>
+
+        <div class="hui-form-items">
+
+            <div class="hui-form-items-title">确认新密码</div>
+
+            <input type="password" name="renew_password" class="hui-input hui-pwd-eye"  checkType="string" id="repwd" />
+
+        </div>
+
+        <div class="hui-form-items">
+
+            <div class="hui-form-items-title">旧密码</div>
+
+            <input type="password" name="old_password" class="hui-input hui-pwd-eye"  checkType="string" checkData="6,20" checkMsg="密码应包含数字和字母" />
+
+        </div>
+            </div>
+        </div>
+
+
+        <div class="hui-accordion">
+            <div class="hui-accordion-title" style="color: #363535;">基本信息设置</div>
+            <div class="hui-accordion-content hui-list">
+                <ul>
+                    <li>
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">上传头像</div>
+                            <span class="hui-icons hui-icons-img upload" style="height: 81%;"></span>
+                            <span class="layui-badge Eliminate" style="display: none">
+                                <a href="javascript:;" style="color: #000000;">x</a> </span>
+                            <img class="photo-demo" src="{if !empty($user_info.photo)}{$user_info.photo}{/if}"/>
+                        </div>
+                    </li>
+                    <li style="height: 70px;">
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">性别</div>
+                            <div class="hui-form-select">
+                                <select name="sex" checktype="notSame" checkdata="0" checkmsg="请选择性别">
+                                    <option name="department_id" value="0">-性&nbsp;&nbsp;别-</option>
+                                    <option name="department_id" value="1" {if $user_info.sex == 1}selected {/if}>男</option>
+                                    <option name="department_id" value="2" {if $user_info.sex == 2}selected {/if}>女</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="height: 50px;">
+                        <div class="hui-form-items">
+                            <div class="hui-form-items-title">联系方式</div>
+                            <input type="text" name="tel" value="{$user_info.tel}" class="hui-input" />
+                        </div>
+                    </li>
+                    <!--公司-->
+                    <li style="height: 70px;">
+                    <div class="hui-form-items">
+                        <div class="hui-form-items-title">更改部门</div>
+                        <div class="hui-form-select">
+                            <select name="department_id" checktype="notSame" checkdata="0" checkmsg="请选择部门">
+                                <option value="0" name="department_id" style="color:#a3a3a3;">-选择部门-</option>
+                                {if !empty($department)}
+                                {volist name="department" id="vo" }
+                                <option name="department_id" {if $user_info.department_id == $vo.id}selected{/if} value="{$vo.id}">{$vo.name}</option>
+                                {/volist}
+                                {/if}
+                            </select>
+                        </div>
+                    </div>
+                    </li>
+
+                    <li>
+                        <div style="width: 100%;">
+                    <div class="hui-form-items">
+                        <div class="hui-form-items-title" style="padding-right: 7px;">我的简介</div>
+                        <div class="hui-form-textarea">
+                            <textarea placeholder="简单介绍一下自己吧.." name="remarks">{if !empty($user_info.remarks)}{$user_info.remarks}{/if}</textarea>
+                        </div>
+                    </div>
+                        </div>
+                    </li>
+                     <li>
+                        <div style="width: 100%;">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="    padding: 10px 0px;  margin-top: 11%;  background: white;" id="btnList2">
+
+            <input type="hidden" name="request_url" value="{:url('index/account_set')}">
+            <input type="hidden" name="uid" value="{$user_info.id}">
+
+            <button type="button" class="hui-button hui-button-large hui-primary hui-fr" id="account_update" style="margin-right: 19px;">提&nbsp;&nbsp;交</button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{include file='index/include/footer'}
+<script type="text/javascript">
+    hui.accordion(true, false);
+    hui.formInit();
+    var loves;
+</script>

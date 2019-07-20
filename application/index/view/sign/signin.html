@@ -1,0 +1,42 @@
+{include file='index/include/header'}
+<body >
+<div class="hui-wrap" style="    height: 100%; position: absolute;">
+	<style type="text/css">
+		*{ margin: 0; padding: 0;}
+      .hui-input{height:41px;}
+		body{background:  url(http://huamei.juhuiny.com/094010w5wf80r455q000pb.jpg) no-repeat ; background-size: 100%}
+	</style>
+	<div class="hui-flex" style="    margin-top: 10%;">
+		<div class="demo bgRed-left"><img src="http://huamei.juhuiny.com/logo.png" width="40px"/></div>
+		<div class="demo bgRed-right register">新用户注册</div>
+	</div>
+	<div class="hui-common-title" style="       margin-top: 7px;">
+		<div class="hui-common-title-txt login-title" style="margin-right: auto;  width: 63%;">酒泉华美医疗美容医院</div>
+	</div>
+	<div class="form">
+		<div class="hui-wrap">
+		<form style="padding:0 21px;" class="hui-form" id="form1" action="##" onclick="return false;">
+			<div class="hui-form-items">
+				<div class="hui-form-items-title" style="    width: 30%;">手机号码/用户名</div>
+				<!--<div class="hui-form-items-title" >用户名</div>-->
+				<input type="text" class="hui-input hui-input-clear" name="user_name" value="童正和"   />
+			</div>
+			<div class="hui-form-items">
+				<div class="hui-form-items-title" style="font-size: 14px;">密&nbsp;&nbsp;&nbsp;码</div>
+				<input type="password" class="hui-input hui-input-clear" name="password" value="tzhe"  />
+			</div>
+			<div style="    padding: 2px 0;margin-top: 11%;" id="login-But">
+				<input type="hidden" name="request_url" value="{:url('/sign/signin')}"  />
+				<button type="button" class="hui-button hui-button-large hui-primary" style="margin-top:15px;">登&nbsp;陆</button>
+			</div>
+		</form>
+		</div>
+
+	</div>
+</div>
+{include file='index/include/footer'}
+<script>
+    document.body.addEventListener('touchmove', function (e) {
+        e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
+    }, {passive: false}); //passive 参数不能省略，用来兼容ios和android
+</script>

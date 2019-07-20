@@ -1,0 +1,129 @@
+{include file='index/include/header'}
+<style>.hui-center-title h1{line-height: 24px;} .hui-header + .hui-wrap {padding-top: 60px;} .hui-form-items-title{color: #000; font-size: 14px; }.hui-input{color: #000; } #hui-back:before{  color: #3388FF; }  #hui-back{  width: 67px; }  #hui-back span{ color: #3388FF;  font-size: 18px; }</style>
+<header class="hui-header">
+    <div id="hui-back" class="return-login">&nbsp;<span>返回</span></div>
+</header>
+<div class="hui-wrap">
+    <div class="hui-center-title reg" ><h1 style="border:0px;">资料完善</h1></div>
+    <form style="padding:15px 10px;" class="hui-form" id="form1" action="##"  enctype="multipart/form-data" >
+
+        <div class="hui-form-items">
+            <div class="hui-form-items-title"><span style="color: #ff5847;">*</span>上传头像</div>
+            <span class="hui-icons hui-icons-img upload"></span>
+            <span class="layui-badge Eliminate" style="display: none">
+                <a href="javascript:;" style="color: #000000;">x</a>
+            </span>
+            <img class="photo-demo" />
+        </div>
+
+        <!--性别-->
+        <div class="hui-form-items">
+            <div class="hui-form-items-title"><span style="color: #ff5847;">*</span>性别</div>
+            <button type="button" class="hui-button hui-button-large" id="btn1">选择性别</button>
+            <input type="hidden" name="sex">
+        </div>
+         <!--生日-->
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">生日</div>
+            <input type="date" name="birth" class="hui-button hui-button-large hui-date-picker" value="{$y}-{$m}-{$d}" placeholder="请选择日期" style="margin-top:20px;" />
+        </div>
+
+        <div class="hui-form-items">
+            <div class="hui-form-items-title"><span style="color: #ff5847;">*</span>所属部门</div>
+            <div class="hui-form-select">
+                <select name="department_id" checktype="notSame" checkdata="0" checkmsg="请选择公司">
+                    <option value="0" name="department_id" style="color:#a3a3a3;">-选择部门-</option>
+                    {if !empty($department)}
+                    {volist name="department" id="vo" empty="暂时没有数据" }
+                    <option name="department_id" value="{$vo.id}">{$vo.name}</option>
+                    {/volist}
+                    {/if}
+                </select>
+            </div>
+        </div>
+
+        <div class="hui-form-items">
+            <div class="hui-form-items-title">个人简介</div>
+            <div class="hui-form-textarea">
+                <textarea placeholder="简单介绍一下自己吧.." name="remarks"></textarea>
+            </div>
+        </div>
+            <div class="hui-form-items button-sub" >
+            <input type="hidden" name="request_url" value="{:url('index/perfect')}">
+            <button type="button" class="hui-button hui-button-large hui-primary hui-fr" id="submitBtn-perfect" style="width: 93%;margin-top:15px;">提&nbsp;交</button>
+            </div>
+    </form>
+</div>
+
+{include file='index/include/footer'}
+<script type="text/javascript">
+    hui.formInit();
+    var loves;
+    hui.datePicker();
+
+
+    /* 示例 1 : 普通选择器 非关联型绑定 */
+    var picker1 = new huiPicker('#btn1', function(){
+        var val = picker1.getVal(0);
+        var txt = picker1.getText(0);
+        hui('#btn1').html(txt);
+        hui("input[name='sex']").val( val);
+    });
+    // 同级 picker 数量设置 默认 1
+    picker1.level    = 1;
+    //1. piker 数据
+    var pickerData   = [{value:1, text:'男'},{value:2, text:'女'}];
+    //2. 查询默认值 例如  {value:2, text:'女'} 的默认值为 2
+    //不设置默认值此步骤省略即可
+    var defaultValue  = 2;
+    var defaultIndex  = pickerData.pickerIndexOf(defaultValue);
+
+    //3 绑定数据时设置默认值 //不设置默认值 忽略第三个参数即可
+    picker1.bindData(0, pickerData, defaultIndex);
+
+
+    // /* 示例 2 : 普通选择器2列 非关联型绑定 */
+    // var picker2 = new huiPicker('#btn2', function(){
+    //     var val1 = picker2.getVal(0);
+    //     var txt1 = picker2.getText(0);
+    //     var val2 = picker2.getVal(1);
+    //     var txt2 = picker2.getText(1);
+    //     hui('#btn2').html(txt1 + txt2);
+    // });
+    // // 同级 picker 数量 2
+    // picker2.level    = 2;
+    // //1. piker 数据
+    // var pickerData2_1   = [{value:"一年级", text:'一年级'},{value:'二年级', text:'二年级'},{value:'三年级', text:'三年级'}];
+    // var pickerData2_2   = [{value:"一班", text:'一班'},{value:'二班', text:'二班'},{value:'三班', text:'三班'}];
+    // //2. 查询默认值 二年级
+    // var defaultValue1  = "二年级";
+    // var defaultIndex1  = pickerData2_1.pickerIndexOf(defaultValue1);
+    // var defaultValue2  = "三班";
+    // var defaultIndex2  = pickerData2_2.pickerIndexOf(defaultValue2);
+    // //3 绑定数据时设置默认值
+    // picker2.bindData(0, pickerData2_1, defaultIndex1);//绑定年级
+    // picker2.bindData(1, pickerData2_2, defaultIndex2);//绑定班级
+    //
+    // /* 地区选择， 关联型数据 */
+    // var picker3 = new huiPicker('#btn3', function(){
+    //     var sheng   = picker3.getText(0);
+    //     var shi     = picker3.getText(1);
+    //     var qu      = picker3.getText(2);
+    //     var shengVal= picker3.getVal(0);
+    //     var shiVal  = picker3.getVal(1);
+    //     var quVal   = picker3.getVal(2);
+    //     console.log(shengVal, shiVal, quVal);
+    //     hui('#btn3').html(sheng + shi + qu);
+    // });
+    // picker3.level = 3;
+    // //cities 数据来源于 cities.js
+    // // 默认值设置方式 [330000 330400 330424] 浙江省 嘉兴市 海盐区
+    // var defaultVal = [330000, 330400, 330424];
+    // // 不设置默认值忽略第三个参数即可
+    // picker3.bindRelevanceData(cities, defaultVal);
+
+
+
+</script>
+</body>
+</html>

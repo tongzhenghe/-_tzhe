@@ -1,0 +1,154 @@
+<div class="layui-fluid">
+    <div class="layui-row">
+        <div class="layui-col-xs12">
+            <div class="layui-card">
+                <div class="layui-card-header">公司列表</div>
+                <div class="layui-card-body">
+                    <div class="ibox-title">
+                        <button class="layui-btn layui-btn-normal" onclick="$.fn.createModuleFrame('添加公司', '/index.php/admin/index/company?do=add');">添加公司</button>
+                    </div>
+                    <div class="layui-col-md12">
+                        <div class="layui-card">
+                            <div class="layui-card-body">
+                                <form class="layui-form layui-form-pane" action="">
+                                    <div class="layui-form-item">
+                                        <div class="layui-inline">
+                                            <label class="layui-form-label">公司名称</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="store_name" class="layui-input" placeholder="请输入公司名称,关键字,编号">
+                                                <input type="hidden" name="type" value="6">
+                                            </div>
+                                        </div>
+                                        <div class="layui-inline">
+                                            <div class="layui-input-inline">
+                                                <button class="layui-btn layui-btn-sm layui-btn-normal" lay-submit="search" lay-filter="search">
+                                                    <i class="layui-icon layui-icon-search"></i>搜索</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="demo_hash" lay-filter="test"></table>
+                    <script type="text/html" id="barDemo_hash">
+                        <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+                        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                        <!-- 这里同样支持 laytpl 语法，如： -->
+                        <a class="layui-btn layui-btn-xs" lay-event="check">审核</a>
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 脚本 -->
+<script>
+
+
+    layui.config({
+        base: '/src/js/'
+    }).use(['jquery', 'mockjs', 'table'], function () {
+        var $ = layui.jquery,
+            layer = layui.layer,
+            table = layui.table;
+        // 注入mock
+        layui.mockjs.inject({
+            'POST': {
+                code: 0,
+                msg: "xxx",
+                count: 1,
+                data: [
+
+                    {
+                        id: 1,
+                        username: '2222',
+                        sex: '33333',
+                        city: '4444',
+                        sign: '222',
+                        experience: '3ewewew',
+                        score: '5fsdfd',
+                        classify: '',
+                        wealth: '@integer',
+                        auth: '@boolean'
+
+
+                    }
+
+
+                ]
+            }
+        });
+
+        //第一个实例
+        table.render({
+            method: 'post'
+            , limit: 10,
+            elem: '#demo_hash',
+            done: function () {
+                $('#demo_hash').next().css('height','auto');
+            },
+            //height: 680,
+            url: ' ', //数据接口
+            page: true, //开启分页
+            cols: [
+                [ //表头
+                    {
+                        field: 'id',
+                        title: 'ID',
+                        width: 80,
+                        sort: true,
+                        fixed: 'left'
+                    }, {
+                    field: 'username',
+                    title: '用户名',
+                    width: 80
+                }, {
+                    field: 'sex',
+                    title: '性别',
+                    width: 80,
+                    sort: true
+                }, {
+                    field: 'city',
+                    title: '城市',
+                    width: 80
+                }, {
+                    field: 'sign',
+                    title: '签名',
+                    width: 177
+                }, {
+                    field: 'experience',
+                    title: '积分',
+                    width: 80,
+                    sort: true
+                }, {
+                    field: 'score',
+                    title: '评分',
+                    width: 80,
+                    sort: true
+                }, {
+                    field: 'classify',
+                    title: '职业',
+                    width: 80
+                }, {
+                    field: 'wealth',
+                    title: '财富',
+                    width: 135,
+                    sort: true
+                }, {
+                    fixed: 'right',
+                    title : '操作',
+                    width: 200,
+                    align: 'center',
+                    toolbar: '#barDemo_hash'
+                }
+                ]
+            ]
+        });
+    });
+
+</script>
+<!-- 样式 -->
+<style scoped>
+</style>

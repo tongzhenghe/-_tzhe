@@ -1,0 +1,82 @@
+
+body{
+    font-size: 12px;!important;
+}
+
+.ibox-title {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #fff;
+    border-color: #e7eaec;
+    -webkit-border-image: none;
+    -o-border-image: none;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 4px 0 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 14px 15px 7px;
+    min-height: 48px;
+}
+
+
+
+.layui-card{
+    background-color: #fff;
+    color: inherit;
+    padding: 15px 20px 20px;
+    border-color: #e7eaec;
+    -webkit-border-image: none;
+    -o-border-image: none;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+}
+
+.zh-upload-btn{
+    display: inline-block;
+    width: 58px;
+    height: 58px;
+    margin-left: 12px;
+    border: 1px dashed #dddee1;
+    text-align: center;
+    line-height: 58px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+    box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    margin-right: 4px;
+    box-sizing: border-box;
+}
+.zh-upload-btn:hover{
+    border: 1px dashed #0040ff;
+    color: #0040ff;
+}
+.layui-form-pane{
+    padding: 19px;
+}
+
+.layui-table th{
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.layui-layer-title{
+    display:none !important;
+}
+.layui-icon-close{
+    color: #ff0000;
+    font-weight: bold;
+}
+.layui-icon-ok{
+    color: #6cd965;
+    font-weight: bold;
+}
+
+.ak{
+    color: #ffd129;
+}
