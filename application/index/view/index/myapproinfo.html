@@ -185,7 +185,10 @@
             <div class="hui-list-text2"> <p> 所在部门</p><span>{$myapproinfo.send_user_info.department_name}</span> </div>
 
             <div class="hui-list-text2">
-                <p> 审批内容</p><span>{$myapproinfo.content}</span></div>
+
+                <p> 审批内容</p><span>{$myapproinfo.content}</span>
+
+            </div>
 
 
             <div class="hui-list-text2">
@@ -194,57 +197,107 @@
 
             </div>
 
-        <!--图片-->
-        <?php if(!empty($myapproinfo['images'])):;?>
+
+
             <div class="hui-list-text2" style=" margin-bottom: 18px; ">
+
                 <p>图片</p>
-                <div class="img-demo" style="width: 271px;">
+
+                <div class="img-demo" style="   width: 271px;">
+
+                    <?php if(!empty($myapproinfo['images'])):;?>
+
                 {volist name="myapproinfo.images" id="vo"}
+
                     <img src="{$vo}" class="imgs">
+
                 {/volist}
+
+                    <?php Endif;?>
+
                 </div>
+
             </div>
-        <?php Endif;?>
         {/if}
+
+
     </div>
 
+
+
     <!--审批流程-->
+
     <div class="hui-list list">
 
         <ul style="width: 95%;  margin: auto;">
             <!--发起人-->
             <li>
+
                 <a href="javascript:void(0);">
+
                     <div class="hui-list-icons">
+
                         <div class="title-text">
+
                             <?php echo $myapproinfo['send_user_info']['send_user_name'];?>
                         </div>
+
                     </div>
+
                     <div class="hui-list-text">
+
                         {$myapproinfo.send_user_info.send_user_name}发起申请
+
                         <div class="hui-list-info" style="margin-right: 8px;">
+
                             {$myapproinfo.create_time}
+
                         </div>
+
                     </div>
+
                 </a>
+
             </li>
+
             <div class="hui-speed-dial-icons">
+
                 <span class="jt"></span>
+
             </div>
+
             <!--End - 发起人-->
 
             {if !empty($all_pro_user)}
+
             {volist name="all_pro_user" id="vo"}
+
             <li>
+
                 <a href="javascript:void(0);">
+
                     <div class="hui-list-icons">
-                        <div class="title-text"><?php echo $vo['user_name'];?></div>
+
+                        <div class="title-text">
+
+                            <?php echo $vo['user_name'];?></div>
+
                     </div>
+
                     <div class="hui-list-text" style="width: 35%;">
-                        <div class="hui-list-info"> {$vo.user_name} </div>
+
+                        <div class="hui-list-info">
+
+                            {$vo.user_name}
+
+                        </div>
+
                     </div>
+
                     <div class="hui-list-info-user">
+
                         <span style="color:{$vo.color}"> {$vo.state_msg} </span>
+
                     </div>
 
                     <!--同意时间-->
@@ -281,10 +334,12 @@
 
                             {/if}
                         </span>
+
                     </div>
+
                 </a>
+
             </li>
-        </ul>
 
 
 
@@ -345,7 +400,7 @@
 
     {/if}
 
-    </div>
+    </ul>
 
     <div class="hui-list-text2">
 
@@ -474,6 +529,9 @@
         {/if}
         </div>
     </div>
+
+</div>
+
 <style>
 
 .hui-select{margin: 0 auto;}
