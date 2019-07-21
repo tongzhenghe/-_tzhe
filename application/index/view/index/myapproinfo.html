@@ -299,7 +299,7 @@
             {/if}
 
             <div class="jt">
-                <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 2):;?>
+                <?php if(!empty($vo['agree_reason'])):;?>
                 <div class="msg">
                     <p style="float: left;width: 12%; color: #999;">留言</p>
                 <div style="font-size: 14px;   width: 83%;"><?php echo $vo['agree_reason']['agree_reason'];?></div>
@@ -314,7 +314,6 @@
 
                 <div class="msg-annex">
                     <p  style="float: left;width: 12%; color: #999;">附件</p>
-                    <?php print_r($vo);exit;?>
                 <?php if(!empty($vo['agree_reason']['annex'])):;?>
                     <span style="font-size: 12px;">
                         <a href="{$vo.agree_reason.annex.file}" style="color: #2196F3;">{$vo.agree_reason.annex.filename}<i style="color: #9ea0a3; margin-left: 11px">预览</i></a>
