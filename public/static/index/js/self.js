@@ -751,14 +751,22 @@ $(function () {
     //拒绝
     $(".appron").on("click", function () {
         var reject_reason =  $("textarea[name='appro_yj']").val()
+            ,annex_filename = $(".pdf-yj").children("a").attr("data-item")
+            ,annex = $(".pdf-yj").children("a").attr("href")
+            ,short_message = $('input[type=checkbox]:checked').val()
             ,request_url = $("input[name='request_url']").val();
+
         var img = [];
         $.each($(".img-demo").children("img"), function (key, val ) {
             img.push($(val).attr("src"))
         });
 
-        formData = {reject_reason:reject_reason,img:img};
-        $.fn.setRequest2(formData, request_url );
+        //附件
+
+
+        formData = {reject_reason:reject_reason,img:img,annex_filename:annex_filename, annex:annex, short_message:short_message};
+        console.log(formData)
+        // $.fn.setRequest2(formData, request_url );
 
     });
 
