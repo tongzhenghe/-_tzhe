@@ -326,9 +326,9 @@
             <div class="jt">
                 <div class="msg">
                     <p style="float: left;width: 12%; color: #999;">留言</p>
-                    <div style="font-size: 14px;   width: 83%;"><?php echo $vo['agree_reason']['agree_reason'];?></div>
+                    <div style="font-size: 14px;   width: 83%;"><?php echo $vo['reject_reason']['reject_reason'];?></div>
                 </div>
-                <?php if(!empty($vo['agree_reason']['img_file'])):;?>
+                <?php if(!empty($vo['reject_reason']['img_file'])):;?>
                 <div class="msg-img" style="    margin-top: 25px;">
                     <p  style="float: left;width: 12%; color: #999;">图片</p>
                     <img src="{$vo['agree_reason']['img_file']}" class="imgs" width="50px" style="float: left;margin-left: 29px;">
@@ -337,9 +337,9 @@
 
                 <div class="msg-annex">
                     <p  style="float: left;width: 12%; color: #999;">附件</p>
-                    <?php if(!empty($vo['agree_reason']['annex'])):;?>
+                    <?php if(!empty($vo['reject_reason']['annex'])):;?>
                     <span style="font-size: 12px;">
-                        <a href="{$vo.agree_reason.annex.file}" style="color: #2196F3;">{$vo.agree_reason.annex.filename}<i style="color: #9ea0a3; margin-left: 11px">预览</i></a>
+                        <a href="{$vo.reject_reason.annex.file}" style="color: #2196F3;">{$vo.reject_reason.annex.filename}<i style="color: #9ea0a3; margin-left: 11px">预览</i></a>
                     </span>
                     <?php Endif;?>
                 </div>
