@@ -293,8 +293,8 @@
             </div>
             </li>
             {/volist}
-            {/if}
 
+            {volist name="all_pro_user" id="vo"}
             <!--同意-->
             <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 2):;?>
             <div class="jt">
@@ -343,7 +343,8 @@
                 </div>
             </div>
             <?php Endif;?>
-
+            {/volist}
+            {/if}
 
 
 
