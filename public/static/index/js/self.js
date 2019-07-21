@@ -374,9 +374,7 @@ $(function () {
        });
 
        formData = {intro:intro, pro_price:pro_price,typeid:typeid,pro_date:pro_date,name:name,specs:specs,use_add:use_add,supplier:supplier, num:num, unit:unit,payTypeId:payTypeId, nopic:nopic,image:image, generalId:generalId};
-
-       console.log(formData);
-       // $.fn.setRequest3(formData, request_url )
+       $.fn.setRequest3(formData, request_url )
 
    });
 
