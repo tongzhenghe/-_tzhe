@@ -265,13 +265,13 @@
 
             <li>
             <div class="hui-list-icons">
-                <div class="title-text">  <?php echo $vo['user_name'];?></div>
+                <div class="title-text"><?php echo $vo['user_name'];?></div>
             </div>
             <div class="hui-list-text" style="width: 35%;">
                 <div class="hui-list-info">{$vo.user_name}</div>
             </div>
             <div class="hui-list-info-user">
-                <span style="color:{$vo.color}"> {$vo.state_msg} </span>
+                <span style="color:{$vo.color}">{$vo.state_msg}</span>
             </div>
             <!--同意时间-->
             <div class="hui-list-info-user" style="    width: 100%;position: absolute; left: 80%;">
@@ -318,9 +318,8 @@
             </div>
             </div>
             <?php Endif;?>
-
             <!--拒绝-->
-            <?php if(!empty($vo['reject_reason']) && $vo['pro_state'] == 2):;?>
+            <?php if(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
             <div class="jt">
                 <div class="msg">
                     <p style="float: left;width: 12%; color: #999;">留言</p>
@@ -343,6 +342,7 @@
                 </div>
             </div>
             <?php Endif;?>
+
             {/volist}
             {/if}
 
