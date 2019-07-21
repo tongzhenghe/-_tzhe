@@ -190,7 +190,7 @@
         <div class="detailed{$k+1}" style="width: 90%; margin: auto; margin-bottom: 38px;">
             <div class="hui-list-text2"><p> 标题</p> <span>{$v.name}</span></div>
             <div class="hui-list-text2"><p>类型</p> <span>{$v.type_name}</span></div>
-            <div class="hui-list-text2"><p>金额</p> <span>{$v.salary_money}</span></div>
+            <div class="hui-list-text2"><p>金额</p> <span>{$v.pro_price}</span></div>
             <div class="hui-list-text2"><p>明细</p> <span>{$v.intro}</span></div>
             {if !empty($v.image)}
             <div class="hui-list-text2"><p>图片</p> <span>
@@ -212,7 +212,7 @@
         </div>
         {/foreach}
         {/if}
-        <div class="hui-list-text2"><p> 总金额</p> <span style="color: #f25643;">{if !empty($other_app_info.salary_money_total)}{$other_app_info.salary_money_total}{/if}</span></div>
+        <div class="hui-list-text2"><p> 总金额</p> <span style="color: #f25643;">{if !empty($other_app_info.pro_price_total)}{$other_app_info.pro_price_total}{/if}</span></div>
         <!--申购-End-->
 
         {else if($other_app_info.appro_title == '通用审批')}
