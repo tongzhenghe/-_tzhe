@@ -665,7 +665,7 @@ $(function () {
         //附件
         var nopic = [];
         $.each($(".nopic-demo").children("p"), function (key, val ) {
-            nopic.push($(val).children('a').attr("href"))
+            nopic.push($(val).children('a').attr("href")+'|'+ $(val).children('a').attr("data-item"));
         });
 
         formData = {r_money:r_money, title:title,r_company:r_company, r_typeid:r_typeid,r_date:r_date, intro:intro,nopic:nopic,image:image,  generalId:generalId};
