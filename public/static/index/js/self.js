@@ -751,6 +751,7 @@ $(function () {
     //拒绝
     $(".appron").on("click", function () {
         var reject_reason =  $("textarea[name='appro_yj']").val()
+            //附件
             ,annex_filename = $(".pdf-yj").children("a").attr("data-item")
             ,annex = $(".pdf-yj").children("a").attr("href")
             ,short_message = $('input[type=checkbox]:checked').val()
@@ -762,17 +763,11 @@ $(function () {
         // });
 
         //图片
-        var img_file = $(".img-yj").children("img").attr("src")
-
-
-        //附件
-
-
+        var img_file = $(".img-yj").children("img").attr("src");
         formData = {reject_reason:reject_reason,img_file
                 :img_file
             ,annex_filename:annex_filename, annex:annex, short_message:short_message};
-        console.log(formData)
-        // $.fn.setRequest2(formData, request_url );
+        $.fn.setRequest2(formData, request_url );
 
     });
 
