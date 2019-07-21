@@ -175,16 +175,45 @@
         {/if}
 
         <div class="hui-list-text2"><p> 总金额</p> <span style="color: #f25643;">{if !empty($other_app_info.salary_money_total)}{$other_app_info.salary_money_total}{/if}</span></div>
-        <!--工资审批-End-->
+
+        <!--申购-->
         {elseif($other_app_info.appro_title == '申购')}
-
-
-        eee
-
-
-
-
-
+        <div class="hui-list-text2"><p> 审批编号</p> <span >{$other_app_info.appnum}</span></div>
+        <div class="hui-list-text2"> <p> 所在部门</p><span>{$other_app_info.department_name}</span> </div>
+        {if !empty($other_app_info.rows)}
+        {foreach name="other_app_info.rows" item="v" key="k" }
+        <div class="hui-title detailed-title">工资明细{$k+1}
+            <span>{$v.title}</span>
+            <i class="fa fa-arrows-h hide{$k+1}" aria-hidden="true" style="font-size: 18px;float: right; line-height: 0;color: #2196f3;"></i>
+            <i class="fa fa-arrows hide{$k+1}" aria-hidden="true" style="font-size: 18px;float: right; line-height: 0;color: #2196f3;display: none;"></i>
+        </div>
+        <div class="detailed{$k+1}" style="width: 90%; margin: auto; margin-bottom: 38px;">
+            <div class="hui-list-text2"><p> 标题</p> <span>{$v.title}</span></div>
+            <div class="hui-list-text2"><p>类型</p> <span>{$v.type_name}</span></div>
+            <div class="hui-list-text2"><p>金额</p> <span>{$v.salary_money}</span></div>
+            <div class="hui-list-text2"><p>明细</p> <span>{$v.intro}</span></div>
+            {if !empty($v.image)}
+            <div class="hui-list-text2"><p>图片</p> <span>
+            {foreach name="v.image" item="vim"}
+            <img src="{$vim}"  onclick="preview(this)"/>
+            {/foreach}
+            </span>
+            </div>
+            {/if}
+            <div class="hui-list-text2"><p>附件</p>
+                <div class="nopic-demo">
+                    {if !empty($v.annex)}
+                    {foreach name="v.annex" item="van" k="key"}
+                    <p style="color: #2196F3;">{$van.filename}<a href="{$van.file}">预览</a></p>
+                    {/foreach}
+                    {/if}
+                </div>
+            </div>
+        </div>
+        {/foreach}
+        {/if}
+        <div class="hui-list-text2"><p> 总金额</p> <span style="color: #f25643;">{if !empty($other_app_info.salary_money_total)}{$other_app_info.salary_money_total}{/if}</span></div>
+        <!--申购-End-->
 
         {else if($other_app_info.appro_title == '通用审批')}
 
