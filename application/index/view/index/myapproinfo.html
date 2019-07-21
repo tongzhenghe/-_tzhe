@@ -198,66 +198,39 @@
         <?php if(!empty($myapproinfo['images'])):;?>
             <div class="hui-list-text2" style=" margin-bottom: 18px; ">
                 <p>图片</p>
-                <div class="img-demo" style="   width: 271px;">
+                <div class="img-demo" style="width: 271px;">
                 {volist name="myapproinfo.images" id="vo"}
                     <img src="{$vo}" class="imgs">
                 {/volist}
                 </div>
             </div>
         <?php Endif;?>
-
-
-
-
-
         {/if}
-
-
     </div>
 
-
-
     <!--审批流程-->
-
     <div class="hui-list list">
 
         <ul style="width: 95%;  margin: auto;">
             <!--发起人-->
             <li>
-
                 <a href="javascript:void(0);">
-
                     <div class="hui-list-icons">
-
                         <div class="title-text">
-
                             <?php echo $myapproinfo['send_user_info']['send_user_name'];?>
                         </div>
-
                     </div>
-
                     <div class="hui-list-text">
-
                         {$myapproinfo.send_user_info.send_user_name}发起申请
-
                         <div class="hui-list-info" style="margin-right: 8px;">
-
                             {$myapproinfo.create_time}
-
                         </div>
-
                     </div>
-
                 </a>
-
             </li>
-
             <div class="hui-speed-dial-icons">
-
                 <span class="jt"></span>
-
             </div>
-
             <!--End - 发起人-->
 
             {if !empty($all_pro_user)}
