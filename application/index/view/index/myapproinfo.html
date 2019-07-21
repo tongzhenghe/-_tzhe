@@ -322,7 +322,7 @@
             <?php Endif;?>
 
             <!--拒绝-->
-            <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 3):;?>
+            <?php if(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
             <div class="jt">
                 <div class="msg">
                     <p style="float: left;width: 12%; color: #999;">留言</p>
@@ -334,7 +334,6 @@
                     <img src="{$vo['agree_reason']['img_file']}" class="imgs" width="50px" style="float: left;margin-left: 29px;">
                 </div>
                 <?php Endif;?>
-
 
                 <div class="msg-annex">
                     <p  style="float: left;width: 12%; color: #999;">附件</p>
