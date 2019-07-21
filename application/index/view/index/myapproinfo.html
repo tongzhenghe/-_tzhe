@@ -234,35 +234,17 @@
             <!--End - 发起人-->
 
             {if !empty($all_pro_user)}
-
             {volist name="all_pro_user" id="vo"}
-
             <li>
-
                 <a href="javascript:void(0);">
-
                     <div class="hui-list-icons">
-
-                        <div class="title-text">
-
-                            <?php echo $vo['user_name'];?></div>
-
+                        <div class="title-text"><?php echo $vo['user_name'];?></div>
                     </div>
-
                     <div class="hui-list-text" style="width: 35%;">
-
-                        <div class="hui-list-info">
-
-                            {$vo.user_name}
-
-                        </div>
-
+                        <div class="hui-list-info"> {$vo.user_name} </div>
                     </div>
-
                     <div class="hui-list-info-user">
-
                         <span style="color:{$vo.color}"> {$vo.state_msg} </span>
-
                     </div>
 
                     <!--同意时间-->
