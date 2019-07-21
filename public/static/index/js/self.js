@@ -756,15 +756,21 @@ $(function () {
             ,short_message = $('input[type=checkbox]:checked').val()
             ,request_url = $("input[name='request_url']").val();
 
-        var img = [];
-        $.each($(".img-demo").children("img"), function (key, val ) {
-            img.push($(val).attr("src"))
-        });
+        // var img = [];
+        // $.each($(".img-demo").children("img"), function (key, val ) {
+        //     img.push($(val).attr("src"))
+        // });
+
+        //图片
+        var img_file = $(".img-yj").children("img").attr("src")
+
 
         //附件
 
 
-        formData = {reject_reason:reject_reason,img:img,annex_filename:annex_filename, annex:annex, short_message:short_message};
+        formData = {reject_reason:reject_reason,img_file
+                :img_file
+            ,annex_filename:annex_filename, annex:annex, short_message:short_message};
         console.log(formData)
         // $.fn.setRequest2(formData, request_url );
 
