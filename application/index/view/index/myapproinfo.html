@@ -274,9 +274,9 @@
                 <span style="color:{$vo.color}">{$vo.state_msg}</span>
             </div>
             <!--同意时间-->
-            <div class="hui-list-info-user" style="    width: 100%;position: absolute; left: 80%;">
+            <div class="hui-list-info-user" style="width: 100%;position: absolute; left: 80%;">
                 <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 2):;?>
-                <span style="color: #999;margin-left: 17px;"> <?php echo timeTran($vo['agree_reason']['pro_time']);?> </span>
+                <span style="color: #999;margin-left: 9px;"> <?php echo timeTran($vo['agree_reason']['pro_time']);?> </span>
                 <!--拒绝时间-->
                 <?php elseif(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
                 <span style="color:#d8d8d8;"> <?php echo timeTran($vo['reject_reason']['pro_time']);?> </span>
