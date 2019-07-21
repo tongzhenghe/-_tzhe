@@ -279,7 +279,7 @@
                 <span style="color:#d8d8d8;"> <?php echo timeTran($vo['agree_reason']['pro_time']);?> </span>
                 <!--拒绝时间-->
                 <?php elseif(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
-                <span style="color:#d8d8d8;"><?php echo timeTran($vo['reject_reason']['pro_time']);?> </span>
+                <span style="color:#d8d8d8;"> <?php echo timeTran($vo['reject_reason']['pro_time']);?> </span>
                 <?php Endif;?>
             </div>
             <div class="hui-list-text">
@@ -318,6 +318,7 @@
             </div>
             </div>
             <?php Endif;?>
+
             <!--拒绝-->
             <?php if(!empty($vo['reject_reason']) && $vo['pro_state'] == 2):;?>
             <div class="jt">
