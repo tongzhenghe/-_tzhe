@@ -325,6 +325,7 @@
 
                 <span style="font-size: 12px;float: left;"><?php echo $vo['reject_reason']['reject_reason'];?></span>
 
+                    <?php echo $vo['reject_reason']['img_file'];exit;?>
                 <?php if(!empty($vo['reject_reason']['img_file'])):;?>
                 <img src="{$vo.reject_reason.img_file}"  style="float: left;"  width="50px">
                 <?php Endif;?>
