@@ -139,7 +139,6 @@
 
         <!--工资审批-->
         {if $other_app_info.appro_title == '工资审批'}
-
         <div class="hui-list-text2"><p> 审批编号</p> <span >{$other_app_info.appnum}</span></div>
         <div class="hui-list-text2"> <p> 所在部门</p><span>{$other_app_info.department_name}</span> </div>
         {if !empty($other_app_info.rows)}
@@ -176,8 +175,17 @@
         {/if}
 
         <div class="hui-list-text2"><p> 总金额</p> <span style="color: #f25643;">{if !empty($other_app_info.salary_money_total)}{$other_app_info.salary_money_total}{/if}</span></div>
-
         <!--工资审批-End-->
+        {else if($other_app_info.appro.title == '申购')}
+
+
+        eee
+
+
+
+
+
+
         {else if($other_app_info.appro.title == '通用审批')}
 
             <div class="hui-list-text2"><p> 审批编号</p> <span >{$myapproinfo.appnum}</span></div>
@@ -222,8 +230,6 @@
 
 
     </div>
-
-
 
     <!--审批流程-->
 
