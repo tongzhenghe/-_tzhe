@@ -296,7 +296,6 @@
                 <span class="jt"></span>
             </div>
 
-
             <div class="jt">
                 <?php if(!empty($vo['agree_reason'])):;?>
                 <div class="msg">
@@ -321,9 +320,8 @@
 
                     <!--拒绝-->
                 <?php elseif(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
-
-                <span style="font-size: 12px;float: left;"><?php echo $vo['reject_reason']['reject_reason'];?></span>
-
+                <span style="font-size: 12px;float: left;"></span>
+                    <div class="hui-list-text2"><p>拒绝原因</p> <span><?php echo $vo['reject_reason']['reject_reason'];?></span></div>
                 <?php if(!empty($vo['reject_reason']['img_file'])):;?>
                 <img src="{$vo.reject_reason.img_file}"  style="float: left;"  width="50px">
                 <?php Endif;?>
