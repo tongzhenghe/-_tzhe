@@ -319,14 +319,7 @@
                     <?php Endif;?>
 
                     <!--拒绝-->
-                <?php elseif(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
-                <span style="font-size: 12px;float: left;"></span>
-                    <div class="hui-list-text2"><p style="width: 30%;  font-size: 12px; height: 100%;">拒绝原因</p> <span><?php echo $vo['reject_reason']['reject_reason'];?></span></div>
-                <?php if(!empty($vo['reject_reason']['img_file'])):;?>
 
-                <img src="{$vo.reject_reason.img_file}"  style="float: left;"  width="50px">
-                <?php Endif;?>
-                <?php Endif;?>
 
             </div>
             </div>
