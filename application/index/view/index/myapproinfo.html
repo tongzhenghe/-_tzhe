@@ -197,6 +197,7 @@
             {foreach name="v.image" item="vim"}
             <img src="{$vim}"  onclick="preview(this)"/>
             {/foreach}
+                {/if}
             </span>
             </div>
             {/if}
@@ -234,7 +235,6 @@
             <div class="hui-list-text2"><p>明细</p> <span>{$v.intro}</span></div>
             {if !empty($v.image)}
             <div class="hui-list-text2"><p>图片</p> <span>
-            {if !empty($v.image)}
             {foreach name="v.image" item="vim"}
             <img src="{$vim}"  onclick="preview(this);"/>
             {/foreach}
