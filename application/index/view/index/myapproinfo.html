@@ -180,10 +180,44 @@
         <!--工资审批-End-->
         {else if($other_app_info.appro.title == '通用审批')}
 
-        www
+            <div class="hui-list-text2"><p> 审批编号</p> <span >{$myapproinfo.appnum}</span></div>
+
+            <div class="hui-list-text2"> <p> 所在部门</p><span>{$myapproinfo.send_user_info.department_name}</span> </div>
+
+            <div class="hui-list-text2">
+
+                <p> 审批内容</p><span>{$myapproinfo.content}</span>
+
+            </div>
+
+
+            <div class="hui-list-text2">
+
+                <p>审批详情</p><span>{$myapproinfo.detail}</span>
+
+            </div>
 
 
 
+            <div class="hui-list-text2" style=" margin-bottom: 18px; ">
+
+                <p>图片</p>
+
+                <div class="img-demo" style="   width: 271px;">
+
+                    <?php if(!empty($myapproinfo['images'])):;?>
+
+                {volist name="myapproinfo.images" id="vo"}
+
+                    <img src="{$vo}" class="imgs">
+
+                {/volist}
+
+                    <?php Endif;?>
+
+                </div>
+
+            </div>
         {/if}
 
 
