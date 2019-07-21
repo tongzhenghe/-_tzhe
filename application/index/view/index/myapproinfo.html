@@ -261,7 +261,7 @@
 
             {if !empty($all_pro_user)}
 
-            {volist name="all_pro_user" id="vo"}
+            {volist name="all_pro_user" id="vos"}
 
             <li>
             <div class="hui-list-icons">
@@ -296,7 +296,7 @@
             {/if}
 
             <!--同意-->
-            <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 222):;?>
+            <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 2):;?>
             <div class="jt">
                 <div class="msg">
                     <p style="float: left;width: 12%; color: #999;">留言ss</p>
