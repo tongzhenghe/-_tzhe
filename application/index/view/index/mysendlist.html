@@ -27,7 +27,8 @@
         height: 50px;
         color: #f8f8f8;
         width: 50px;
-        line-height: 51px;}
+        line-height: 51px;
+    }
 
 </style>
 
@@ -79,6 +80,20 @@
         <a href="{:url('/index/mysendinfo',['id' => $vo.id])}"   style=" height: 26px;">
             <div class="hui-list-text2">
                 申批详情:<span>  {$vo.detail}</span>
+            </div>
+        </a>
+        <a href="{:url('/index/mysendinfo',['id' => $vo.id])}"   style=" height: 26px;">
+            <div class="hui-list-text2">
+                审批状态:
+                {if $vo.end_pro_user.state == 2}
+                <span style="color: #15bc83;"> 审批通过</span>
+                {else}
+                {if !empty($vo.wait_user)}
+                <span style="color: #f25643;">  {$vo.wait_user.user_name} 审批中</span>
+                {elseif !empty($vo.reject_user)}
+                <span style="color: #f25643;">  审批驳回</span>
+                {/if}
+                {/if}
             </div>
         </a>
         <!--报销-->
