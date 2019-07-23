@@ -90,12 +90,12 @@
         </a>
         <!--报销-->
         {elseif $vo.appro_title == '报销'}
-        <a href="{:url('/index/myapproinfo',['id' => $vo.appro_content.id, 'next_appro_user_name' => $vo.next_appro_user_name.user_name])}"   style=" height: 28px;">
+        <a href="{:url('/index/mysendinfo',['id' => $vo.id])}"   style=" height: 26px;">
             <div class="hui-list-text2">
                 类型: <span > {$vo.appro_title}</span>
             </div>
         </a>
-        <a href="{:url('/index/myapproinfo',['id' => $vo.appro_content.id, 'next_appro_user_name' => $vo.next_appro_user_name.user_name])}"   style=" height: 26px;">
+        <a href="{:url('/index/mysendinfo',['id' => $vo.id])}"   style=" height: 26px;">
             <div class="hui-list-text2">
                 审批状态:
                 {if $vo.end_pro_user.state == 2}
