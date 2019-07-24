@@ -142,6 +142,28 @@
                 {/if}
             </div>
         </a>
+
+        <!--工资审批-->
+        {elseif $vo.appro_title == '工资审批'}
+        <a href="{:url('/index/mysendinfo',['id' => $vo.id])}"   style=" height: 26px;">
+            <div class="hui-list-text2">
+                类型: <span > {$vo.appro_title}</span>
+            </div>
+        </a>
+        <a href="{:url('/index/mysendinfo',['id' => $vo.id])}"   style=" height: 26px;">
+            <div class="hui-list-text2">
+                审批状态:
+                {if $vo.end_pro_user.state == 2}
+                <span style="color: #15bc83;"> 审批通过</span>
+                {else}
+                {if !empty($vo.wait_user)}
+                <span style="color: #f25643;">  {$vo.wait_user.user_name} 审批中</span>
+                {elseif !empty($vo.reject_user)}
+                <span style="color: #f25643;">  审批驳回</span>
+                {/if}
+                {/if}
+            </div>
+        </a>
         {/if}
 
 
