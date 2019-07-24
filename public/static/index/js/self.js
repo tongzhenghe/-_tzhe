@@ -622,8 +622,7 @@ $(function () {
 
             formData = {content:content, detail:detail, nopic:nopic, img:img, app_men:app_men, person_cs:person_cs};
 
-            console.log(formData)
-        // $.fn.setRequest2(formData, request_url )
+        $.fn.setRequest2(formData, request_url )
 
 
     });
