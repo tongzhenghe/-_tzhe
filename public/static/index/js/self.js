@@ -219,9 +219,8 @@ $(function () {
 
 
     $(".nopic-demo").on('click', '#del_nopic', function () {
-        alert(2)
-
-    })
+        remove($(this).parent('p'));
+    });
 
     //附件上传
     layui.use('upload', function () {
