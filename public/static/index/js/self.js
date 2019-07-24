@@ -219,7 +219,7 @@ $(function () {
 
 
     $(".nopic-demo").on('click', '#del_nopic', function () {
-        remove($(this).parent('p'));
+        $(this).parent('p').remove();
     });
 
     //附件上传
