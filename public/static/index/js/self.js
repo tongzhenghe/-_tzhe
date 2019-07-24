@@ -718,6 +718,20 @@ $(function () {
 
 
 
+    //多规格列表显示隐藏
+    var i = $(".detailed-title");
+    i.click(function() {
+        if ($(this).next().css("display") === 'block') {
+            $(this).next().hide();
+            $(this).children("i").find().hide();
+            $(this).children("i").next().show();
+        } else {
+            $(this).next().show();
+            $(this).children("i").find().show();
+            $(this).children("i").next().hide();
+        }
+    });
+
 
 
     //删除
