@@ -217,7 +217,6 @@ $(function () {
     });
 
 
-
     $(".nopic-demo").on('click', '#del_nopic', function () {
         $(this).parent('p').remove();
     });
@@ -600,6 +599,14 @@ $(function () {
        $.each($(".img-demo").children("img"), function (key, val ) {
            img.push($(val).attr("src"))
        });
+
+        //附件
+        var nopic = [];
+        $.each($(".nopic-demo").children("p"), function (key, val ) {
+            nopic.push($(val).children('a').attr("href")+'|'+ $(val).children('a').attr("data-item"));
+        });
+
+
         //审核人
         var app_men = [];
         $.each($(".hui-tags-active"), function (key, val ) {
@@ -613,9 +620,10 @@ $(function () {
                 person_cs.push(id);
         });
 
-            formData = {content:content, detail:detail, 	img:img, app_men:app_men, person_cs:person_cs};
+            formData = {content:content, detail:detail, nopic:nopic, img:img, app_men:app_men, person_cs:person_cs};
 
-        $.fn.setRequest2(formData, request_url )
+            console.log(formData)
+        // $.fn.setRequest2(formData, request_url )
 
 
     });
