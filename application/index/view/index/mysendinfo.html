@@ -258,144 +258,132 @@
 
     <div class="hui-list" style="background:#FFFFFF; margin-top:28px;">
 
-        <ul>
-
+        <ul style="width: 95%;  margin: auto;">
             <!--发起人-->
-
             <li>
+                <div class="hui-list-icons">
 
-                <a href="javascript:void(0);">
+                    <div class="title-text">
 
-                    <div class="hui-list-icons">
+                        <?php echo $approval_info['send_user_name'];?>
+                    </div>
 
-                        <div class="title-text">
+                </div>
+                <div class="hui-list-text">
 
-                            <?php echo $approval_info['send_user_name'];?>
+                    {$approval_info.send_user_name}发起申请
 
-                        </div>
+                    <div class="hui-list-info" style="margin-right: 8px;">
+
+                        {$approval_info.create_time}
 
                     </div>
 
-                    <div class="hui-list-text">
-
-                      {$approval_info.send_user_name}发起申请
-
-                        <div class="hui-list-info">
-
-                            {$approval_info.create_time}
-
-                        </div>
-
-                    </div>
-
-
-
-                </a>
-
+                </div>
             </li>
 
             <div class="hui-speed-dial-icons">
-
                 <span class="jt"></span>
-
             </div>
 
             <!--End - 发起人-->
 
-            {volist name="approval_info.wait_user" id="vo"}
+            {if !empty($all_pro_user)}
+
+            {volist name="all_pro_user" id="vo"}
 
             <li>
-
-                <a href="javascript:void(0);">
-
-                    <div class="hui-list-icons">
-
-                        <div class="title-text">  <?php echo utf8_sub_str($vo['user_name'], 1,2);?></div>
-
-                    </div>
-
-                    <div class="hui-list-text" style="width: 35%;">
-
-                        <div class="hui-list-info">
-
-                            {$vo.user_name}
-
-                        </div>
-
-                    </div>
-
-                    <div class="hui-list-info-user">
-
-                    <span style="color:{$vo.color}"> {$vo.state_msg} </span>
-
-                    </div>
-
-                    <!--同意时间-->
-
-                    <div class="hui-list-info-user" style="    width: 100%;position: absolute;  left: 86%;">
-
-                        <?php if(!empty($vo['agree_reason']) && $vo['state'] == 2):;?>
-
-                        <span style="color:#d8d8d8;"> <?php echo timeTran($vo['agree_reason']->pro_time);?> </span>
-
-                        <!--拒绝时间-->
-
-                        <?php elseif(!empty($vo['reject_reason']) && $vo['state'] == 3):;?>
-
-                        <span style="color:#d8d8d8;"> <?php echo timeTran($vo['reject_reason']->pro_time);?> </span>
-
-                        <?php Endif;?>
-
-                    </div>
-
-                    <div class="hui-list-text">
-
-                    <span > {if $vo.state == 4 && $vo.appro_sort == 1 || $vo.state != 4 && $vo.appro_sort != 1}{$vo.wait_time}{/if}</span>
-
-                    </div>
-
-                </a>
-
+                <div class="hui-list-icons">
+                    <div class="title-text"><?php echo $vo['user_name'];?></div>
+                </div>
+                <div class="hui-list-text" style="width: 35%;">
+                    <div class="hui-list-info">{$vo.user_name}</div>
+                </div>
+                <div class="hui-list-info-user">
+                    <span style="color:{$vo.color}">{$vo.state_msg}</span>
+                </div>
+                <!--同意时间-->
+                <div class="hui-list-info-user" style="width: 100%;position: absolute; left: 80%;">
+                    <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 2):;?>
+                    <span style="color: #999;margin-left: 9px;"> <?php echo timeTran($vo['agree_reason']['pro_time']);?> </span>
+                    <!--拒绝时间-->
+                    <?php elseif(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
+                    <span style="color: #999;margin-left: 9px;"> <?php echo timeTran($vo['reject_reason']['pro_time']);?> </span>
+                    <?php Endif;?>
+                </div>
+                <div class="hui-list-text">
+            <span style="    color: #c7c7c7;font-size: 12px;">
+                {if !in_array($vo.pro_state, [2, 3])}
+                {if $vo.pro_state == 4 && $vo.appro_sort == 1 || $vo.pro_state == 1}
+               <span>已等待{$vo.agree_reason.pro_time}</span>
+                {/if}
+                {/if}
+            </span>
+                </div>
             </li>
-
-
-
-            <div class="jt">
-
-                <?php if(!empty($vo['agree_reason']) && $vo['state'] == 2):;?>
-
-            <span style="font-size: 12px; float: left; "><?php echo $vo['agree_reason']->agree_reason;?></span>
-
-                <?php if(!empty($vo['agree_reason']->img)):;?>
-
-                <?php foreach($vo['agree_reason']->img as $img):;?>
-
-                <img src="{$img}" class="imgs" width="50px"  style="float: left;">
-
-                <?php Endforeach;?>
-
-                <?php Endif;?>
-
-                <?php elseif(!empty($vo['reject_reason']) && $vo['state'] == 3):;?>
-
-                <span style="font-size: 12px; float: left; "><?php echo $vo['reject_reason']->reject_reason;?></span>
-
-                <?php if(!empty($vo['reject_reason']->img)):;?>
-
-                <?php foreach($vo['reject_reason']->img as $img):;?>
-
-                <img src="{$img}" class="imgs" width="50px"  style="float: left;">
-
-                <?php Endforeach;?>
-
-                <?php Endif;?>
-
-                <?php Endif;?>
-
+            <div class="hui-speed-dial-icons">
+                <span class="jt"></span>
             </div>
 
-            {/volist}
+            <!--同意-->
+            <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 2):;?>
+            <div class="jt">
+                <div class="msg">
+                    <p style="float: left;width: 12%; color: #999;">留言</p>
+                    <div style="font-size: 14px;   width: 83%;"><?php echo $vo['agree_reason']['agree_reason'];?></div>
+                </div>
+                <?php if(!empty($vo['agree_reason']['img_file'])):;?>
+                <div class="msg-img" style="    margin-top: 25px;">
+                    <p  style="float: left;width: 12%; color: #999;">图片</p>
+                    <img src="{$vo.agree_reason.img_file}" class="imgs" width="50px" style="float: left;margin-left: 29px;">
+                </div>
+                <?php Endif;?>
+                <div class="msg-annex">
+                    <p  style="float: left;width: 12%; color: #999;">附件</p>
+                    <?php if(!empty($vo['agree_reason']['annex'])):;?>
+                    <span style="font-size: 12px;">
+                        <a href="{$vo.agree_reason.annex.file}" style="color: #2196F3;">{$vo.agree_reason.annex.filename}<i style="color: #9ea0a3; margin-left: 11px">预览</i></a>
+                    </span>
+                    <?php Endif;?>
+                </div>
+            </div>
+            <?php Endif;?>
 
+            <!--拒绝-->
+            <?php if(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
+            <div class="jt">
+                <div class="msg">
+                    <p style="float: left;width: 12%; color: #999;">驳回原因</p>
+                    <div style="font-size: 14px;   width: 83%;"><?php echo $vo['reject_reason']['reject_reason'];?></div>
+                </div>
+                <?php if(!empty($vo['reject_reason']['img_file'])):;?>
+                <div class="msg-img" style="    margin-top: 25px;">
+                    <p  style="float: left;width: 12%; color: #999;">图片</p>
+                    <img src="{$vo.reject_reason.img_file}" class="imgs" width="50px" style="float: left;margin-left: 29px;">
+                </div>
+                <?php Endif;?>
+
+                <div class="msg-annex">
+                    <p  style="float: left;width: 12%; color: #999;">附件</p>
+                    <?php if(!empty($vo['reject_reason']['annex'])):;?>
+                    <span style="font-size: 12px;">
+                        <a href="{$vo.reject_reason.annex.file}" style="color: #2196F3;">{$vo.reject_reason.annex.filename}<i style="color: #9ea0a3; margin-left: 11px">预览</i></a>
+                    </span>
+                    <?php Endif;?>
+                </div>
+            </div>
+            <?php Endif;?>
+
+            {/volist}
+            {/if}
+            <!--最终审批通过-->
+            {if $approval_info.approval_state == 2}
+            <div class="hui-list-icons">
+                <div class="title-text" style="background: #15bc83">
+                    审批通过</div>
+            </div>
+            {/if}
+            <!--审批通过-->
         </ul>
 
     <div style=" height: 10px; margin-top: 33px;" class="hui-list-text2">
