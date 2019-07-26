@@ -315,7 +315,7 @@
             <span style="    color: #c7c7c7;font-size: 12px;">
                 {if !in_array($vo.state, [2, 3])}
                 {if $vo.state == 4 && $vo.appro_sort == 1 || $vo.state == 1}
-               <span>已等待{$vo.wait_time}</span>
+                <span>已等待</span> <span>{$vo.wait_time}</span>
                 {/if}
                 {/if}
             </span>
