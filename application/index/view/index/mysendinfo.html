@@ -304,17 +304,17 @@
                 </div>
                 <!--同意时间-->
                 <div class="hui-list-info-user" style="width: 100%;position: absolute; left: 80%;">
-                    <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 2):;?>
+                    <?php if(!empty($vo['agree_reason']) && $vo['state'] == 2):;?>
                     <span style="color: #999;margin-left: 9px;"> <?php echo timeTran($vo['agree_reason']['pro_time']);?> </span>
                     <!--拒绝时间-->
-                    <?php elseif(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
+                    <?php elseif(!empty($vo['reject_reason']) && $vo['state'] == 3):;?>
                     <span style="color: #999;margin-left: 9px;"> <?php echo timeTran($vo['reject_reason']['pro_time']);?> </span>
                     <?php Endif;?>
                 </div>
                 <div class="hui-list-text">
             <span style="    color: #c7c7c7;font-size: 12px;">
-                {if !in_array($vo.pro_state, [2, 3])}
-                {if $vo.pro_state == 4 && $vo.appro_sort == 1 || $vo.pro_state == 1}
+                {if !in_array($vo.state, [2, 3])}
+                {if $vo.state == 4 && $vo.appro_sort == 1 || $vo.state == 1}
                <span>已等待{$vo.agree_reason.pro_time}</span>
                 {/if}
                 {/if}
@@ -326,7 +326,7 @@
             </div>
 
             <!--同意-->
-            <?php if(!empty($vo['agree_reason']) && $vo['pro_state'] == 2):;?>
+            <?php if(!empty($vo['agree_reason']) && $vo['state'] == 2):;?>
             <div class="jt">
                 <div class="msg">
                     <p style="float: left;width: 12%; color: #999;">留言</p>
@@ -350,7 +350,7 @@
             <?php Endif;?>
 
             <!--拒绝-->
-            <?php if(!empty($vo['reject_reason']) && $vo['pro_state'] == 3):;?>
+            <?php if(!empty($vo['reject_reason']) && $vo['state'] == 3):;?>
             <div class="jt">
                 <div class="msg">
                     <p style="float: left;width: 12%; color: #999;">驳回原因</p>
