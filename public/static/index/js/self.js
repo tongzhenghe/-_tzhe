@@ -249,7 +249,7 @@ $(function () {
 
 
     $(".register").on("click", function () {
-        window.location.replace('/index/sign/register/do/valid');
+        window.location.replace('/sign/register/do/valid');
     });
 
     $(".appty").on("click", function () {
