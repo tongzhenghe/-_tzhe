@@ -47,7 +47,7 @@ textarea{resize:none; background:inherit;}
 /* 头部导航 */
 .hui-header{display:flex; width:100%; height:44px; text-align:center; top:0px; left:0px; position:fixed; z-index:19; background:#3388FF;}
 .hui-header h1{font-size:18px; height:44px; line-height:44px; overflow:hidden; width:100%; padding:0px 38px 0px 38px; text-align:center; font-weight:400; white-space:nowrap; text-overflow:ellipsis; color:#FFF;}
-.hui-header + .hui-wrap{padding-top:44px; width: 98%; margin: auto;}
+.hui-header + .hui-wrap{padding-top:44px; width: 100%; margin: auto;}
 #hui-back{width:44px; height:44px; font-family:"hui-font"; line-height:44px; text-align:center; flex-shrink:0;}
 #hui-back:before{content:"\e6a5"; font-size:18px; color:#FFFFFF;}
 #hui-header-menu{width:44px; height:44px; line-height:44px; font-family:"hui-font"; flex-shrink:0;}
