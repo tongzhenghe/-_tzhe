@@ -102,7 +102,6 @@
 
                     </a>
 
-                    <?php print_r($vo);exit;?>
                     <!--工资审批-->
                     {if $vo.appro_content.appro_title == '工资审批'}
                     <a href="{:url('/index/myapproinfo',['id' => $vo.appro_content.id, 'next_appro_user_name' => $vo.next_appro_user_name.user_name])}"   style=" height: 28px;">
@@ -117,7 +116,7 @@
                     </a>
 
                     <!--申购-->
-                    {elseif $vo.appro_content.appro_title == '申购'}
+                    {if $vo.appro_content.appro_title == '申购'}
 
                    顶顶顶顶
                     <!--报销-->
