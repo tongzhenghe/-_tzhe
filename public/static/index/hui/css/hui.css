@@ -61,7 +61,7 @@ textarea{resize:none; background:inherit;}
 .hui-list-text-content{width:100%; white-space:nowrap; text-overflow:ellipsis;}
 .hui-list-icons{margin:14px 0px; width:40px; text-align:center; flex-shrink:0; font-size:25px; text-align:center; line-height:22px; color:#3388FF;}
 .hui-list-icons img{width:22px; margin-left:12px;}
-.hui-list-info{color:#999; float:right; padding-right:6px !important; font-size:13px; flex-shrink:0;}
+.hui-list-info{color:#999; float:right; padding-right:6px !important; font-size:14px; flex-shrink:0;}
 .hui-list-info *{color:#999; font-size:13px;}
 .hui-list li:last-child .hui-list-text, .hui-list > a:last-child .hui-list-text{border:0;}
 /* media list */
