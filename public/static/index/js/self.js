@@ -437,7 +437,7 @@ $(function () {
         $(".click-send").hide();
         $(".second_show").show();
         $.post(
-            '/index/sign/register/do/rewire.html'
+            '/sign/register/do/rewire.html'
             ,{tel:$(".reg").children("h3").text()}
             ,function( response ) {
                 console.log(response);
