@@ -384,7 +384,7 @@
                 <div class="hui-list-text">
             <span style="width: 89%;color: #c7c7c7;font-size: 12px;">
                 {if !in_array($vo.state, [2, 3])}
-                {if $vo.state == 4 && $vo.state == 1 || $vo.state == 1}
+                {if $vo.state == 4 && $vo.appro_sort == 1 || $vo.state == 1}
                 <span>已等待</span> <span style="float: right;">{$vo.wait_time}</span>
                 {/if}
                 {/if}
@@ -420,7 +420,7 @@
             <?php Endif;?>
 
             <!--拒绝-->
-            {if !empty($vo.reject_reason) && $vo.pro_state == 3}
+            {if !empty($vo.reject_reason) && $vo.state == 3}
             <div class="jt">
                 {if !empty($vo.reject_reason.reject_reason)}
                 <div class="msg">
