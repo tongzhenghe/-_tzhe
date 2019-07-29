@@ -268,7 +268,7 @@ $(function () {
 
 
   $(".return-login").on("click", function () {
-        window.location.replace('/index/sign/signin');
+        window.location.replace('/sign/signin');
     });
 
     $(".ty-unit").on("click", function () {
