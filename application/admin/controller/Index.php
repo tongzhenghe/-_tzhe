@@ -28,11 +28,6 @@ class Index extends Common
 
     }
 
-
-    //
-
-
-
     //插件管理
     public  function  general()
     {
@@ -646,6 +641,7 @@ class Index extends Common
         $adminId = Admin::getAdminId();
         $user = Db::name($user_table)->where(['is_del'=> 1 , 'compid' => $adminId])->select();
         $data = Db::name($table)->where(['is_del'=> 1, 'compid' => $adminId])->field('name, id, state')->select();
+        wl_debug($data);
         return view('', [
             'data' => $data,
             'user' => $user
