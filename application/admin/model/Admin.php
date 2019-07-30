@@ -53,6 +53,8 @@ class Admin extends  ModelBasic
 
     static  public  function  check_login( $_user )
     {
+
+        jsondebug($_user);
         if(!is_dir('./tmp/'))mkdir ('./tmp/', 0700); session_save_path('./tmp/');
         $second  = Session::get('second');
 
