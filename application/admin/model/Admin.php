@@ -61,6 +61,7 @@ class Admin extends  ModelBasic
             if ($second_time  +3600 <= time() ) {
                 SystemAdmin::clearLoginInfo();
             }
+            jsondebug(222);
             exit( iJson('', 400, false, '您已超出登录次数， 请于1小时后在尝试登录！'));
         }
 
