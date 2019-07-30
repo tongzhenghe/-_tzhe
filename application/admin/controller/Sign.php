@@ -61,16 +61,13 @@ class Sign extends Controller
     }
 
 
-
         /**
-         * 退出登陆
+         * logout
          */
         public function sign_out()
         {
             SystemAdmin::clearLoginInfo();
             $this->redirect('sign/signin');
         }
-
-
 
     }
