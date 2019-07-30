@@ -26,7 +26,6 @@ class Sign extends Controller
         //酒泉华美医疗美容医院
         if ( true === request()->isPost()) {
             $user_info = request()->post();
-            jsondebug($user_info);
             //$captcha = trim($user_info['captcha']);
             if (empty( $user_info['comname'] ))
                 exit(iJson('', 400,  false, '用户名不能为空！'));
