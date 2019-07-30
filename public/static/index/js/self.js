@@ -533,7 +533,7 @@ $(function () {
     $("#logout").on('click', function () {
         hui.confirm('您要退出吗？', ['取消','确认'], function() {
             //调用退出接口
-            $.fn.setRequest2({'logout': true}, '/index/sign/logout');
+            $.fn.setRequest2({'logout': true}, '/sign/logout');
             //跳转返回登陆连接
         },function(){
             hui.toast('取消退出');
