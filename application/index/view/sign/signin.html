@@ -18,11 +18,11 @@
 		<form style="padding:0 21px;" class="hui-form" id="form1" action="##" onclick="return false;">
 			<div class="hui-form-items">
 				<div class="hui-form-items-title" style="    width: 30%;">手机号码/用户名</div>
-				<input type="text" class="hui-input hui-input-clear" name="user_name"/>
+				<input type="text" class="hui-input hui-input-clear" name="user_name" value="{if !empty($cookie_user_info.user_name)}{$cookie_user_info.user_name}{/if}"/>
 			</div>
 			<div class="hui-form-items">
 				<div class="hui-form-items-title" style="font-size: 14px;">密&nbsp;&nbsp;&nbsp;码</div>
-				<input type="password" class="hui-input hui-input-clear" name="password"/>
+				<input type="password" class="hui-input hui-input-clear" name="password" value="{if !empty($cookie_user_info.pass)}{$cookie_user_info.pass}{/if}"/>
 			</div>
 			<div style="    padding: 2px 0;margin-top: 11%;" id="login-But">
 				<input type="hidden" name="request_url" value="{:url('/sign/signin')}"  />
