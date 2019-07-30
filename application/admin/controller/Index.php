@@ -32,7 +32,6 @@ class Index extends Common
     public  function  general()
     {
 
-        wl_debug(43434343);
         $table = 'module';
         $compId =  Admin::getAdminId();
         $do = request()->param('do');
@@ -75,7 +74,6 @@ class Index extends Common
                 $row = Db::name($table)->where('id', intval($id))->find();
             }
 
-            wl_debug($compId);
             $general = Db::name($table)->where(['state' => 1, 'compid' => $compId ])->field('id, pid, name')->select();
             $general = tree($general);
 
@@ -105,8 +103,9 @@ class Index extends Common
         }
 
 
-        $data = Db::name($table)->order('sort asc')->select();
+        $data = Db::name($table)->where(['state' => 1, 'compid' => $compId ])->order('sort asc')->select();
         $data = tree($data);
+        wl_debug($data);
 
         return view('' , ['data' => $data]);
 
