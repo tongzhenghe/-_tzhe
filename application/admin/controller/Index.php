@@ -105,7 +105,7 @@ class Index extends Common
 
         $data = Db::name($table)->where(['state' => 1])->order('sort asc')->select();
         $data = tree($data);
-wl_debug($data);
+
         return view('' , ['data' => $data]);
 
     }
