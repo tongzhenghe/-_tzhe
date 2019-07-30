@@ -53,8 +53,6 @@ class Admin extends  ModelBasic
 
     static  public  function  check_login( $_user )
     {
-
-        jsondebug($_user);
         if(!is_dir('./tmp/'))mkdir ('./tmp/', 0700); session_save_path('./tmp/');
         $second  = Session::get('second');
 
@@ -63,7 +61,6 @@ class Admin extends  ModelBasic
             if ($second_time  +3600 <= time() ) {
                 SystemAdmin::clearLoginInfo();
             }
-            jsondebug(222);
             exit( iJson('', 400, false, '您已超出登录次数， 请于1小时后在尝试登录！'));
         }
 
