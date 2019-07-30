@@ -31,6 +31,8 @@ class Index extends Common
     //插件管理
     public  function  general()
     {
+
+        wl_debug(43434343);
         $table = 'module';
         $compId =  Admin::getAdminId();
         $do = request()->param('do');
