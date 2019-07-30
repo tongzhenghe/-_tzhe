@@ -105,7 +105,7 @@ class Index extends Common
 
         $data = Db::name($table)->where(['state' => 1, 'compid' => $compId ])->order('sort asc')->select();
         $data = tree($data);
-
+wl_debug($data);
         return view('' , ['data' => $data]);
 
     }
@@ -126,7 +126,7 @@ class Index extends Common
             ->where(['a.compid ' => $admin['id']])
             ->select();
 
-        foreach ($approval as &$vaL)     {
+        foreach ($approval as &$vaL) {
             if (!empty($vaL['images'])) {
                 $vaL['images'] = unserialize($vaL['images']);
             }
