@@ -75,7 +75,7 @@ class Index extends Common
                 $row = Db::name($table)->where('id', intval($id))->find();
             }
 
-            $general = Db::name($table)->where(['state' => 1, 'compid' => $compId ])->field('id, pid, name')->select();
+            $general = Db::name($table)->where(['state' => 1])->field('id, pid, name')->select();
             wl_debug($general);
             $general = tree($general);
 
