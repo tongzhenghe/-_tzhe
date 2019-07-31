@@ -10,8 +10,8 @@ $(function () {
            sort =  $("input[name='sort']").val(),
            icon =  $("#upload-normal-img").attr("src"),
            url =  $("input[name='url']").val(),
-           url =  $("input[name='bgcolor']").val(),
-           url =  $("input[name='icon_code']").val(),
+           bgcolor =  $("input[name='bgcolor']").val(),
+           icon_code =  $("input[name='icon_code']").val(),
            pid = $("select[name='pid']").val(),
            id =  $("input[name='hidId']").val();
             request_url = $("input[name='request_url']").val();
@@ -19,13 +19,14 @@ $(function () {
                 name:name,
                 sort:sort,
                 icon:icon,
+                bgcolor:bgcolor,
+                icon_code:icon_code,
                 url:url,
                 pid:pid,
                 id  :id  ? id : null
             };
 
-            console.log(formData)
-        // $.fn.setRequest( formData,    request_url );
+        $.fn.setRequest( formData,    request_url );
 
     });
 
