@@ -309,7 +309,7 @@ $.fn.createModuleFrame = function(title,src,opt) {
     layer.open({
         type: 2,
         title:title,
-        area: [(opt.w || 90)+'%', (opt.h || 80)+'%'],
+        area: [(opt.w || 80)+'%', (opt.h || 80)+'%'],
         fixed: false, //不固定
         maxmin: true,
         moveOut:false,//true  可以拖出窗外  false 只能在窗内拖
