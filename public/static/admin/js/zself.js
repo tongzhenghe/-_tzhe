@@ -24,7 +24,8 @@ $(function () {
                 id  :id  ? id : null
             };
 
-        $.fn.setRequest( formData,    request_url );
+            console.log(formData)
+        // $.fn.setRequest( formData,    request_url );
 
     });
 
