@@ -39,6 +39,7 @@ class Index extends Common
 
             if (request()->isAjax()) {
                 $post = request()->post();
+                jsondebug($post);
 
                 if (empty($post['name'])) exit(iJson('', 400, 400, '请填写名称'));
                 if (empty($post['url'])) exit(iJson('', 400, 400, '请填写请求地址'));
