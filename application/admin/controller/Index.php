@@ -76,7 +76,6 @@ class Index extends Common
             }
 
             $general = Db::name($table)->where(['state' => 1])->field('id, pid, name')->select();
-            wl_debug($general);
             $general = tree($general);
 
 
