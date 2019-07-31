@@ -887,7 +887,7 @@ $.fn.setRequest2 = function ( formData, url, type = 'post', dataType  = 'json') 
 
 
             } else {
-                hui.toast(response.msg);
+                hui.toast(response.msg, 99999999);
             }
 
         },  dataType);
