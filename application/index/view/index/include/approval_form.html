@@ -1,1 +1,526 @@
-1sfsd
+{include file='index/include/header'}
+<!--报销-->
+<div class="form">
+
+    <style>
+
+        .hui-form-items{background: white;   }
+
+        .hui-form-textarea textarea{    height: 127px;    background: white;}
+        .hui-icons-register:before{    color: #c2c2c2;}
+        .i{    float: left;
+            padding: 5px;
+            background: black;
+            height: 8px;
+            line-height: 5px;
+            color: white;
+            border-radius: 50px;
+            margin-left: -12px;}
+
+        .i2{    float: left;
+            padding: 5px;
+            background: black;
+            height: 8px;
+            line-height: 5px;
+            color: white;
+            border-radius: 50px;
+            margin-left: -12px;}
+
+        .i3{padding: 6px;
+            background: black;
+            height: 8px;
+            padding-top: unset;
+            color: white;
+            padding-bottom: unset;
+            border-radius: 50px;
+            margin-left: -20px;}
+        body{background: #F6F6F6;}.hui-center-title h1{line-height: 24px;} .hui-form-items-title{color:#000;margin-left:13px;font-size: 15px;width: 23%;}.hui-input{color: #000; }
+        #hui-back:before{  color: #3296FA; }  #hui-back{  width: 67px; }  #hui-back span{ color: #3296FA;  font-size: 18px; }
+        #hui-popover-msg{    left: 17px!important; width: 229px!important;}
+        .help{text-align: left;  font-size: 14px; color: #a7b5bb;}
+    </style>
+
+    <header class="hui-header">
+        <div id="hui-back">&nbsp;<span>返回</span></div>
+        <div style="width: 100%; line-height: 40px; font-size: 15px; font-weight: 700;">{if !empty($module_name)}{$module_name}{/if}</div>
+        <div class="hui-back-right" style="width: 29%;line-height:45px;">&nbsp;<span style="color: #3296FA;">帮助</span></div>
+    </header>
+
+    <div class="hui-wrap">
+
+        <form class="hui-form" id="form1"  action="##" enctype="multipart/form-data"  style="margin-top: 9px;">
+
+            <div class="hui-form-items">
+                <div class="hui-form-items-title" style="      position: absolute;  width: 44%;"><span style="color: #ff5847;">*</span>审批人 <span style="color: #1851a0;font-size: 12px;" id="set-help1">如何设置？</span></div>
+                <!--审批-->
+                <div style="padding:10px 15px;width: 96%; margin-top: 31px;" id="tags1" class="hui-tags">
+                    <div class="person-pro" style="height: 40px; line-height: 39px;width: 28px;"><span class="hui-icons hui-icons-register" style="font-size: 26px; height: 10px;"></span></div>
+                </div>
+            </div>
+
+            <div class="hui-form-items">
+                <div class="hui-form-items-title" style=" position: absolute;  width: 81%;">抄送人  <span style="       font-size: 13px; color: #c7c7c7;">审核通过后， 通知抄送人 </span> <span  id="set-help2" style=" color: #1851a0;  font-size: 12px;">如何设置？</span></div>
+                <!--tags-->
+                <div style="padding:10px 15px;width: 96%; margin-top: 31px;" id="tags2" class="hui-tags">
+                    <div class="person-cs" style="    height: 40px; line-height: 39px;width: 28px;"><span class="hui-icons hui-icons-register" style="    font-size: 26px; height: 10px;"></span></div>
+                </div>
+            </div>
+
+            <div class="hui-form-items" style="height: 25px; margin-top: unset;">
+            </div>
+
+            <div class="hui-form-items button-sub">
+                <input type="hidden" name="request_url"  value="{:url('/index/approval_form')}">
+                <input type="hidden" name="url"  value="{$url}">
+                <input type="hidden" name="module_name"  value="{$module_name}">
+                <input type="hidden" name="session_d"  value="{$session_d}">
+                <button type="button" class="hui-button hui-button-large hui-primary hui-fr" id="submitNext" style="width: 95%;">下&nbsp;一&nbsp;步</button>
+            </div>
+        </form>
+    </div>
+
+    <div style="display: none;" id="switchBox"></div>
+
+</div>
+
+<style>
+
+    .hui-center-title h1{line-height: 24px;}.hui-header {  background: #FFFFFF; }  .hui-form-items-title{color: #000;  }  .hui-input{color: #000; }  #hui-back:before{  color: #3296FA; }  #hui-back{  width: 67px; }  #hui-back span{ color: #3296FA;  font-size: 18px; }
+
+    #hui-index-list-bar{width:25px; height:100%; position:fixed; z-index:2; top:46px; right:0px; background:#E4E4E4; padding-top:8px;}
+
+    #hui-index-list-bar a{display:block; width:100%; height:20px; line-height:20px; text-align:center; font-size:13px; color:#A3A3A3;}
+
+    .hui-index-list-title{height:44px;     color: #c7c7c7;background:#F8F8F8; line-height:44px; padding:0px 10px; border-bottom:1px solid #E4E3E6;}
+
+    #hui-index-list-search{width:100%; height:26px; border-bottom:1px solid #E4E3E6; position:fixed; top:44px; left:0px; background:#FFFFFF;  z-index:1; padding:10px 0px;}
+
+    #hui-index-list-search input{width:100%; padding:0px 44px; height:26px; line-height:26px; border:0px; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; webkit-appearance:none; -moz-appearance:none; appearance:none;}
+
+    #hui-index-list-search:before{content:'\e714'; width:44px; height:44px; line-height:44px; text-align:center; display:block; position:absolute; left:0px; top:0px; font-family:"hui-font"; font-size:16px;}
+
+    .hui-form-radios{    position: absolute;  right: 20px;}
+
+    .hui-form-radios input[type="checkbox"] + label{    line-height: 55px;}
+
+    .hui-form-radios input[type="checkbox"] + label:before{   font-size: 25px; color: #e2e2e2;}
+
+</style>
+
+<!--抄送通讯录-->
+<div class="com" style="display: none;">
+
+    <header class="hui-header com-header">
+
+        <div id="hui-back" class="return-form">&nbsp;<span>返回</span></div>
+
+        <div class="hui-back-rights" style="margin-left: 62%; padding: 14px;">&nbsp;
+
+            <button type="button"   onclick="huiFormCheckAttach2()" class="hui-button hui-button-small hui-primary btn-2" style="display: block; right: 13px;    width: 55px;  padding: 1px 10px;bottom: 27px;">确定</button>
+
+        </div>
+
+    </header>
+
+
+    <div class="hui-wrap"  style="padding-top: 92px;">
+
+        <div id="hui-index-list-search">
+
+            <input type="text" name="seach" id="hui-index-list-search-input" value="" placeholder="请输入关键字进行搜索" />
+
+        </div>
+
+
+
+        {if !empty($settlesRes)}
+
+        <!-- 列表数据 循环  hui-index-list-title 和 hui-list -->
+
+        {volist name="settlesRes" id="vo" key="k" }
+
+        <?php $key =  key($settlesRes);next($settlesRes);?>
+
+        <div class="hui-index-list-title" id="hui-index-list-title_{$key}">{$key}</div>
+
+        <div class="hui-list">
+
+            {volist name="vo" id="vv" key="kk"}
+
+            <a href="javascript:selectTodo('{$vv.user_name}');" class="check_click">
+
+                <div class="hui-form-radios" id="loves">
+
+                    <input type="checkbox" value="{$vv.id}" data-name="{$vv.user_name}"  name="user_id[]" id="c{$vv.id}" /><label for="c{$vv.id}"></label>
+
+                </div>
+
+                <div class="hui-list-text">{$vv.user_name}
+
+                </div>
+
+            </a>
+
+            {/volist}
+
+        </div>
+
+        {/volist}
+
+        {/if}
+
+    </div>
+
+    <div id="hui-index-list-bar">
+
+        {if !empty($letter)}
+
+        {volist name="letter" id="vo" key="k" }
+
+        <a>{$vo}</a>
+
+        {/volist}
+
+        {/if}
+
+    </div>
+
+    <div id="scroll" style="display:none;"></div>
+
+</div>
+<!--End抄送通讯录-->
+
+
+<!--审批通讯录-->
+<div class="com-pro" style="display: none;">
+
+    <style>
+
+        .hui-center-title h1{line-height: 24px;}.hui-form-items-title{color: #000;  }.hui-input{color: #000; } #hui-back:before{  color: #3296FA; }  #hui-back{  width: 67px; }  #hui-backspan{ color: #3296FA;  font-size: 18px; }
+
+        .hui-index-list-title{height:44px; background:#F8F8F8; line-height:44px; padding:0px 10px; border-bottom:1px solid #E4E3E6;}
+
+        #hui-index-list-search-pro{width:100%; height:26px; border-bottom:1px solid #E4E3E6; position:fixed; top:44px; left:0px; background:#FFFFFF;  z-index:1; padding:10px 0px;}
+
+        #hui-index-list-search-pro input{width:100%; padding:0px 44px; height:26px; line-height:26px; border:0px; box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -o-box-sizing:border-box; webkit-appearance:none; -moz-appearance:none; appearance:none;}
+
+        #hui-index-list-search-pro:before{content:'\e714'; width:44px; height:44px; line-height:44px; text-align:center; display:block; position:absolute; left:0px; top:0px; font-family:"hui-font"; font-size:16px;}
+
+        .hui-form-radios{    position: absolute;  right: 20px;}
+
+        .hui-form-radios input[type="checkbox"] + label{    line-height: 55px;}
+
+        .check-pro input[type="checkbox"] + label:before{   font-size: 25px; color: #7bade2;}
+
+    </style>
+    <header class="hui-header com-header-pro">
+
+        <div id="hui-back" class="return-form-pro">&nbsp;<span>返回</span></div>
+
+        <!--<div class="hui-back-rights" style="margin-left: 62%; padding: 14px;">&nbsp;-->
+
+        <!--<button type="button"   onclick="huiFormCheckAttach()" class="hui-button hui-button-small hui-primary btn-1" style="display: block; right: 13px;    width: 55px;  padding: 1px 10px;bottom: 27px;">确定</button>-->
+
+        <!--</div>-->
+
+    </header>
+
+
+    <div class="hui-wrap"  style="padding-top: 92px;">
+
+        <div id="hui-index-list-search-pro">
+
+            <input type="text" name="seach" id="hui-index-list-search-input-pro" value="" placeholder="请输入关键字进行搜索" />
+
+        </div>
+
+
+
+        {if !empty($department_user)}
+        {volist name="department_user" id="vo" key="k" }
+
+        <div class="hui-index-list-title" id="hui-index-list-title-pro{$key}" {if empty($vo.children)} style="display: none;"{/if}>{$vo.name}</div>
+
+    <div class="hui-list">
+        {volist name="vo.children" id="vv" key="kk"}
+
+        <a href="javascript:;" onclick="selectTodoPro(this);" data-name="{$vv.user_name}" data-id="{$vv.id}" class="check_click">
+            <div class="hui-form-radios check-pro">
+
+            </div>
+
+            <div class="hui-list-text">{$vv.user_name}
+
+            </div>
+
+        </a>
+
+        {/volist}
+
+    </div>
+
+    {/volist}
+
+    {/if}
+
+</div>
+
+<div id="scroll-pro" style="display:none;"></div>
+
+</div>
+<!--End审批通讯录-->
+
+{include file='index/include/footer'}
+
+
+
+<!--form表单-->
+
+<script>
+
+
+    // hui.datePicker();
+
+    $(".person-pro").on("click", function () {
+        $(".btn-1").show();
+        $(".btn-2").hide();
+        //如果选中就添加标识
+        $(".form").hide();
+        $(".com-pro").show();
+        $(".com-header-pro").show();
+    });
+
+
+    $(".person-cs").on("click", function () {
+        $(".btn-2").show();
+        $(".btn-1").hide();
+        //清除值
+        $(".hui-tags-active2").remove();
+        $(".i2").remove();
+        $(".form").hide();
+        $(".com").show();
+        $(".com-header").show();
+    });
+
+
+    /*抄送*/
+    $(".return-form").on("click", function () {
+
+        $(".form").show();
+
+        $(".com").hide();
+
+        $(".com-header").hide();
+
+    });
+
+    /*审批*/
+    $(".return-form-pro").on("click", function () {
+
+        $(".form").show();
+
+        $(".com-pro").hide();
+
+        $(".com-header-pro").hide();
+
+    });
+
+
+    //删除审批标签
+    $("#tags1").on("click",  ".i", function () {
+        //同时删除列表的
+        // var userFormId =   $(this).prev().attr("data-value");
+        // $.each($(".check_click"), function (key, val ) {
+        // if ($(val).attr("data-id") === userFormId) {
+        //     console.log(  $(val).children(".childs").prevObject.children(0).children(".childs"))
+        //     $(val).children(".childs").prevObject.children(0).children(".childs").remove();
+        // }
+
+        $(this).prev().remove();
+        $(this).remove();
+
+        // })
+
+
+    });
+
+    //删除标签
+    $("#tags2").on("click",  ".i2", function () {
+        $(this).prev().remove();
+        $(this).remove();
+    });
+
+
+
+    hui('#set-help1').popoverMsg('right', 'down', '<div class="help" >通过点击按钮选择审批人;<br/> (注意：选择顺序将决定审批顺序); </div>', 220);
+    hui('#set-help2').popoverMsg('right', 'down', '<div class="help" >通过点击按钮选择抄送人, 抄送人只能查看审批进度， 无任何操作权限 ; </div>', 220);
+
+
+</script>
+
+<!--End-form表单-->
+
+<!--通讯录-->
+
+<script>
+
+    hui.plusReady(function() {
+
+        //头部搜索适应沉浸式【非app开发可移除】
+        //抄送
+        hui('#hui-index-list-search').css({top: 44 + hui.immersedStatusbarHeight + 'px'});
+        hui('#hui-index-list-bar').css({top: 44 + hui.immersedStatusbarHeight + 'px'});
+        //审批
+        hui('#hui-index-list-search-pro').css({top: 44 + hui.immersedStatusbarHeight + 'px'});
+
+    });
+
+    /*
+
+     * 说明:
+
+     * 城市例子展示到了 D，真实项目开发按照结构完成部署即可
+
+     * 请按照以下js实现 indexList
+
+     */
+
+    //1、右侧字母序号点击事件绑定
+
+    hui('#hui-index-list-bar').find('a').click(function(){skipToIndex(this.innerHTML);});
+
+    //2、跳转到指定字母开头处函数定义
+
+    function skipToIndex(index) {
+
+        var listTitle = hui('#hui-index-list-title_'+index);
+
+        if(listTitle.length < 1){hui.toast('暂无对应数据'); return;}
+
+        var sets = listTitle.offset();
+
+        //减掉46是头部导航的高度 根据实际需求设置
+
+        hui.scrollTop(sets.top - 90);
+
+    }
+
+    //抄送
+    function huiFormCheckAttach2() {
+
+        loves =[];
+
+        hui('#loves').find('input').each(function(cObj) {
+
+
+            if(cObj.checked) {
+                loves.push(cObj.value);
+                var html  = '<div tagVal="" class="hui-tags-active2" style="    background: #3388ff;\n' +
+                    '    color: white;" data-value="'+cObj.value+'">'+$(cObj).attr("data-name")+'  </div> <i class="i2">x</i>';
+
+                $("#tags2").append( html );
+
+                $(".form").show();
+
+                $(".com").hide();
+
+                $(".com-header").hide();
+
+            }
+
+        });
+        if(loves.length < 1){hui.toast('请选择抄送人'); return false;}
+
+    }
+
+
+    var i = 1;
+    function selectTodoPro( attr ) {
+
+        var  userObj = []
+            ,user_name = $(attr).attr("data-name")
+            ,user_id = $(attr).attr("data-id");
+
+        //选择加标识
+        // if ($($(attr).children(".check-pro").html()).length <= 0 )  {
+        //     //沒有选择
+        //     $(attr).children(".check-pro").html('<input type="checkbox" /><label class="childs" for="c'+user_id+'"></label>');
+        // }
+
+        //选择已选择提示并放回false
+        var selected = [];
+        $.each($("#tags1").children(".hui-tags-active"), function (ke, val) {
+            selected .push($(val).attr("data-value"));
+        });
+
+        if ( $.inArray(user_id, selected) !== -1) {
+            hui.toast('您已选择此审批人');
+            return false;
+        }
+
+
+        hui.toast(user_name);
+        //当选择同时隐藏并且append
+
+        var html  = '<div tagVal="" class="hui-tags-active" data-sort="'+i+'" data-value="'+user_id+'">'+user_name+'</div> <i class="i">x</i>';
+
+        $("#tags1").append( html );
+
+        $(".form").show();
+
+        $(".com-pro").hide();
+
+        $(".com-header-pro").hide();
+
+
+
+        // console.log(userObj);
+
+        i++;
+
+
+
+    }
+
+    function selectTodo(val) {
+        hui.toast(val);
+    }
+
+    //4、搜索
+
+    var sreachInput = document.getElementById('hui-index-list-search-input');
+
+    sreachInput.addEventListener('keyup', function(){
+
+        var k = this.value;
+
+        if(k.length < 1){return false;}
+
+        var lists = hui('.hui-list-text');
+
+        for(var i = 0; i < lists.length; i++){
+
+            var _sobj = lists.dom[i];
+
+            if(_sobj.innerHTML.indexOf(k) != -1){
+
+                var sets = hui.offset(_sobj);
+
+                console.log(sets);
+
+                setTimeout(function(){hui.scrollTop(sets.top - 90 - hui.immersedStatusbarHeight);}, 300);
+
+                break;
+
+            }
+
+        }
+
+    });
+
+</script>
+
+
+
+
+
