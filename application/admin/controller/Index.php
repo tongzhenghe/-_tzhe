@@ -259,12 +259,13 @@ class Index extends Common
     }
 
 
-    //通用报销
+    //报销
     public  function  reimbursement()
     {
 
         $table = 'reimbursement';
         $table_type = 'reimbursement_type';
+        $compId =  Admin::getAdminId();
         $params = request()->param();
         if (!empty($params['do']) && trim($params['do'])  ==  'addtype') {
 
@@ -272,7 +273,7 @@ class Index extends Common
 
                 $data  = [
                     'state' => 1,
-                    'compid' => Admin::getAdminId(),
+                    'compid' => $compId,
                     'name' => trim($params['name']),
                     'sort' => intval($params['sort']),
                     'intro' => trim($params['intro']),
@@ -306,7 +307,7 @@ class Index extends Common
         }
 
 
-        $data_type = Db::name($table_type)->select();
+        $data_type = Db::name($table_type)->where(['state' => 1, 'compid' => $compId ])->select();
         foreach ($data_type as &$vs ) {
             $vs['time'] = date('Y/m/d H:i:s', $vs['time']);
         }
