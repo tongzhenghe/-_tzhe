@@ -485,7 +485,7 @@ input[type="month"].hui-picker-valued:before,input[type="date"].hui-picker-value
 .hui-icons-loading:before{content:"\e647";} .hui-icons-form:before{content:"\e62c";} .hui-icons-picker:before{content:"\e923";}
 .hui-icons-eyes:before{content:"\e63d";} .hui-icons-clear:before{content:"\e6a0";} .hui-icons-home:before{content:"\e611";}
 .hui-icons-switch:before{content:"\e679";} .hui-icons-action-sheet:before{content:"\e605";} .hui-icons-news:before{content:"\e62e";}
-.hui-icons-swipe:before{content:"\e699";} .hui-icons-media-list:before{content:"\e62d";} .hui-icons-my:before{content:"\e618";}
+.hui-icons-swipe:before{content:"\e699";} .hui-icons-media-list:before{content:"\e62d";} .hui-icons-my:before{content:"\e618";background: #ff250024;border-radius: 3px;}
 .hui-icons-forum:before{content:"\e602";} .hui-icons-shop:before{content:"\e67f";} .hui-icons-nav:before{content:"\e606";}
 .hui-icons-menu-point:before{content:"\e60e";} .hui-icons-menu-point2:before{content:"\e625";} .hui-icons-star:before{content:"\e661";}
 .hui-icons-msg:before{content:"\e60b";} .hui-icons-help:before{content:"\e652";} .hui-icons-water-fall:before{content:"\e60c";} 
