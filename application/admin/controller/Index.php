@@ -78,8 +78,6 @@ class Index extends Common
             $general = Db::name($table)->where(['state' => 1])->field('id, pid, name')->select();
             $general = tree($general);
 
-            wl_debug($general);
-
             return view('generaladd', [
                 'do'  => $do,
                 'general' => $general ? $general : [],
@@ -107,7 +105,7 @@ class Index extends Common
 
         $data = Db::name($table)->where(['state' => 1])->order('sort asc')->select();
         $data = tree($data);
-
+wl_debug($data);
         return view('' , ['data' => $data]);
 
     }
