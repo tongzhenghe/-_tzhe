@@ -10,6 +10,8 @@ $(function () {
            sort =  $("input[name='sort']").val(),
            icon =  $("#upload-normal-img").attr("src"),
            url =  $("input[name='url']").val(),
+           url =  $("input[name='bgcolor']").val(),
+           url =  $("input[name='icon_code']").val(),
            pid = $("select[name='pid']").val(),
            id =  $("input[name='hidId']").val();
             request_url = $("input[name='request_url']").val();
