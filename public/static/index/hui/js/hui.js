@@ -524,7 +524,7 @@ var hui = (function(selector){
 		toast = hui('#hui-toast');
 		toast.html('<div id="hui-toast-msg">'+msg+'</div>');
 		if(_hui.ToastTimer){clearTimeout(_hui.ToastTimer);}
-		if(timer == 'short'){timer = 2000;}else{timer = 3500;}
+		if(timer == 'short'){timer = 9000;}else{timer = 9000;}
 		_hui.ToastTimer = setTimeout(function(){toast.remove();}, timer);
 	};
 	/* icon Toast */
