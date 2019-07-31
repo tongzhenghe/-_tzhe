@@ -40,8 +40,8 @@ class Index extends Common
             if (request()->isAjax()) {
                 $post = request()->post();
 //
-//                if (empty($post['name'])) exit(iJson('', 400, 400, '请填写名称'));
-//                if (empty($post['url'])) exit(iJson('', 400, 400, '请填写请求地址'));
+                if (empty($post['name'])) exit(iJson('', 400, 400, '请填写名称'));
+                if (empty($post['url'])) exit(iJson('', 400, 400, '请填写请求地址'));
 
                 $data = [
                     'name' => trim($post['name']),
@@ -54,7 +54,6 @@ class Index extends Common
                     'compid' => $compId,
                     'time' => time(),
                 ];
-jsondebug($data);
 
                 if (empty($post['id'])) {
                     $result = Db::name($table)->insert($data);
