@@ -86,11 +86,6 @@ class Index extends Common
 
         }
 
-        if (!empty($do) && $do == 'memList') {
-
-            return view('memList');
-
-        }
         //state
         if ( !empty($do) && $do == '_state') {
             $post = request()->post();
