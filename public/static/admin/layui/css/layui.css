@@ -3721,7 +3721,8 @@ body .layui-table-tips .layui-layer-content {
 }
 
 .layui-tab-brief > .layui-tab-title .layui-this {
-    color: #009688
+    color: #ffffff;
+    background: #0188fb;
 }
 
 .layui-tab-brief > .layui-tab-more li.layui-this:after, .layui-tab-brief > .layui-tab-title .layui-this:after {
