@@ -7,7 +7,7 @@
         bottom: 4px;
         right: 30px;
     }
-    .layui-timeline{float: left;}
+    .layui-timeline{float: right;}
     .layui-anim.layui-icon{ font-size: 20px;}
 </style>
 
@@ -129,7 +129,7 @@
         </div>
         <div class="layui-tab-item" style="margin-top: 40px;margin-left: 45px;">
 
-            <ul class="layui-timeline" style="width: 40%;">
+            <ul class="layui-timeline" style="width: 40%;position: fixed;">
                 <li class="layui-timeline-item">
                     <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                     <div class="layui-timeline-content layui-text">
@@ -353,15 +353,11 @@
                     //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
                     layui.use('element', function(){  var element = layui.element; });
                 </script>
-                <div class="layui-form-item layui-btn-lg" style="position: absolute;">
-                    <input type="hidden"  name="request_url" value="{:url('index/general', ['do' => 'add'])}">
-                    <button class="layui-btn layui-btn-fluid"><i class="layui-icon layui-icon-edit"></i>添加成员</button>
-                </div>
-
             </form>
             <!--设置审批人-END-->
             </div>
         </div>
+
         <div class="layui-form-item layui-btn-lg bu">
             <input type="hidden"  name="request_url" value="{:url('index/general', ['do' => 'add'])}">
             <button class="layui-btn layui-btn-fluid general{$do}"><i class="layui-icon layui-icon-edit"></i>保存</button>
