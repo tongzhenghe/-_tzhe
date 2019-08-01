@@ -3597,7 +3597,7 @@ body .layui-table-tips .layui-layer-content {
 .layui-tab-title {
     position: relative;
     left: 0;
-    height: 40px;
+    height: 41px;
     white-space: nowrap;
     font-size: 0;
     border-bottom-width: 1px;
