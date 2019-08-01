@@ -81,7 +81,9 @@ class Index extends Common
             //所有有效成员
             $mem_list = Db::name('user a')
                 ->join('department b', 'a.department_id = b.id', 'left')
-                ->where(['a.compid' => $compId, 'a.state' => 1, 'is_perfect' => 1, 'a.is_del' => 1])->select();
+                ->where(['a.compid' => $compId, 'a.state' => 1, 'is_perfect' => 1, 'a.is_del' => 1])
+                ->field('a.user_name, a.id, b.name department_name')
+                ->select();
 
             wl_debug($mem_list);
 
