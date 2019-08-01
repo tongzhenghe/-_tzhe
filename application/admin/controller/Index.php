@@ -90,6 +90,7 @@ class Index extends Common
                     ->where(['compid' => $compId, 'state' => 1, 'is_perfect' => 1, 'is_del' => 1, 'department_id' => $vo['id']])
                     ->field('user_name, id')
                     ->select();
+                $vo['mem'] = array_filter( $vo['mem']);
             }
 
             wl_debug($department_mem);
