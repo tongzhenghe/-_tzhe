@@ -180,12 +180,37 @@
                     </div>
                 </div>
 
+                <!--成员列表-->
+
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">杜甫</h2>
+                        <div class="layui-colla-content layui-show">内容区域</div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">李清照</h2>
+                        <div class="layui-colla-content layui-show">内容区域</div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">鲁迅</h2>
+                        <div class="layui-colla-content layui-show">内容区域</div>
+                    </div>
+                </div>
+
+                <script>
+                    //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
+                    layui.use('element', function(){
+                        var element = layui.element;
+
+                        //…
+                    });
+                </script>
+
+
+
                 <div class="layui-form-item layui-btn-lg" style="position: absolute;">
-
                     <input type="hidden"  name="request_url" value="{:url('index/general', ['do' => 'add'])}">
-
-                    <button class="layui-btn layui-btn-fluid"><i class="layui-icon layui-icon-edit"  onclick="$.fn.createModuleFrame('编辑插件', '/index.php/admin/index/general?do=memList');"></i>添加成员</button>
-
+                    <button class="layui-btn layui-btn-fluid"><i class="layui-icon layui-icon-edit"></i>添加成员</button>
                 </div>
 
             </form>
