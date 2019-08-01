@@ -80,19 +80,19 @@ class Index extends Common
 
             //所有有效成员
 
-            $department = Db::name('department')
+            $department_mem = Db::name('department')
                 ->where(['state' => 1, 'compid' => $compId, 'is_del' => 1])
-                ->select();
-            wl_debug($department);
-
-            $mem_list = Db::name('user a')
-                ->join('department b', 'a.department_id = b.id', 'left')
-                ->where(['a.compid' => $compId, 'a.state' => 1, 'is_perfect' => 1, 'a.is_del' => 1])
-                ->field('a.user_name, a.id, b.name department_name')
+                ->field('id, name')
                 ->select();
 
-            wl_debug($mem_list);
+            foreach ($department_mem as &$vo ) {
+                $vo['mem'] = Db::name('user')
+                    ->where(['compid' => $compId, 'state' => 1, 'is_perfect' => 1, 'is_del' => 1])
+                    ->field('user_name, id')
+                    ->select();
+            }
 
+            wl_debug($department_mem);
 
 
             return view('generaladd', [
