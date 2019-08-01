@@ -87,7 +87,7 @@ class Index extends Common
 
             foreach ($department_mem as &$vo ) {
                 $vo['mem'] = Db::name('user')
-                    ->where(['compid' => $compId, 'state' => 1, 'is_perfect' => 1, 'is_del' => 1])
+                    ->where(['compid' => $compId, 'state' => 1, 'is_perfect' => 1, 'is_del' => 1, 'department_id' => $vo['id']])
                     ->field('user_name, id')
                     ->select();
             }
