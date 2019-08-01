@@ -85,20 +85,19 @@ class Index extends Common
                 ->field('id, name')
                 ->select();
 
-            foreach ($department_mem as &$vo ) {
-                $vo['mem'] = Db::name('user')
-                    ->where(['compid' => $compId, 'state' => 1, 'is_perfect' => 1, 'is_del' => 1, 'department_id' => $vo['id']])
-                    ->field('user_name, id')
-                    ->select();
-                $vo['mem'] = array_filter( $vo['mem']);
+            if (!empty($department_mem)) {
+                foreach ($department_mem as &$vo ) {
+                    $vo['mem'] = Db::name('user')
+                        ->where(['compid' => $compId, 'state' => 1, 'is_perfect' => 1, 'is_del' => 1, 'department_id' => $vo['id']])
+                        ->field('user_name, id')
+                        ->select();
+                }
             }
-
-            wl_debug($department_mem);
-
 
             return view('generaladd', [
                 'do'  => $do,
                 'general' => $general ? $general : [],
+                'department_mem' => $department_mem ? $department_mem : [],
                 'row' => $row
             ]);
 
