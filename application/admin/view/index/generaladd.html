@@ -118,17 +118,18 @@
             <input type="hidden"  name="hidId" value="{$row.id}">
 
             {/if}
-
-            <div class="layui-form-item layui-btn-lg">
-
-                <input type="hidden"  name="request_url" value="{:url('index/general', ['do' => 'add'])}">
-
-                <button class="layui-btn layui-btn-fluid general{$do}"><i class="layui-icon layui-icon-edit"></i>提交</button>
-
-            </div>
-
-        </form></div>
+        </form>
+        </div>
         <div class="layui-tab-item">6</div>
+
+        <div class="layui-form-item layui-btn-lg">
+
+            <input type="hidden"  name="request_url" value="{:url('index/general', ['do' => 'add'])}">
+
+            <button class="layui-btn layui-btn-fluid general{$do}"><i class="layui-icon layui-icon-edit"></i>提交</button>
+
+        </div>
+
     </div>
 </div>
 
