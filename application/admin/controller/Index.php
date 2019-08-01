@@ -87,7 +87,8 @@ class Index extends Common
         }
 
         if (!empty($do) && $do == 'memList') {
-            wl_debug(343);
+
+            return view('memList');
 
         }
         //state
