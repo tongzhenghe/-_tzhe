@@ -7,6 +7,7 @@
         bottom: 4px;
         right: 30px;
     }
+    .layui-timeline{float: left;}
 </style>
 
 <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
@@ -166,50 +167,16 @@
 
             <!--设置审批人-->
             <div class="layui-timeline">
+                <div class="site-title">
+                    <fieldset><legend><a name="use">设置审批人</a></legend></fieldset>
+                </div>
             <form class="layui-form layui-form-pane"  onsubmit="return false;" action="##">
 
                 <div class="layui-form-item">
-
-                    <label class="layui-form-label">插件名称</label>
-
-                    <div class="layui-input-inline">
-
-                        <input type="text" name="name" value="<?php if(!empty($row)){echo $row['name'];}?>" placeholder="请输入插件名称" autocomplete="off" class="layui-input">
-
-                    </div>
-
-                </div>
-
-                <div class="layui-form-item">
-
-                    <label class="layui-form-label">排序</label>
-
-                    <div class="layui-input-inline">
-
-                        <input type="number" name="sort"  lay-verify="required"  value="<?php if(!empty($row)){echo $row['sort'];}?>" min="1" placeholder="" autocomplete="off" class="layui-input">
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="layui-form-item">
-
-                    <label class="layui-form-label">选择图标：</label>
-
                     <div class="layui-input-block">
-
-                        <a href="javascript:;">
-
-                            <div class="zh-upload-btn uploads"><i class="layui-icon layui-icon-picture"></i></div>
-
-                            <img class="layui-upload-img" id="upload-normal-img" {if !empty($row.icon)} src="{$row.icon}"{/if}>
-
-                        </a>
-
+                        <input type="radio" name="sex" value="男" title="男">
+                        <input type="radio" name="sex" value="女" title="女" checked>
                     </div>
-
                 </div>
 
             </form>
