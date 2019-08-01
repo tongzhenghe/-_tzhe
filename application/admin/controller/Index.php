@@ -79,6 +79,12 @@ class Index extends Common
             $general = tree($general);
 
             //所有有效成员
+
+            $department = Db::name('department')
+                ->where(['state' => 1, 'compid' => $compId, 'is_del' => 1])
+                ->select();
+            wl_debug($department);
+
             $mem_list = Db::name('user a')
                 ->join('department b', 'a.department_id = b.id', 'left')
                 ->where(['a.compid' => $compId, 'a.state' => 1, 'is_perfect' => 1, 'a.is_del' => 1])
