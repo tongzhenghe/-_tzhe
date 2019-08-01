@@ -16,7 +16,7 @@
         <li class="layui-this">①基础设置</li>
         <li>②流程设计</li>
     </ul>
-    <div class="layui-tab-content" style="height: 100px;">
+    <span class="layui-tab-content" style="height: 100px;">
         <div class="layui-tab-item layui-show">
             <form class="layui-form layui-form-pane"  onsubmit="return false;" action="##">
 
@@ -127,7 +127,7 @@
             {/if}
         </form>
         </div>
-        <div class="layui-tab-item" style="margin-top: 40px;margin-left: 45px;">
+        <span class="layui-tab-item" style="margin-top: 40px;margin-left: 45px;">
 
             <ul class="layui-timeline" style="width: 40%;">
                 <li class="layui-timeline-item">
@@ -167,7 +167,7 @@
             </ul>
 
             <!--设置审批人-->
-            <div class="layui-timeline" style="width: 54%;">
+            <span class="layui-timeline" style="width: 54%;">
                 <div class="site-title">
                     <div style="text-align: left; font-size: 17px;"><a name="use" style="color: #2d8cf0;">设置审批人</a></div>
                 </div>
@@ -182,14 +182,21 @@
 
                 <!--成员列表-->
 
-                <div class="layui-collapse">
-                    <div class="layui-colla-item">
+                <style>
+                    .layui-collapse span{
+
+                    }
+
+                </style>
+
+                <span class="layui-collapse">
+                    <span class="layui-colla-item">
                         <h2 class="layui-colla-title">杜甫</h2>
-                        <div class="layui-colla-content layui-show">内容区域</div>
-                        <div class="layui-colla-content layui-show">内容区域</div>
-                        <div class="layui-colla-content layui-show">内容区域</div>
-                        <div class="layui-colla-content layui-show">内容区域</div>
-                        <div class="layui-colla-content layui-show">内容区域</div>
+                        <span class="layui-colla-content layui-show">内容区域</span>
+                        <span class="layui-colla-content layui-show">内容区域</span>
+                        <span class="layui-colla-content layui-show">内容区域</span>
+                        <span class="layui-colla-content layui-show">内容区域</span>
+                        <span class="layui-colla-content layui-show">内容区域</span>
                     </div>
 
                 </div>
