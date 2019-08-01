@@ -169,7 +169,7 @@
             <!--设置审批人-->
             <div class="layui-timeline" style="width: 54%;">
                 <div class="site-title">
-                    <div style="text-align: center; font-size: 17px;"><a name="use" style="color: #2d8cf0;">设置审批人</a></div>
+                    <div style="text-align: left; font-size: 17px;"><a name="use" style="color: #2d8cf0;">设置审批人</a></div>
                 </div>
             <form class="layui-form layui-form-pane"  onsubmit="return false;" action="##">
 
@@ -178,6 +178,14 @@
                         <input type="radio" name="sex" value="1" title="指定成员">
                         <input type="radio" name="sex" value="2" title="发起人自选" checked>
                     </div>
+                </div>
+
+                <div class="layui-form-item layui-btn-lg">
+
+                    <input type="hidden"  name="request_url" value="{:url('index/general', ['do' => 'add'])}">
+
+                    <button class="layui-btn layui-btn-fluid general{$do}"><i class="layui-icon layui-icon-edit"></i>保存</button>
+
                 </div>
 
             </form>
