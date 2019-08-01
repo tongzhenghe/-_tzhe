@@ -94,6 +94,7 @@ class Index extends Common
                 }
             }
 
+            wl_debug($department_mem);
             return view('generaladd', [
                 'do'  => $do,
                 'general' => $general ? $general : [],
