@@ -86,6 +86,10 @@ class Index extends Common
 
         }
 
+        if (!empty($do) && $do == 'memList') {
+            wl_debug(343);
+
+        }
         //state
         if ( !empty($do) && $do == '_state') {
             $post = request()->post();
