@@ -78,6 +78,15 @@ class Index extends Common
             $general = Db::name($table)->where(['state' => 1])->field('id, pid, name')->select();
             $general = tree($general);
 
+            //所有有效成员
+            $mem_list = Db::name('user a')
+                ->join('department b', 'a.department_id = b.id', 'left')
+                ->where(['a.compid' => $compId, 'a.state' => 1, 'is_perfect' => 1, 'a.is_del' => 1])->select();
+
+            wl_debug($mem_list);
+
+
+
             return view('generaladd', [
                 'do'  => $do,
                 'general' => $general ? $general : [],
