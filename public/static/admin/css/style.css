@@ -97,5 +97,5 @@ body{
     width: 15px;
     height: 15px;}
 
-.toggle-on{background: red;}
+.select-user.toggle-on{background: red;}
 /*设置审批成员-END*/
