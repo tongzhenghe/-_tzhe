@@ -198,7 +198,7 @@ $(function () {
        var   id_arr = []
            ,right_id = $(this).parent('span').attr('data-id');
 
-       $.each($('.center-users').prev().children().children().children('p'), function (v, k ) {
+       $.each($('.center-users').prev().children().children().children('p'), function (k, v) {
            console.log(v)
 
        });
