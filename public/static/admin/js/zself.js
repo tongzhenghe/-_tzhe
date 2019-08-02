@@ -201,7 +201,6 @@ $(function () {
        });
 
        //获取左边所有id
-       console.log(id_arr)
         console.log($.inArray( right_id, id_arr ))
        // $('.center-users').prev(),
 
