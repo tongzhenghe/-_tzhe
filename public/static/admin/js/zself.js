@@ -185,7 +185,7 @@ $(function () {
             ,username = $(this).children('a').text();
 
         //append发到左侧流程表
-        var html = '<li class="layui-timeline-item"><div class="layui-timeline-content layui-text st"><p data-id="'+id+'">'+username+'</p><i class="layui-icon layui-icon-close-fill setdel-u"></i></div><i class="layui-icon layui-icon-down" style="margin-left: 43px;"></i></li>';
+        var html = '<li class="layui-timeline-item"><div class="layui-timeline-content layui-text st"><p data-id="'+id+'">'+username+'</p><i class="layui-icon layui-icon-close-fill setdel-u"></i></div><i class="layui-icon layui-icon-down"></i></li>';
         $('.center-users').prev().append(html);
     });
 
@@ -194,6 +194,7 @@ $(function () {
     //switch取消
     $(".select-user").on("click", '.toggle-on', function () {
         //remove左侧的元素
+
         //获取当前id。 并和左侧比对， 如果相同就删除
 
 
