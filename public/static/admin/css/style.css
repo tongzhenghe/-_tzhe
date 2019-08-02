@@ -80,3 +80,20 @@ body{
 .ak{
     color: #ffd129;
 }
+
+
+/*设置审批成员*/
+.setdel-u {    bottom: 50px;
+    left: 64px;
+    background: #000000;
+    border-radius: 50%;
+    text-align: -webkit-center;
+    line-height: 14px;
+    font-size: 12px;
+    position: absolute;
+    top: 0px;
+    color: white;
+    right: 0px;
+    width: 15px;
+    height: 15px;}
+/*设置审批成员-END*/
