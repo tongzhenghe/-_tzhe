@@ -202,9 +202,9 @@ $(function () {
 
        //获取左边所有id
        if ($.inArray( right_id, id_arr ) >= 0) {
-           alert(3)
+           alert('存在')
        }  else {
-           alert(1)
+           alert('不存在')
        }
        // $('.center-users').prev(),
 
