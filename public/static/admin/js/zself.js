@@ -194,21 +194,24 @@ $(function () {
     //switch取消
     $(".select-user").on("click", '.toggle-on', function () {
 
+       var right_id = $(this).parent('span').attr('data-id');
+       console.log(right_id)
+
+
+
         //获取当前id。 并和左侧比对， 如果相同就删除
-       var   id_arr = [],right_id = $(this).parent('span').attr('data-id');
-
-       $.each($('.center-users').prev().children().children().children('p'), function (k, v) {
-
-           id_arr.push($(v).attr('data-id'));
-
-       });
-
-       //获取左边所有id
-       if ($.inArray( right_id, id_arr ) >= 0) {
-           //清除左边这个值
-           console.log($('.st').parent('li'))
-
-       }
+       // var   id_arr = [],right_id = $(this).parent('span').attr('data-id');
+       //
+       // $.each($('.center-users').prev().children().children().children('p'), function (k, v) {
+       //
+       //     id_arr.push($(v).attr('data-id'));
+       //
+       // });
+       //
+       // //获取左边所有id
+       // if ($.inArray( right_id, id_arr ) >= 0) {
+       //     console.log($('.st').parent('li'))
+       // }
 
 
     });
