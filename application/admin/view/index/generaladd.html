@@ -151,6 +151,7 @@
                     </div>
                 </li>
                 <!--for-END-->
+
                 <i class="layui-icon layui-icon-down" style="margin-left: 43px;"></i>
                 <h3 class="layui-timeline-title" style="margin-left: 16px;">最终审批人</h3>
                 <li class="layui-timeline-item">
@@ -190,7 +191,7 @@
                         <h2 class="layui-colla-title">{$vo.name}</h2>
                         {if !empty($vo.mem)}
                         {foreach name="vo.mem" item="vc" }
-                        <span class="layui-colla-content layui-show"><a href="javascript:;"> {$vc.user_name}</a></span>
+                        <span class="layui-colla-content layui-show select-user"><a href="javascript:;"> {$vc.user_name}</a></span>
                         {/foreach}
                         {/if}
                     </div>
