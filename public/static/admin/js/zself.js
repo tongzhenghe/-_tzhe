@@ -193,9 +193,8 @@ $(function () {
 
     //switch取消
     $(".select-user").on("click", '.toggle-on', function () {
-        //remove左侧的元素
-
         //获取当前id。 并和左侧比对， 如果相同就删除
+        console.log($(this).parent('span'))
 
 
 
