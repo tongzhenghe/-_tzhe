@@ -83,19 +83,13 @@ body{
 
 
 /*设置审批成员*/
-.setdel-u {    bottom: 50px;
+.setdel-u {
     left: 64px;
-    background: #000000;
-    border-radius: 50%;
-    text-align: -webkit-center;
-    line-height: 14px;
-    font-size: 12px;
+    font-size: 22px;
     position: absolute;
-    top: 0px;
-    color: white;
-    right: 0px;
-    width: 15px;
-    height: 15px;}
+    top: 0;
+    right: 0;
+}
 
 .select-user.toggle-on{background: red;}
 /*设置审批成员-END*/
