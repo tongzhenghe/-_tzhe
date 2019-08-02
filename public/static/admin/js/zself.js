@@ -186,7 +186,6 @@ $(function () {
 
         //append发到左侧流程表
         var html = '<li class="layui-timeline-item"><div class="layui-timeline-content layui-text st"><p>童正和</p><i class="setdel-u">x</i></div></li><i class="layui-icon layui-icon-down" style="margin-left: 43px;"></i>';
-
         $('.center-users').next().append(html)
 
     });
