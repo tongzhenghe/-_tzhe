@@ -194,7 +194,10 @@ $(function () {
     //switch取消
     $(".select-user").on("click", '.toggle-on', function () {
         //获取当前id。 并和左侧比对， 如果相同就删除
-        console.log($(this).parent('span'))
+       var right_id = $(this).parent('span').attr('data-id');
+       console.log($('.center-users').prev())
+           //获取左边所有id
+           // $('.center-users').prev(),
 
 
 
