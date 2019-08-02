@@ -194,6 +194,7 @@ $(function () {
 
     //switch取消
     $(".select-user").on("click", '.toggle-on', function () {
+        console.log(434);
     });
 
 });
