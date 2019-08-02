@@ -197,6 +197,14 @@ $(function () {
         console.log(434);
     });
 
+    //通过左边删除
+    $(".center-users").prev().on("click", ".setdel-u", function () {
+        console.log(this);
+
+
+    });
+
+
 });
 
 
