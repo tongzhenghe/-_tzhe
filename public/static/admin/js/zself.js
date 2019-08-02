@@ -193,7 +193,7 @@ $(function () {
 
 
     //switch取消
-    $(".layui-colla-item").on("click", '.toggle-on', function () {
+    $(".select-user").on("click", '.toggle-on', function () {
     });
 
 });
