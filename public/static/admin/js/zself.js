@@ -193,7 +193,7 @@ $(function () {
 
 
     //switch取消
-    $(".select-user").on('.toggle-on', "click" , function () {
+    $(".select-user").on("click", '.toggle-on', function () {
         alert(33);
     });
 
