@@ -199,12 +199,12 @@ $(function () {
            ,right_id = $(this).parent('span').attr('data-id');
 
        $.each($('.center-users').prev().children().children().children('p'), function (k, v) {
-           console.log(v)
+           id_arr.push($(v).attr('data-id'));
 
        });
            // id_arr.push($('.center-users').prev().children().children().children('p').attr('data-id'));
            //获取左边所有id
-        // console.log(id_arr)
+        console.log(id_arr)
            // $('.center-users').prev(),
 
 
