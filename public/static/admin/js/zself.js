@@ -206,7 +206,7 @@ $(function () {
        //获取左边所有id
        if ($.inArray( right_id, id_arr ) >= 0) {
            //清除左边这个值
-           console.log($('st').parent('li'))
+           console.log($('st'))
 
        }
 
