@@ -185,16 +185,16 @@ $(function () {
             ,username = $(this).children('a').text();
 
         //append发到左侧流程表
-        var html = '<li class="layui-timeline-item"><div class="layui-timeline-content layui-text st"><p>童正和</p><i class="layui-icon layui-icon-close-fill setdel-u"></i></div></li><i class="layui-icon layui-icon-down" style="margin-left: 43px;"></i>';
-
+        var html = '<li class="layui-timeline-item"><div class="layui-timeline-content layui-text st"><p data-id="'+id+'">'+username+'</p><i class="layui-icon layui-icon-close-fill setdel-u"></i></div></li><i class="layui-icon layui-icon-down" style="margin-left: 43px;"></i>';
         $('.center-users').prev().append(html)
-
     });
+
 
 
     //switch取消
     $(".select-user").on("click", '.toggle-on', function () {
-        console.log(434);
+        console.log(this)
+
     });
 
     //通过左边删除
