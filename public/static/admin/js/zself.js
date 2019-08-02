@@ -196,7 +196,7 @@ $(function () {
 
        var right_id = $(this).parent('span').attr('data-id');
 
-       console.log($('.st').children('p'))
+       console.log($('.st').children('p').attr('data-id'))
 
 
         //获取当前id。 并和左侧比对， 如果相同就删除
