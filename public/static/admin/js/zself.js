@@ -179,7 +179,7 @@ $(function () {
     //审批人选择
     $(".select-user").on("click" , function () {
         //1、 将自己的颜色改变， 同时将用户
-        $(this).toggleClass('toggle-on');
+        $(this).children('a').toggleClass('toggle-on');
         //2、 将获取到当前用户id和name append到左侧并按照顺序排列
         var id = $(this).attr('data-id')
             ,username = $(this).children('a').text();
