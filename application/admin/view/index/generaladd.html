@@ -178,7 +178,7 @@
                         <h2 class="layui-colla-title">{$vo.name}</h2>
                         {if !empty($vo.mem)}
                         {foreach name="vo.mem" item="vc" }
-                        <span class="layui-colla-content layui-show select-user" data-id="{$vc.id}"><a href="javascript:;">{$vc.user_name}</a></span>
+                        <span class="layui-colla-content layui-show select-user" data-id="{$vc.id}"><a href="javascript:;" class="sel-user">{$vc.user_name}</a></span>
                         {/foreach}
                         {/if}
                     </div>
