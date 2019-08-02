@@ -194,7 +194,6 @@ $(function () {
 
     //switch取消
     $(".layui-colla-item").on("click", '.toggle-on', function () {
-        alert(33);
     });
 
 });
