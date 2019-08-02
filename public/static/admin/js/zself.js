@@ -185,9 +185,10 @@ $(function () {
             ,username = $(this).children('a').text();
 
         //append发到左侧流程表
-        var html = '<li class="layui-timeline-item"><div class="layui-timeline-content layui-text st"><p>童正和</p><i class="setdel-u">x</i></div></li><i class="layui-icon layui-icon-down" style="margin-left: 43px;"></i>';
-        console.log(  $('.center-users').next())
+        var html = '<li class="layui-timeline-item"><div class="layui-timeline-content layui-text st"><p>童正和</p><a class="setdel-u">x</a></div></li><i class="layui-icon layui-icon-down" style="margin-left: 43px;"></i>';
+
         $('.center-users').prev().append(html)
+
 
     });
 
