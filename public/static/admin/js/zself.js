@@ -178,9 +178,12 @@ $(function () {
 
     //审批人选择
     $(".select-user").on("click" , function () {
-        console.log(this)
+        //1、 将自己的颜色改变， 同时将用户
+        $(this).toggleClass('toggle-on');
+        //2、 将当前用户append到左侧并按照顺序排列
 
-    })
+
+    });
 
 
 });
