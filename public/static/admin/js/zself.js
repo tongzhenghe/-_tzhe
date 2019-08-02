@@ -189,9 +189,13 @@ $(function () {
 
         $('.center-users').prev().append(html)
 
-
     });
 
+
+    //switch取消
+    $(".select-user").on('.toggle-on', "click" , function () {
+        alert(33);
+    });
 
 });
 
