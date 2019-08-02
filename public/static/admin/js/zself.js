@@ -197,13 +197,13 @@ $(function () {
         //获取当前id。 并和左侧比对， 如果相同就删除
        var   id_arr = [],right_id = $(this).parent('span').attr('data-id');
        $.each($('.center-users').prev().children().children().children('p'), function (k, v) {
-           id_arr.push($(v).attr('data-id'));
+          console.log(v)
        });
 
        //获取左边所有id
-        console.log(id_arr)
-        console.log(right_id)
-        console.log($.inArray( right_id, id_arr ))
+       //  console.log(id_arr);
+       //  console.log(right_id);
+       //  console.log($.inArray( right_id, id_arr ))
        // $('.center-users').prev(),
 
 
