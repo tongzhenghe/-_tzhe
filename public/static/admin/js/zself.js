@@ -176,6 +176,12 @@ $(function () {
     
 
 
+    //审批人选择
+    $(".select-user").on("click" , function () {
+        console.log(this)
+
+    })
+
 
 });
 
