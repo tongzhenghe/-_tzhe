@@ -115,6 +115,8 @@ class Index extends Common
                 }
             }
 
+            wl_debug($row);
+
             return view('generaladd', [
                 'do'  => $do,
                 'general' => $general ? $general : [],
