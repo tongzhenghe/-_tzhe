@@ -45,8 +45,11 @@ class Index extends Common
 
                 //处理自定义审批人
                 $custom_type = intval($post['custom_type']);
-                $app_people = array_filter($post['app_people']);
-                jsondebug($app_people);
+                $app_people = null;
+                if ($custom_type == 1 ) {
+                    $app_people = array_filter($post['app_people']);
+                }
+
 
                 $data = [
                     'name' => trim($post['name']),
@@ -56,9 +59,12 @@ class Index extends Common
                     'url' => trim($post['url']),
                     'bgcolor' => trim($post['bgcolor']),
                     'icon_code' => trim($post['icon_code']),
-                    'compid' => $compId,
+                    'custom_type' => $custom_type,
+                    'app_people' => json_encode($app_people),
                     'time' => time(),
                 ];
+
+                jsondebug($data);
 
                 if (empty($post['id'])) {
                     $result = Db::name($table)->insert($data);
