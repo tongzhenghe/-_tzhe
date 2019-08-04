@@ -223,7 +223,7 @@ $(function () {
         // 获取当前id。 并和左侧比对， 如果相同就删除
        var id_arr = [], right_id = $(this).parent('span').attr('data-id');
 
-       console.log($('.users-demo'));
+       console.log($('.users-demo').children('p'));
        $.each($('.center-users').prev().children().children().children('p'), function (k, v) {
            id_arr.push($(v).attr('data-id'));
 
