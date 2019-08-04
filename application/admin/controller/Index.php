@@ -66,8 +66,6 @@ class Index extends Common
                     'time' => time(),
                 ];
 
-                jsondebug($data);
-
                 if (empty($post['id'])) {
                     $result = Db::name($table)->insert($data);
                 } else {
