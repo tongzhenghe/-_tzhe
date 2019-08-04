@@ -21,9 +21,6 @@ $(function () {
                 app_people.push(id);
             });
 
-
-            console.log(app_people)
-
             request_url = $("input[name='request_url']").val();
             formData = {
                 name:name,
@@ -33,10 +30,11 @@ $(function () {
                 icon_code:icon_code,
                 url:url,
                 pid:pid,
+                app_people:app_people,
                 id  :id  ? id : null
             };
 
-        // $.fn.setRequest( formData,    request_url );
+        $.fn.setRequest( formData, request_url );
 
     });
 
