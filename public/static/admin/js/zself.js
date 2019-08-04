@@ -219,7 +219,6 @@ $(function () {
 
     //switch取消
     $(".select-user").on("click", '.toggle-on', function () {
-        alert(22)
 
         // 获取当前id。 并和左侧比对， 如果相同就删除
        var id_arr = [], right_id = $(this).parent('span').attr('data-id');
@@ -229,6 +228,8 @@ $(function () {
 
        });
 
+       alert(right_id)
+        console.log(id_arr)
        // 获取左边所有id
         if ( $.inArray(right_id, id_arr) !== -1) {
             layer.msg('<span><i class="layui-icon layui-icon-close" style="    color: white; background: red;     margin-right: 13px;border-radius: 10px;"></i>已选择</span>', {
