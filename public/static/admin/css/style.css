@@ -93,6 +93,9 @@ body{
     right: 0;
 }
 
-.sel-user.toggle-on{background: #2d8cf0;
-    color: white;}
+.sel-user.toggle-on{
+    padding: 8%;
+    background: #2d8cf0;
+    color: white;
+}
 /*设置审批成员-END*/
