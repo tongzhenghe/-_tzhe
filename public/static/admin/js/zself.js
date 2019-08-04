@@ -241,7 +241,7 @@ $(function () {
 
 
     //通过左边删除
-    $(".users-demo").on("click", ".setdel-u", function () {
+    $(".appro-list").on("click", ".setdel-u", function () {
         alert(2)
         $(this).parents('li').remove();
 
