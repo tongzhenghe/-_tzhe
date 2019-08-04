@@ -84,10 +84,12 @@ body{
 
 /*设置审批成员*/
 .setdel-u {
-    left: 47px;
+    left: 54%;
     font-size: 22px;
     position: absolute;
-    top: 8px;
+    cursor: pointer;
+    width: 7%;
+    top: 5px;
     right: 0;
 }
 
