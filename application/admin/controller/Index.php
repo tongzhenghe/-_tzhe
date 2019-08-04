@@ -65,7 +65,6 @@ class Index extends Common
                     'settinged_appro_member' => json_encode($app_people),
                     'time' => time(),
                 ];
-                jsondebug($data);
 
                 if (empty($post['id'])) {
                     $result = Db::name($table)->insert($data);
@@ -113,7 +112,7 @@ class Index extends Common
             if (!empty($department_mem)) {
                 foreach ($department_mem as &$vo ) {
                     $vo['mem'] = Db::name('user')
-                        ->where(['compid' => $compId, 'is_perfect' => 1, 'is_del' => 1, 'department_id' => $vo['id']])
+                        ->where(['compid' => $compId, 'state' => 1, 'is_perfect' => 1, 'is_del' => 1, 'department_id' => $vo['id']])
                         ->field('user_name, id')
                         ->select();
                 }
@@ -146,7 +145,7 @@ class Index extends Common
         }
 
 
-        $data = Db::name($table)->where(['state' => 1, 'compid' => $compId])->order('sort asc')->select();
+        $data = Db::name($table)->where(['compid' => $compId])->order('sort asc')->select();
         $data = tree($data);
 
         return view('' , ['data' => $data]);
