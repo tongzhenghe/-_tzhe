@@ -219,6 +219,7 @@ $(function () {
 
     //switch取消
     $(".select-user").on("click", '.toggle-on', function () {
+        alert(22)
 
         // 获取当前id。 并和左侧比对， 如果相同就删除
        var id_arr = [], right_id = $(this).parent('span').attr('data-id');
