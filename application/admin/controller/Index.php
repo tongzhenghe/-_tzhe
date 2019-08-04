@@ -51,6 +51,7 @@ class Index extends Common
                 }
 
 
+                jsondebug($post);
                 $data = [
                     'name' => trim($post['name']),
                     'pid' => intval($post['pid']),
@@ -63,6 +64,8 @@ class Index extends Common
                     'app_people' => json_encode($app_people),
                     'time' => time(),
                 ];
+
+                jsondebug($data);
 
                 if (empty($post['id'])) {
                     $result = Db::name($table)->insert($data);
