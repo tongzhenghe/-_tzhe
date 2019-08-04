@@ -44,7 +44,10 @@ $(function () {
     $('.layui-input-block').on('click', '.layui-form-radioed', function () {
 
        if (1 == $("input:radio[name='custom_type']:checked").val()) {
-           alert(1)
+
+           $('.layui-collapse').show();
+       } else {
+           $('.layui-collapse').hide();
        }
 
     });
