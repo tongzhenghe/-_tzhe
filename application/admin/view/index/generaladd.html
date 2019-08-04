@@ -191,7 +191,7 @@
                         {if !empty($vo.mem)}
                         {foreach name="vo.mem" item="vc" }
                         <span class="layui-colla-content layui-show select-user" data-id="{$vc.id}">
-                            <a href="javascript:;" class="sel-user toggle-on">{$vc.user_name}</a>
+                            <a href="javascript:;" class="sel-user {if in_array($vc.id, $row.set_css)}toggle-on{/if}">{$vc.user_name}</a>
                         </span>
                         {/foreach}
                         {/if}
