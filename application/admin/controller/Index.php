@@ -85,9 +85,7 @@ class Index extends Common
                 if (!empty($row['settinged_appro_member'])) {
                     $row['settinged_appro_member'] = (array)json_decode($row['settinged_appro_member']);
                     $row['settinged_appro_member'] = implode(",", $row['settinged_appro_member']);
-                    $row['settinged_appro_member'] = array_filter(explode(",", $row['settinged_appro_member']));
-
-                    wl_debug( $row['settinged_appro_member']);
+                   $row['set_css'] = $row['settinged_appro_member'] = array_filter(explode(",", $row['settinged_appro_member']));
 
                     $user_list = [];
                     for($i = 0; $i<count( $row['settinged_appro_member']); $i++) {
@@ -117,6 +115,8 @@ class Index extends Common
                 }
             }
 
+
+            wl_debug($row);
             return view('generaladd', [
                 'do'  => $do,
                 'general' => $general ? $general : [],
