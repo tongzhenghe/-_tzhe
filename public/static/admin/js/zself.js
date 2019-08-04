@@ -255,6 +255,7 @@ $(function () {
 
     //通过左边删除
     $(".setdel-u").on("click", function () {
+        alert(1)
         $(this).parents('li').remove();
 
         //删除右侧的
