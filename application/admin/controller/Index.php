@@ -88,7 +88,7 @@ class Index extends Common
                     $row['settinged_appro_member'] = array_filter(explode(",", $row['settinged_appro_member']));
 
                     for($i = 0; $i<=count( $row['settinged_appro_member']); $i++) {
-                        wl_debug($i);
+
                         $row['settinged_appro_members'][] = Db::name('user')->where('id', $row['settinged_appro_member'][$i])->find();
                     }
 
