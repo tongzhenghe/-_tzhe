@@ -51,8 +51,6 @@ class Index extends Common
                     $app_people = array_filter($post['app_people']);
                 }
 
-                jsondebug($post);
-
                 $data = [
                     'name' => trim($post['name']),
                     'compid' => $compId,
@@ -66,8 +64,6 @@ class Index extends Common
                     'settinged_appro_member' => json_encode($app_people),
                     'time' => time(),
                 ];
-
-                jsondebug($data);
 
                 if (empty($post['id'])) {
                     $result = Db::name($table)->insert($data);
