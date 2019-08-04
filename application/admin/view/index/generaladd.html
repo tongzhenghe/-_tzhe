@@ -190,7 +190,9 @@
                         <h2 class="layui-colla-title">{$vo.name}</h2>
                         {if !empty($vo.mem)}
                         {foreach name="vo.mem" item="vc" }
-                        <span class="layui-colla-content layui-show select-user" data-id="{$vc.id}"><a href="javascript:;" class="sel-user">{$vc.user_name}</a></span>
+                        <span class="layui-colla-content layui-show select-user" data-id="{$vc.id}">
+                            <a href="javascript:;" class="sel-user" if (in_array($vc['id'], $row['settinged_appro_member'])){  echo 'style="background: #2d8cf0"'; }>{$vc.user_name}</a>
+                        </span>
                         {/foreach}
                         {/if}
                     </div>
