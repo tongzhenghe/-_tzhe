@@ -89,7 +89,7 @@ class Index extends Common
 
                     $user_list = [];
                     for($i = 0; $i<count( $row['settinged_appro_member']); $i++) {
-                        $user_list = Db::name('user')->where('id', $row['settinged_appro_member'][$i])->find();
+                        $user_list[] = Db::name('user')->where('id', $row['settinged_appro_member'][$i])->find();
                     }
                     wl_debug($user_list);
 
