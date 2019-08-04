@@ -65,6 +65,7 @@ class Index extends Common
                     'settinged_appro_member' => json_encode($app_people),
                     'time' => time(),
                 ];
+                jsondebug($data);
 
                 if (empty($post['id'])) {
                     $result = Db::name($table)->insert($data);
