@@ -40,8 +40,8 @@ class Index extends Common
             if (request()->isAjax()) {
                 $post = request()->post();
 //
-//                if (empty($post['name'])) exit(iJson('', 400, 400, '请填写名称'));
-//                if (empty($post['url'])) exit(iJson('', 400, 400, '请填写请求地址'));
+                if (empty($post['name'])) exit(iJson('', 400, 400, '请填写名称'));
+                if (empty($post['url'])) exit(iJson('', 400, 400, '请填写请求地址'));
 
                 //处理自定义审批人
                 $custom_type = intval($post['custom_type']);
@@ -51,7 +51,6 @@ class Index extends Common
                 }
 
 
-                jsondebug($post);
                 $data = [
                     'name' => trim($post['name']),
                     'pid' => intval($post['pid']),
