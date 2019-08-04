@@ -51,6 +51,7 @@ class Index extends Common
                     $app_people = array_filter($post['app_people']);
                 }
 
+                jsondebug($post);
 
                 $data = [
                     'name' => trim($post['name']),
