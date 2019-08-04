@@ -192,11 +192,8 @@ $(function () {
 
 
     //switch取消
-    $(".select-user").on("click", '.toggle-on', function () {
-
-       var right_id = $(this).parent('span').attr('data-id');
-
-
+    // $(".select-user").on("click", '.toggle-on', function () {
+       // var right_id = $(this).parent('span').attr('data-id');
         //获取当前id。 并和左侧比对， 如果相同就删除
        // var   id_arr = [],right_id = $(this).parent('span').attr('data-id');
        //
@@ -209,13 +206,12 @@ $(function () {
        // if ($.inArray( right_id, id_arr ) >= 0) {
        //     console.log($('.st').parent('li'))
        // }
-
-
-    });
+    // });
 
     //通过左边删除
     $(".center-users").prev().on("click", ".setdel-u", function () {
-        console.log(this);
+
+        console.log($(this).parents())
 
 
     });
