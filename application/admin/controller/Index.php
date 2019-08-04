@@ -62,6 +62,7 @@ class Index extends Common
                     'icon_code' => trim($post['icon_code']),
                     'custom_type' => $custom_type,
                     'settinged_appro_member' => json_encode($app_people),
+                    'state' => 1,
                     'time' => time(),
                 ];
 
