@@ -147,7 +147,17 @@
                 <h3 class="layui-timeline-title center-users"></h3>
 
                 <!--for-->
-
+                {if !empty($row.settinged_appro_member)}
+                {volist name="row.settinged_appro_member" id="vo" }
+                <li class="layui-timeline-item">
+                    <div class="layui-timeline-content layui-text st">
+                        <p data-id="{$vo.id}">{$vo.user_name}</p>
+                        <i class="layui-icon layui-icon-close-fill setdel-u"></i>
+                    </div>
+                    <i class="layui-icon layui-icon-down"></i>
+                </li>
+                {/volist}
+                {/if}
                 <!--for-END-->
             </ul>
 
@@ -160,7 +170,7 @@
 
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <input type="radio" name="custom_type" value="1" title="指定成员">
+                        <input type="radio" name="custom_type" value="1" title="指定成员" {if !empty($row) && $row['custom_type']==1}checked{/if}>
                         <input type="radio" name="custom_type" value="2" title="发起人表单自选" checked >
                     </div>
                 </div>
