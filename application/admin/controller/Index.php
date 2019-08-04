@@ -53,6 +53,7 @@ class Index extends Common
 
                 $data = [
                     'name' => trim($post['name']),
+                    'compid' => $compId,
                     'pid' => intval($post['pid']),
                     'sort' => intval($post['sort']),
                     'icon' => !empty($post['icon']) ? trim($post['icon']) : null,
@@ -81,7 +82,7 @@ class Index extends Common
             $id = request()->param('id');
             $row = [];
             if (!empty($id)) {
-                $row = Db::name($table)->where('id', intval($id))->find();
+                $row = Db::name($table)->where(['id' => intval($id), 'compid' => $compId])->find();
                 if (!empty($row['settinged_appro_member'])) {
                     $row['settinged_appro_member'] = (array)json_decode($row['settinged_appro_member']);
                     $row['settinged_appro_member'] = implode(",", $row['settinged_appro_member']);
@@ -89,14 +90,15 @@ class Index extends Common
 
                     $user_list = [];
                     for($i = 0; $i<count( $row['settinged_appro_member']); $i++) {
-                        $user_list[] = Db::name('user')->where('id', $row['settinged_appro_member'][$i])->field('id, user_name')->find();
+                        $user_list[] = Db::name('user')->where(['id' => $row['settinged_appro_member'][$i], 'compid' => $compId])->field('id, user_name')->find();
                     }
                     $row['settinged_appro_member'] = $user_list;
 
                 }
             }
 
-            $general = Db::name($table)->where(['state' => 1])->field('id, pid, name')->select();
+            $general = Db::name($table)->where(['state' => 1, 'compid' => $compId])->field('id, pid, name')->select();
+            wl_debug($general);
             $general = tree($general);
 
             //所有有效成员
