@@ -219,12 +219,12 @@ $(function () {
         //删除右侧的
         var  s = $(this).prev('p').attr('data-id');
 
-        console.log( $("select-user[data-id=1]"))
+        console.log( $(".select-user[data-id=1]"))
 
         // console.log($(".select-user[data-id =1"]))
         //
         //
-        // $("body [data-id=main_header]")
+        $("body [data-id=main_header]")
 
 
 
