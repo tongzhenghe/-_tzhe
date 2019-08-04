@@ -98,7 +98,7 @@ class Index extends Common
             }
 
             $general = Db::name($table)->where(['state' => 1, 'compid' => $compId])->field('id, pid, name')->select();
-            wl_debug($general);
+
             $general = tree($general);
 
             //所有有效成员
@@ -118,6 +118,7 @@ class Index extends Common
             }
 
 
+            wl_debug($department_mem);
             return view('generaladd', [
                 'do'  => $do,
                 'general' => $general ? $general : [],
