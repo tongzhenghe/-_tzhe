@@ -16,6 +16,7 @@ $(function () {
            pid = $("select[name='pid']").val(),
            id =  $("input[name='hidId']").val();
           //获取设置好的审批流程和是否自定义设置；
+            custom_type =   $("input:radio[name='custom_type']:checked").val();
             $.each($(".st"), function (key, val ) {
                 var id = $(val).children('p').attr("data-id");
                 app_people.push(id);
@@ -30,6 +31,7 @@ $(function () {
                 icon_code:icon_code,
                 url:url,
                 pid:pid,
+                custom_type:custom_type,
                 app_people:app_people,
                 id  :id  ? id : null
             };
