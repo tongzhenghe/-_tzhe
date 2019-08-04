@@ -82,6 +82,7 @@ class Index extends Common
             $row = [];
             if (!empty($id)) {
                 $row = Db::name($table)->where('id', intval($id))->find();
+                wl_debug($row);
             }
 
             $general = Db::name($table)->where(['state' => 1])->field('id, pid, name')->select();
