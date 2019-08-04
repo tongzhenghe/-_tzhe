@@ -211,7 +211,7 @@ $(function () {
     //通过左边删除
     $(".center-users").prev().on("click", ".setdel-u", function () {
 
-        console.log($(this).parent())
+        console.log($(this).parents('li'))
 
 
     });
