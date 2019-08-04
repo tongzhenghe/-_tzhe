@@ -212,7 +212,7 @@ $(function () {
 
         //append发到左侧流程表
         var html = '<li class="layui-timeline-item users-demo"><div class="layui-timeline-content layui-text st"><p data-id="'+id+'">'+username+'</p><i class="layui-icon layui-icon-close-fill setdel-u"></i></div><i class="layui-icon layui-icon-down"></i></li>';
-        $('.center-users').prev().append(html);
+        $('.user-all').prev().append(html);
     });
 
 
@@ -253,8 +253,6 @@ $(function () {
     });
 
 });
-
-
 
 //公共组件
 $(function () {
