@@ -170,8 +170,8 @@
 
                 <div class="layui-form-item">
                     <div class="layui-input-block">
+                        <input type="radio" name="custom_type" value="2" title="发起人表单自选" {if !empty($row) && $row['custom_type']==2}checked{/if} >
                         <input type="radio" name="custom_type" value="1" title="指定成员" {if !empty($row) && $row['custom_type']==1}checked{/if}>
-                        <input type="radio" name="custom_type" value="2" title="发起人表单自选" checked >
                     </div>
                 </div>
 
