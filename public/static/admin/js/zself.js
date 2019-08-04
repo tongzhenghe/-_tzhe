@@ -7,13 +7,23 @@ $(function () {
     $(".generaladd").on("click", function () {
 
        var name =  $("input[name='name']").val(),
-           sort =  $("input[name='sort']").val(),
+           app_people = []
+           ,sort =  $("input[name='sort']").val(),
            icon =  $("#upload-normal-img").attr("src"),
            url =  $("input[name='url']").val(),
            bgcolor =  $("input[name='bgcolor']").val(),
            icon_code =  $("input[name='icon_code']").val(),
            pid = $("select[name='pid']").val(),
            id =  $("input[name='hidId']").val();
+          //获取设置好的审批流程和是否自定义设置；
+            $.each($(".st"), function (key, val ) {
+                var id = $(val).children('p').attr("data-id");
+                app_people.push(id);
+            });
+
+
+            console.log(app_people)
+
             request_url = $("input[name='request_url']").val();
             formData = {
                 name:name,
@@ -26,7 +36,7 @@ $(function () {
                 id  :id  ? id : null
             };
 
-        $.fn.setRequest( formData,    request_url );
+        // $.fn.setRequest( formData,    request_url );
 
     });
 
@@ -128,8 +138,6 @@ $(function () {
     });
 
 
-
-
     //账户注册
     $(".adminadd").on("click", function () {
             var ue =  UE.getEditor('editor');
@@ -212,6 +220,8 @@ $(function () {
         }
     });
 
+
+
     //通过左边删除
     $(".center-users").prev().on("click", ".setdel-u", function () {
         $(this).parents('li').remove();
@@ -222,9 +232,6 @@ $(function () {
         $(".select-user[data-id="+id+"]").children('a').removeClass('toggle-on');
 
     });
-
-
-
 
 });
 
