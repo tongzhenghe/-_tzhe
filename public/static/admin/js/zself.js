@@ -252,24 +252,6 @@ $(function () {
 
     });
 
-
-    //通过左边删除
-    $(".setdel-u").on("click", function () {
-        alert(1)
-        $(this).parents('li').remove();
-
-        //删除右侧的
-        var  id = $(this).prev('p').attr('data-id');
-
-        $(".select-user[data-id="+id+"]").children('a').removeClass('toggle-on');
-
-    });
-
-
-
-
-
-
 });
 
 
