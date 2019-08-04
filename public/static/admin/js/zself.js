@@ -38,6 +38,15 @@ $(function () {
 
     });
 
+
+    //显示隐藏设置审批成员
+
+    $('.layui-input-block').on('click', '.layui-form-radioed', function () {
+        alert(2)
+
+    })
+
+
     $(".department_add").on("click", function () {
 
        var name =  $("input[name='name']").val(),
