@@ -185,7 +185,7 @@ $(function () {
             ,username = $(this).children('a').text();
 
         //append发到左侧流程表
-        var html = '<li class="layui-timeline-item"><div class="layui-timeline-content layui-text st"><p data-id="'+id+'">'+username+'</p><i class="layui-icon layui-icon-close-fill setdel-u"></i></div><i class="layui-icon layui-icon-down"></i></li>';
+        var html = '<li class="layui-timeline-item"><div class="layui-timeline-content layui-text st"><p data-id="'+id+'">'+username+'</p><a href="javascript:;"><i class="layui-icon layui-icon-close-fill setdel-u"></i></a></div><i class="layui-icon layui-icon-down"></i></li>';
         $('.center-users').prev().append(html);
     });
 
@@ -196,8 +196,6 @@ $(function () {
 
        var right_id = $(this).parent('span').attr('data-id');
 
-       console.log($('.st'))
-
 
         //获取当前id。 并和左侧比对， 如果相同就删除
        // var   id_arr = [],right_id = $(this).parent('span').attr('data-id');
@@ -205,7 +203,6 @@ $(function () {
        // $.each($('.center-users').prev().children().children().children('p'), function (k, v) {
        //
        //     id_arr.push($(v).attr('data-id'));
-       //
        // });
        //
        // //获取左边所有id
