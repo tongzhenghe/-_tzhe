@@ -92,7 +92,7 @@ class Index extends Common
                         $user_list[] = Db::name('user')->where('id', $row['settinged_appro_member'][$i])->find();
                     }
                     $row['settinged_appro_member'] = $user_list;
-                    wl_debug( $row['settinged_appro_member']);
+                    wl_debug( $row);
 
                 }
             }
