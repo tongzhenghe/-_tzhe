@@ -133,8 +133,7 @@
         </form>
         </div>
         <div class="layui-tab-item" style="margin-top: 40px;margin-left: 45px;">
-
-            <ul class="layui-timeline appro-list" style="width: 16%;position: fixed;text-align: -webkit-center;">
+            <ul class="layui-timeline appro-list" style="width: 16%;position: fixed;text-align: -webkit-center;{if !empty($row) && $row.custom_type==1}display: block;{/if}">
                 <h3 class="layui-timeline-title">发起人</h3>
                 <i class="layui-icon layui-icon-down"></i>
                 <li class="layui-timeline-item">
