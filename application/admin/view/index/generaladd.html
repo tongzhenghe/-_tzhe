@@ -142,21 +142,27 @@
                     </div>
                     <i class="layui-icon layui-icon-down"></i>
                 </li>
-                <h3 class="layui-timeline-title user-all">中间审批人</h3>
+                <h3 class="layui-timeline-title">中间审批人</h3>
 
-                <!--for-->
-                {if !empty($row.settinged_appro_member)}
-                {volist name="row.settinged_appro_member" id="vo" }
-                <li class="layui-timeline-item users-demo">
-                    <div class="layui-timeline-content layui-text st">
-                        <p data-id="{$vo.id}">{$vo.user_name}</p>
-                        <i class="layui-icon layui-icon-close-fill setdel-u"></i>
-                    </div>
-                    <i class="layui-icon layui-icon-down"></i>
-                </li>
-                {/volist}
-                {/if}
-                <!--for-END-->
+                <div class="users-demo-list">
+                    <!--for-->
+                    {if !empty($row.settinged_appro_member)}
+                    {volist name="row.settinged_appro_member" id="vo" }
+                    <li class="layui-timeline-item users-demo">
+                        <div class="layui-timeline-content layui-text st">
+                            <p data-id="{$vo.id}">{$vo.user_name}</p>
+                            <i class="layui-icon layui-icon-close-fill setdel-u"></i>
+                        </div>
+                        <i class="layui-icon layui-icon-down"></i>
+                    </li>
+                    {/volist}
+                    {/if}
+                    <!--for-END-->
+                </div>
+
+
+
+
             </ul>
 
             <!--设置审批人-->
