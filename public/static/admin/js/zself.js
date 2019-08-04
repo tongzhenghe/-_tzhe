@@ -217,7 +217,7 @@ $(function () {
         $(this).parents('li').remove();
 
         //删除右侧的
-        console.log($(this).prev())
+        console.log($(this).prev('p').attr('data-id'))
 
 
 
