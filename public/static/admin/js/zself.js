@@ -43,7 +43,9 @@ $(function () {
 
     $('.layui-input-block').on('click', '.layui-form-radioed', function () {
 
-        console.log($("input:radio[name='custom_type']:checked").val())
+       if (1 == $("input:radio[name='custom_type']:checked").val()) {
+           alert(1)
+       }
 
     });
 
