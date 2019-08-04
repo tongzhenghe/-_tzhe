@@ -146,7 +146,6 @@ class Index extends Common
 
 
         $data = Db::name($table)->where(['state' => 1, 'compid' => $compId])->order('sort asc')->select();
-        wl_debug($data);
         $data = tree($data);
 
         return view('' , ['data' => $data]);
