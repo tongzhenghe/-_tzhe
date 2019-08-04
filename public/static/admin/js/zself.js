@@ -241,7 +241,8 @@ $(function () {
 
 
     //通过左边删除
-    $(".center-users").prev().on("click", ".setdel-u", function () {
+    $(".users-demo").prev().on("click", ".setdel-u", function () {
+        alert(2)
         $(this).parents('li').remove();
 
         //删除右侧的
