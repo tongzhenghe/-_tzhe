@@ -85,7 +85,8 @@ class Index extends Common
                 if (!empty($row['settinged_appro_member'])) {
                     $row['settinged_appro_member'] = (array)json_decode($row['settinged_appro_member']);
 
-                    wl_debug( $row['settinged_appro_member'][1]);
+                    wl_debug( $row['settinged_appro_member'][0]);
+
                     $dd = [];
                     for($i = 1; $i<=count( $row['settinged_appro_member']); $i++) {
                        $dd[] = Db::name('user')->where('id', $row['settinged_appro_member'][$i])->find();
