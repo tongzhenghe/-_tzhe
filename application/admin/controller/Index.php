@@ -60,7 +60,7 @@ class Index extends Common
                     'bgcolor' => trim($post['bgcolor']),
                     'icon_code' => trim($post['icon_code']),
                     'custom_type' => $custom_type,
-                    'app_people' => json_encode($app_people),
+                    'settinged_appro_member' => json_encode($app_people),
                     'time' => time(),
                 ];
 
