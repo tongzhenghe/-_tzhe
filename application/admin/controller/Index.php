@@ -85,7 +85,6 @@ class Index extends Common
                 if (!empty($row['settinged_appro_member'])) {
                     $row['settinged_appro_member'] = json_decode($row['settinged_appro_member']);
                 }
-                wl_debug($row);
             }
 
             $general = Db::name($table)->where(['state' => 1])->field('id, pid, name')->select();
