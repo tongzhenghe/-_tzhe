@@ -44,8 +44,8 @@ class Index extends Common
                 if (empty($post['url'])) exit(iJson('', 400, 400, '请填写请求地址'));
 
                 //处理自定义审批人
-                $custom_type = 2;
-                $custom_type = intval($post['custom_type']);
+                $custom_type = !empty($post['custom_type']) ? $post['custom_type'] : 2;
+
                 $app_people = null;
                 if ($custom_type == 1 ) {
                     $app_people = array_filter($post['app_people']);
