@@ -42,7 +42,8 @@ $(function () {
     //显示隐藏设置审批成员
 
     $('.layui-input-block').on('click', '.layui-form-radioed', function () {
-       console.log(this)
+
+        console.log($("input[name='custom_type']").radio())
 
     });
 
