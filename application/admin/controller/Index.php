@@ -99,7 +99,7 @@ class Index extends Common
                 }
             }
 
-            $general = Db::name($table)->where(['compid' => $compId])->field('id, pid, name')->select();
+            $general = Db::name($table)->where(['state' => 1, 'compid' => $compId])->field('id, pid, name')->select();
 
             $general = tree($general);
 
@@ -113,7 +113,7 @@ class Index extends Common
             if (!empty($department_mem)) {
                 foreach ($department_mem as &$vo ) {
                     $vo['mem'] = Db::name('user')
-                        ->where(['compid' => $compId, 'state' => 1, 'is_perfect' => 1, 'is_del' => 1, 'department_id' => $vo['id']])
+                        ->where(['compid' => $compId, 'is_perfect' => 1, 'is_del' => 1, 'department_id' => $vo['id']])
                         ->field('user_name, id')
                         ->select();
                 }
