@@ -219,8 +219,6 @@ $(function () {
         //删除右侧的
         var  s = $(this).prev('p').attr('data-id');
 
-
-
     });
 
 
