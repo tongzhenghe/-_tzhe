@@ -212,7 +212,7 @@ $(function () {
 
         //append发到左侧流程表
         var html = '<li class="layui-timeline-item users-demo"><div class="layui-timeline-content layui-text st"><p data-id="'+id+'">'+username+'</p><i class="layui-icon layui-icon-close-fill setdel-u"></i></div><i class="layui-icon layui-icon-down"></i></li>';
-        $('.user-all').prev().append(html);
+        $('.users-demo-list').append(html);
     });
 
 
@@ -242,7 +242,6 @@ $(function () {
 
     //通过左边删除
     $(".appro-list").on("click", ".setdel-u", function () {
-        alert(2)
         $(this).parents('li').remove();
 
         //删除右侧的
