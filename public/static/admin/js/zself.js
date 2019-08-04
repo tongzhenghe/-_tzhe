@@ -215,6 +215,12 @@ $(function () {
     //通过左边删除
     $(".center-users").prev().on("click", ".setdel-u", function () {
         $(this).parents('li').remove();
+
+        //删除右侧的
+        console.log($(this).prev())
+
+
+
     });
 
 
