@@ -43,7 +43,7 @@ $(function () {
 
     $('.layui-input-block').on('click', '.layui-form-radioed', function () {
 
-        console.log($("input[name='custom_type']").radio())
+        console.log($("input:radio[name='custom_type']:checked").val())
 
     });
 
