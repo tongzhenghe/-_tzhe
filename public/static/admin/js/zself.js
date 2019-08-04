@@ -46,8 +46,11 @@ $(function () {
        if (1 == $("input:radio[name='custom_type']:checked").val()) {
 
            $('.layui-collapse').show();
+           $('.appro-list').show();
        } else {
+           $('.appro-list').hide();
            $('.layui-collapse').hide();
+
        }
 
     });
