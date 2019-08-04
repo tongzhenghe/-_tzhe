@@ -86,13 +86,12 @@ class Index extends Common
                     $row['settinged_appro_member'] = (array)json_decode($row['settinged_appro_member']);
                     $row['settinged_appro_member'] = implode(",", $row['settinged_appro_member']);
                     $row['settinged_appro_member'] = explode(",", $row['settinged_appro_member']);
-
-                    $dd = [];
+                    $row['settinged_appro_member'] = [];
                     for($i = 1; $i<count( $row['settinged_appro_member']); $i++) {
-                       $dd[] = Db::name('user')->where('id', $row['settinged_appro_member'][$i])->find();
+                        $row['settinged_appro_member'] = Db::name('user')->where('id', $row['settinged_appro_member'][$i])->find();
                     }
 
-                    wl_debug($dd);
+                    wl_debug(  $row['settinged_appro_member']);
                 }
             }
 
