@@ -219,7 +219,7 @@ $(function () {
         //删除右侧的
         var  id = $(this).prev('p').attr('data-id');
 
-        console.log( $(".select-user[data-id="+id+"]"))
+        $(".select-user[data-id="+id+"]").children('a').css("background-color","#f1f3f5")
 
     });
 
