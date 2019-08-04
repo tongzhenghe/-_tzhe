@@ -85,7 +85,7 @@ class Index extends Common
                 if (!empty($row['settinged_appro_member'])) {
                     $row['settinged_appro_member'] = json_decode($row['settinged_appro_member']);
 
-                    wl_debug($row['settinged_appro_member']);
+                    wl_debug(is_array($row['settinged_appro_member']));
 
                     $dd = [];
                     for($i = 1; $i<=count( $row['settinged_appro_member']); $i++) {
