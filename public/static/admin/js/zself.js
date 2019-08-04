@@ -42,9 +42,9 @@ $(function () {
     //显示隐藏设置审批成员
 
     $('.layui-input-block').on('click', '.layui-form-radioed', function () {
-        alert(2)
+       console.log(this)
 
-    })
+    });
 
 
     $(".department_add").on("click", function () {
