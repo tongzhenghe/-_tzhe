@@ -167,7 +167,6 @@ class Index extends Common
             ->order('a.create_time DESC')
             ->where(['a.compid ' => $admin['id']])
             ->select();
-        wl_debug($approval);
 
         foreach ($approval as &$vaL) {
             if (!empty($vaL['images'])) {
