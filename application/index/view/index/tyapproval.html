@@ -104,6 +104,11 @@
             <!--审批-->
             <div style="padding:10px 15px;width: 96%; margin-top: 31px;" id="tags1" class="hui-tags">
                 <div class="person-pro" style=" border: none; background: #f6f6f6; height: 44px; line-height: 39px;width: 32px;"><span class="hui-icons hui-icons-register" style="padding: 1px;font-size: 26px; height: 10px;"></span></div>
+                {if !empty($settinged_appro_member)}
+                {foreach name="settinged_appro_member" item="vu" key="k" }
+                <div tagVal="" class="hui-tags-active" data-sort="{$k+1}" data-value="{$vu.id}">{$vu.user_name}</div> <i class="i">x</i>
+                {/foreach}
+                {/if}
             </div>
         </div>
 
