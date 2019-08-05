@@ -91,7 +91,7 @@
         {if !empty($vo.children)}
         {foreach name="vo.children" item="vc" key="k" }
         <div class="demo1">
-            <a href="{:url('/index/approval_form', ['url' => $vc.url, 'module_name' => $vc.name])}">
+            <a href="{:url('/index/approval_form', ['url' => $vc.url, 'module_name' => $vc.name, 'settinged_appro_member' => $vc.settinged_appro_member])}">
                 <i class="{$vc.icon_code}" aria-hidden="true" style="background: {$vc.bgcolor}"></i>
                     <p>{$vc.name}</p>
             </a>
