@@ -516,7 +516,7 @@ var hui = (function(selector){
 		if(timer == undefined){timer = 'short';}
 		if(typeof(plus) != 'undefined'){plus.nativeUI.toast(msg, {duration:timer}); return;}
 		var toast = hui('#hui-toast');
-		// if(toast.length > 0){toast.remove();}
+		if(toast.length > 0){toast.remove();}
 		var div = document.createElement('div');
 		div.setAttribute('id','hui-toast');
 		div.setAttribute('class', 'hui-fade-in');
@@ -525,7 +525,7 @@ var hui = (function(selector){
 		toast.html('<div id="hui-toast-msg">'+msg+'</div>');
 		if(_hui.ToastTimer){clearTimeout(_hui.ToastTimer);}
 		if(timer == 'short'){timer = 2000;}else{timer = 3500;}
-		// _hui.ToastTimer = setTimeout(function(){toast.remove();}, timer);
+		_hui.ToastTimer = setTimeout(function(){toast.remove();}, timer);
 	};
 	/* icon Toast */
 	_hui.iconToast = function(msg, icon){
