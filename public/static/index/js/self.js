@@ -182,7 +182,7 @@ $(function () {
 
             elem: '.upload',
 
-            multiple: false,//多图
+            multiple: true,//多图
 
             url: "/index.php/index/uploads"
 
