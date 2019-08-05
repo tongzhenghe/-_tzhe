@@ -115,7 +115,7 @@
 
                         {if !empty($general)}
                         {volist name="general" id="vo" }
-                        <option  value="{$vo.id}" {if !empty($row.id)} {if $vo.id == $row.id}selected{/if}{/if}>{if !empty($vo.html)}{$vo.html}{/if}{$vo.name}</option>
+                        <option  value="{$vo.id}" {if !empty($row.id)} {if $vo.id == $row.pid}selected{/if}{/if}>{if !empty($vo.html)}{$vo.html}{/if}{$vo.name}</option>
                         {/volist}
                         {/if}
 
