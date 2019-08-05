@@ -186,7 +186,7 @@ textarea{resize:none; background:inherit;}
 .hui-loading-text{float:left; line-height:inherit; padding-left:3px;}
 /* 表单及表单元素 */
 /*.hui-form{background:#FFFFFF;}*/
-.hui-form-items{width: 100%;  border-bottom: 2px solid #ffffff;  position: relative; display: -webkit-flex; display: flex;}
+.hui-form-items{padding: 13px 4px;  width: 100%;  border-bottom: 2px solid #ffffff;  position: relative; display: -webkit-flex; display: flex;}
 .hui-form-items-title{width:22%; line-height:24px; height:22px; flex-shrink:0;color: white;    font-size: 12px;}
 .hui-form-items .hui-input{width:100% !important;}
 .hui-form-items .hui-form-radios{width:75% !important; padding:0px !important;}
