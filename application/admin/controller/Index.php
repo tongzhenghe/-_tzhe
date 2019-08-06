@@ -174,8 +174,8 @@ class Index extends Common
                     //content  create_time  appro_title detail  images  annex  send_department_id  send_user_id   approval_user_id（审批用户id）   know_user_id
 
                     if (!empty($tysp)) {
-                        $tysp['detail'] = unserialize($tysp['detail']);
-                        $tysp['annex'] = unserialize($tysp['annex']);
+//                        $tysp['detail'] = unserialize($tysp['detail']);
+//                        $tysp['annex'] = unserialize($tysp['annex']);
 //                        $tysp['approval_user_id'] = unserialize($tysp['approval_user_id']);
 //                        $tysp['know_user_id'] = unserialize($tysp['know_user_id']);
                     }
