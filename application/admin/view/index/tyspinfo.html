@@ -66,11 +66,12 @@
         <dd class="site-text">
             <p><span>图片：</span>
             {if !empty($tysp.images)}
-                {volist name="tysp.images" id="vo"}
-            <div><img src="{$vo}" width="50px"/></div>
+            <div>
+            {volist name="tysp.images" id="vo"}
+           <img src="{$vo}" width="50px"/>
             {/volist}
+            </div>
             {/if}
-
             </p>
         </dd>
     </dl>
