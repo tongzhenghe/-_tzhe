@@ -26,6 +26,11 @@
         font-weight: 300;
     }
 
+    .site-text {
+        margin: 30px;
+        margin-left: auto;
+    }
+
     .site-text div {
         width: 91%;
         word-wrap: break-word;
@@ -47,7 +52,32 @@
 
     <dl>
         <dd class="site-text">
-            <p><span>类型：</span><div>NumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumberNumber</div></p>
+            <p><span>内容：</span><div>{$tysp,content}</div></p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dd class="site-text">
+            <p><span>详情：</span><div>{$tysp,detail}</div></p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dd class="site-text">
+            <p><span>图片：</span>
+            {if !empty($tysp.images)}
+                {volist name="tysp.images" id="vo"}
+            <div><img src="{$vo}" width="50px"/></div>
+            {/volist}
+            {/if}
+
+            </p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dd class="site-text">
+            <p><span>创建时间：</span><div>2019/02/55</div></p>
         </dd>
     </dl>
 
