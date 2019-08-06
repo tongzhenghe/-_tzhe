@@ -45,6 +45,10 @@
     .site-text p span{
         font-weight: bolder;
     }
+    .annex-info{
+        margin: 9px;
+        margin-left: unset;
+    }
 </style>
 <div class="layui-main site-inline">
 <div class="site-content">
@@ -87,7 +91,7 @@
             {if !empty($tysp.annex)}
             <div>
             {volist name="tysp.annex" id="vo"}
-            <div><span>附件名称：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename}  预览 </span></a></div>
+            <div class="annex-info"><span>附件名称：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename}  预览 </span></a></div>
             {/volist}
             </div>
             {else}
