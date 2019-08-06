@@ -195,10 +195,11 @@ class Index extends Common
                         $tysp['send_user_name'] = $send_user['send_user_name'];
 
                         //所有审批人员
-                        $approval_user = [];
+                        $tysp['approval_user_name'] = [];
                         for ($i = 0; $i < count($tysp['approval_user_id']); $i++) {
-                            $approval_user[] = Db::name('user')
+                            $tysp['approval_user_name'][] = Db::name('user')
                                 ->where('id', intval($tysp['approval_user_id'][$i]))
+                                ->field('user_name')
                                 ->where('compid', $compId)
                                 ->find();
                         }
@@ -207,7 +208,7 @@ class Index extends Common
 
                     }
 
-                    wl_debug($approval_user);
+                    wl_debug($tysp);
                     //获取
                     return view('tyspinfo');
 
