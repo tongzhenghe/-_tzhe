@@ -165,7 +165,7 @@ class Index extends Common
             ->join('department c', 'b.department_id = c.id', 'LEFT')
             ->field('a.*, b.user_name approval_username, b.photo approval_user_photo, c.name approval_user_department')
             ->order('a.create_time DESC')
-            ->where(['a.compid ' => $admin['id']])
+            ->where(['a.compid ' => $admin['id'], 'a.appro_title' => '通用审批'])
             ->select();
 
 
