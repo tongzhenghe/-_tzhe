@@ -196,7 +196,7 @@ class Index extends Common
 
                         //审批人员
                         $tysp['know_user_name'] = $tysp['approval_user_name'] = [];
-
+                        $tysp['create_time'] = timeTran($tysp['create_time']);
                         for ($i = 0; $i < count($tysp['approval_user_id']); $i++) {
                             $tysp['approval_user_name'][] = Db::name('user')
                                 ->where('id', intval($tysp['approval_user_id'][$i]))
@@ -214,11 +214,8 @@ class Index extends Common
                                 ->find();
                         }
 
-
-
                     }
 
-                    wl_debug($tysp);
                     //获取
                     return view('tyspinfo');
 
