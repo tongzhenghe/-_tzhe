@@ -197,7 +197,6 @@ class Index extends Common
                         //所有审批人员
                         $approval_user = [];
                         for ($i = 0; $i < count($tysp['approval_user_id']); $i++) {
-                            wl_debug($tysp['approval_user_id'][$i]);
                             $approval_user[] = Db::name('user')
                                 ->where('id', intval($tysp['approval_user_id'][$i]))
                                 ->where('compid', $compId)
