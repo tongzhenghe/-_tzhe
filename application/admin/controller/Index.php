@@ -205,11 +205,10 @@ class Index extends Common
                                 ->find();
                         }
 
-                        wl_debug($tysp['know_user_id']);
                         //抄送人
                         for ($i = 0; $i < count($tysp['know_user_id']); $i++) {
                             $tysp['know_user_name'][] = Db::name('user')
-                                ->where('id', intval($tysp['approval_user_id'][$i]))
+                                ->where('id', intval($tysp['know_user_id'][$i]))
                                 ->field('user_name')
                                 ->where('compid', $compId)
                                 ->find();
