@@ -271,6 +271,23 @@ $(function () {
 
 });
 
+
+//通用审批处理详情
+
+$('.select-data-tysp').on('click', function () {
+
+    var id = $(this).attr('data-id')
+        ,point = $(this).attr('data-do')
+        ,url = $(this).attr('data-url');
+
+    formData = {id:id, do: point};
+    console.log(formData)
+    // $.fn.setRequest( formData, url );
+});
+
+
+
+
 //删除
 $(".delete-data").on("click", function () {
     var id = $(this).attr("data-ids"),
@@ -286,8 +303,12 @@ $(".delete-data").on("click", function () {
         }
     });
 
-
 });
+
+
+
+
+
 
 
 //提交设置模块审批
