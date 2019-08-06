@@ -194,10 +194,20 @@ class Index extends Common
                         $tysp['send_department_name'] = $send_department['send_department_name'];
                         $tysp['send_user_name'] = $send_user['send_user_name'];
 
-                        //所有审批人员
-                        $tysp['approval_user_name'] = [];
+                        //审批人员
+                        $tysp['know_user_name'] = $tysp['approval_user_name'] = [];
+
                         for ($i = 0; $i < count($tysp['approval_user_id']); $i++) {
                             $tysp['approval_user_name'][] = Db::name('user')
+                                ->where('id', intval($tysp['approval_user_id'][$i]))
+                                ->field('user_name')
+                                ->where('compid', $compId)
+                                ->find();
+                        }
+
+                        //抄送人
+                        for ($i = 0; $i < count($tysp['know_user_id']); $i++) {
+                            $tysp['know_user_name'][] = Db::name('user')
                                 ->where('id', intval($tysp['approval_user_id'][$i]))
                                 ->field('user_name')
                                 ->where('compid', $compId)
