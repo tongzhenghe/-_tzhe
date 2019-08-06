@@ -60,8 +60,7 @@
         width: 18%;
         text-align: -webkit-center;
     }
-    .site-text a {
-        color: #d8d8d8;}
+    .site-text a {color: #d8d8d8;}
 </style>
 <div class="layui-main site-inline">
 <div class="site-content">
@@ -124,7 +123,19 @@
     </div>
 
     <div class="app-userinfo">
-        
+        <h2 class="site-h2">发起人信息</h2>
+
+        <dl>
+            <dd class="site-text">
+                <p><span>姓名：</span><div>{$tysp.send_user_name}</div></p>
+            </dd>
+        </dl>
+        <dl>
+            <dd class="site-text">
+                <p><span>所属部门：</span><div>{$tysp.send_department_name}</div></p>
+            </dd>
+        </dl>
+
 
     </div>
 
