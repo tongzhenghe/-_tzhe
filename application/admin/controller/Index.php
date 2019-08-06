@@ -186,12 +186,10 @@ class Index extends Common
                             ->find();
 
                         $send_user = Db::name('user')
-//                            ->field('user_name send_user_name')
+                            ->field('user_name send_user_name, tel user_tel')
                             ->where('id', $tysp['send_user_id'])
                             ->where('compid', $compId)
                             ->find();
-
-                        wl_debug($send_user);
 
                         $tysp['send_department_name'] = $send_department['send_department_name'];
                         $tysp['send_user_name'] = $send_user['send_user_name'];
