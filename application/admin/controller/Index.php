@@ -178,10 +178,15 @@ class Index extends Common
                         $tysp['annex'] = unserialize($tysp['annex']);
                         $tysp['approval_user_id'] = unserialize($tysp['approval_user_id']);
                         $tysp['know_user_id'] = unserialize($tysp['know_user_id']);
+
+                        //审批人所属部门、 及所有审批人员、 抄送人员、 时间
+
+                        $tysp['send_department_name'] = Db::name('department')->field('name send_department_name')->where('id', $tysp['send_department_id'])->find();
+                        $tysp['send_user_name'] = Db::name('user')->field('user_name send_user_name')->where('id', $tysp['send_user_id'])->find();
+
                     }
 
                     wl_debug($tysp);
-
                     //获取
                     return view('tyspinfo');
 
