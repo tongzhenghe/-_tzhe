@@ -281,8 +281,8 @@ $('.select-data-tysp').on('click', function () {
         ,url = $(this).attr('data-url');
 
     formData = {id:id, do: point};
-    console.log(formData)
-    // $.fn.setRequest( formData, url );
+
+    $.fn.setRequest( formData, url );
 });
 
 
