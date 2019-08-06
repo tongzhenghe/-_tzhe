@@ -207,7 +207,7 @@ class Index extends Common
 
                     }
 
-                    wl_debug($tysp);
+                    wl_debug($approval_user);
                     //获取
                     return view('tyspinfo');
 
