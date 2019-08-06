@@ -168,9 +168,7 @@ class Index extends Common
 
                 if ($do == 'select') {
 
-                    wl_debug(11);
-
-
+                    wl_debug($params);
 
                 }
 
