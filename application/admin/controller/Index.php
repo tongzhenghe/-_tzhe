@@ -168,7 +168,13 @@ class Index extends Common
 
                 if ($do == 'select') {
 
-                    wl_debug($params);
+                    $id = intval($params['id']);
+
+                    $tysp = Db::name('general_approval')->where('id' , $id)->find();
+                    wl_debug($tysp);
+
+                    //获取
+                    return view('tyspinfo');
 
                 }
 
