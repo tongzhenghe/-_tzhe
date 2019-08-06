@@ -192,7 +192,7 @@ class Index extends Common
 
                             wl_debug($tysp['approval_user_id']);
                         }
-                        $app_all_user = Db::name()
+//                        $app_all_user = Db::name()
 
 
                     }
