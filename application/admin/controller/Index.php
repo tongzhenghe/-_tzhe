@@ -160,21 +160,24 @@ class Index extends Common
     {
         $params = request()->param();
 
-        //审批详情
-        if (!empty($params['id'])) {
+        if (request()->isAjax()) {
 
-            $do = trim($params['do']);
+            jsondebug($params);
+            //审批详情
+            if (!empty($params['id'])) {
 
-            if ($do == 'select') {
+                $do = trim($params['do']);
 
-                wl_debug($params);
+                if ($do == 'select') {
 
+                    wl_debug($params);
+
+                }
 
             }
 
-
-
         }
+
 
 
 
