@@ -158,6 +158,28 @@ class Index extends Common
     //审批列表
     public  function  approval()
     {
+        $params = request()->param();
+
+        //审批详情
+        if (!empty($params['id'])) {
+
+            $do = trim($params['do']);
+
+            if ($do == 'select') {
+
+                wl_debug($params);
+
+
+            }
+
+
+
+        }
+
+
+
+
+
         //获取所有该公司的审批文件；
         $admin =  SystemAdmin::activeAdminInfoOrFail();
         $approval = Db::name('general_approval a')
@@ -167,8 +189,6 @@ class Index extends Common
             ->order('a.create_time DESC')
             ->where(['a.compid ' => $admin['id'], 'a.appro_title' => '通用审批'])
             ->select();
-
-
         foreach ($approval as &$vaL) {
 
             if (!empty($vaL['images'])) {
@@ -183,6 +203,10 @@ class Index extends Common
 
 
     }
+
+
+
+
 
     //财务报销--》采购报销
     public  function  procurement()
