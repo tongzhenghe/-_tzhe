@@ -162,7 +162,6 @@ class Index extends Common
 
         if (request()->isAjax()) {
 
-            jsondebug($params);
             //审批详情
             if (!empty($params['id'])) {
 
@@ -170,7 +169,7 @@ class Index extends Common
 
                 if ($do == 'select') {
 
-                    wl_debug($params);
+                    jsondebug($params);
 
                 }
 
