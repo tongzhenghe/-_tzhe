@@ -216,9 +216,7 @@ class Index extends Common
 
                     }
 
-                    wl_debug($tysp);
-                    //获取
-                    return view('tyspinfo', ['']);
+                    return view('tyspinfo', ['tysp' => $tysp]);
 
                 }
 
