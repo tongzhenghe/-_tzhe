@@ -193,6 +193,7 @@ class Index extends Common
 
                         $tysp['send_department_name'] = $send_department['send_department_name'];
                         $tysp['send_user_name'] = $send_user['send_user_name'];
+                        $tysp['user_tel'] = $send_user['user_tel'];
 
                         //审批人员
                         $tysp['know_user_name'] = $tysp['approval_user_name'] = [];
