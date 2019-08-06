@@ -59,6 +59,12 @@
 
     <dl>
         <dd class="site-text">
+            <p><span>创建时间：</span><div>{$tysp.create_time}</div></p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dd class="site-text">
             <p><span>内容：</span><div>{$tysp.content}</div></p>
         </dd>
     </dl>
@@ -91,7 +97,7 @@
             {if !empty($tysp.annex)}
             <div>
             {volist name="tysp.annex" id="vo"}
-            <div class="annex-info"><span>附件名称：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename}  预览 </span></a></div>
+            <div class="annex-info"><span>附件名称：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename} 点击 预览 </span></a></div>
             {/volist}
             </div>
             {else}
@@ -100,13 +106,6 @@
             </p>
         </dd>
     </dl>
-
-    <dl>
-        <dd class="site-text">
-            <p><span>创建时间：</span><div>2019/02/55</div></p>
-        </dd>
-    </dl>
-
 
 <ul class="layui-timeline">
     <li class="layui-timeline-item">
