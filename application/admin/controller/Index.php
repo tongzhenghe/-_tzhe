@@ -181,8 +181,8 @@ class Index extends Common
 
                         //审批人所属部门、 及所有审批人员、 抄送人员、 时间
 
-                        $tysp['send_department_name'] = Db::name('department')->field('name send_department_name')->where('id', $tysp['send_department_id'])->find();
-                        $tysp['send_user_name'] = Db::name('user')->field('user_name send_user_name')->where('id', $tysp['send_user_id'])->find();
+                        $tysp = Db::name('department')->field('name send_department_name')->where('id', $tysp['send_department_id'])->find();
+                        $tysp = Db::name('user')->field('user_name send_user_name')->where('id', $tysp['send_user_id'])->find();
 
                     }
 
