@@ -87,7 +87,7 @@
             {if !empty($tysp.annex)}
             <div>
             {volist name="tysp.annex" id="vo"}
-            <span>附件名称：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename}  预览 </span></a><br/>
+            <div><span>附件名称：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename}  预览 </span></a></div>
             {/volist}
             </div>
             {else}
