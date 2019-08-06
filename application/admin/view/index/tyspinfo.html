@@ -68,9 +68,27 @@
             {if !empty($tysp.images)}
             <div>
             {volist name="tysp.images" id="vo"}
-           <img src="{$vo}" width="50px"/>
+           <img src="{$vo}" width="63px"/>
             {/volist}
             </div>
+            {else}
+            null
+            {/if}
+            </p>
+        </dd>
+    </dl>
+
+    <dl>
+        <dd class="site-text">
+            <p><span>附件：</span>
+            {if !empty($tysp.annex)}
+            <div>
+            {volist name="tysp.annex" id="vo"}
+            <span>附件名称：</span><a href="">预览</a>
+            {/volist}
+            </div>
+            {else}
+            null
             {/if}
             </p>
         </dd>
