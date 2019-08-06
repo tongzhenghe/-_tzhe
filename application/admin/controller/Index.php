@@ -176,8 +176,8 @@ class Index extends Common
                     if (!empty($tysp)) {
                         $tysp['detail'] = unserialize($tysp['detail']);
                         $tysp['annex'] = unserialize($tysp['annex']);
-                        $tysp['approval_user_id'] = unserialize($tysp['approval_user_id']);
-                        $tysp['know_user_id'] = unserialize($tysp['know_user_id']);
+//                        $tysp['approval_user_id'] = unserialize($tysp['approval_user_id']);
+//                        $tysp['know_user_id'] = unserialize($tysp['know_user_id']);
                     }
 
                     wl_debug($tysp);
