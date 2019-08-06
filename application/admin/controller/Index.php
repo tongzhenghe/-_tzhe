@@ -159,8 +159,8 @@ class Index extends Common
     public  function  approval()
     {
         $params = request()->param();
-
-
+        $compId =  Admin::getAdminId();
+        wl_debug($compId);
             //审批详情
             if (!empty($params['id'])) {
 
@@ -180,19 +180,26 @@ class Index extends Common
                         $tysp['know_user_id'] = unserialize($tysp['know_user_id']);
 
                         //审批人所属部门、 及所有审批人员、 抄送人员、 时间
-                        $send_department = Db::name('department')->field('name send_department_name')->where('id', $tysp['send_department_id'])->find();
-                        $send_user = Db::name('user')->field('user_name send_user_name')->where('id', $tysp['send_user_id'])->find();
+                        $send_department = Db::name('department')
+                            ->field('name send_department_name')
+                            ->where('id', $tysp['send_department_id'])
+                            ->where('compid', $tysp['send_department_id'])
+                            ->find();
+
+                        $send_user = Db::name('user')
+                            ->field('user_name send_user_name')
+                            ->where('id', $tysp['send_user_id'])
+                            ->find();
                         $tysp['send_department_name'] = $send_department['send_department_name'];
                         $tysp['send_user_name'] = $send_user['send_user_name'];
 
 
                         //所有审批人员
-
-                        for ($i = 1; $i<=count($tysp['approval_user_id']); $i++) {
-
-                            wl_debug($tysp['approval_user_id']);
+                        $approval_user = [];
+                        for ($i = 1; $i <= count($tysp['approval_user_id']); $i++) {
+                            $approval_user[] = Db::name('user')->where('id', intval($tysp['approval_user_id'][$i]))->find();
                         }
-//                        $app_all_user = Db::name()
+
 
 
                     }
