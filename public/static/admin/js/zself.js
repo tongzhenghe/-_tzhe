@@ -276,8 +276,8 @@ $(function () {
 
 $('.select-data-tysp').on('click', function () {
 
-    var id = $(this).attr('data-id')
-        ,point = $(this).attr('data-dos')
+    var id = $(this).attr('data-ids')
+        ,point = $(this).attr('data-do')
         ,url = $(this).attr('data-url');
 
     formData = {id:id, do: point};
