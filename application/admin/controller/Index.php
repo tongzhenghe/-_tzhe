@@ -160,7 +160,6 @@ class Index extends Common
     {
         $params = request()->param();
         $compId =  Admin::getAdminId();
-        wl_debug($compId);
             //审批详情
             if (!empty($params['id'])) {
 
@@ -183,17 +182,20 @@ class Index extends Common
                         $send_department = Db::name('department')
                             ->field('name send_department_name')
                             ->where('id', $tysp['send_department_id'])
-                            ->where('compid', $tysp['send_department_id'])
+                            ->where('compid', $compId)
                             ->find();
 
                         $send_user = Db::name('user')
                             ->field('user_name send_user_name')
                             ->where('id', $tysp['send_user_id'])
+                            ->where('compid', $compId)
                             ->find();
+
                         $tysp['send_department_name'] = $send_department['send_department_name'];
                         $tysp['send_user_name'] = $send_user['send_user_name'];
 
 
+                        wl_debug($tysp);
                         //所有审批人员
                         $approval_user = [];
                         for ($i = 1; $i <= count($tysp['approval_user_id']); $i++) {
