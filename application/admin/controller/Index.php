@@ -160,7 +160,6 @@ class Index extends Common
     {
         $params = request()->param();
 
-        if (request()->isAjax()) {
 
             //审批详情
             if (!empty($params['id'])) {
@@ -169,13 +168,14 @@ class Index extends Common
 
                 if ($do == 'select') {
 
-                    jsondebug($params);
+                    wl_debug(11);
+
+
 
                 }
 
             }
 
-        }
 
 
 
