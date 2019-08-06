@@ -170,6 +170,7 @@ class Index extends Common
 
 
         foreach ($approval as &$vaL) {
+
             if (!empty($vaL['images'])) {
                 $vaL['images'] = unserialize($vaL['images']);
             }
@@ -178,6 +179,7 @@ class Index extends Common
 
         }
 
+        wl_debug($approval);
         return view('', ['approval' => $approval]);
 
 
