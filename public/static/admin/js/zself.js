@@ -272,19 +272,6 @@ $(function () {
 });
 
 
-//通用审批处理详情
-
-$('.select-data-tysp').on('click', function () {
-
-    var id = $(this).attr('data-ids')
-        ,point = $(this).attr('data-do')
-        ,url = $(this).attr('data-url');
-
-    formData = {id:id, do: point};
-
-    $.fn.setRequest( formData, url );
-});
-
 
 
 
