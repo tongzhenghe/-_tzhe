@@ -199,6 +199,7 @@ class Index extends Common
 
         }
 
+wl_debug($approval);
         return view('', ['approval' => $approval]);
 
 
