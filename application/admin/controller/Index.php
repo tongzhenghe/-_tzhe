@@ -206,6 +206,8 @@ class Index extends Common
                                 ->where('compid', $compId)
                                 ->select();
 
+                            wl_debug(  $tysp['approval_user']);
+
                         if (!empty($tysp['approval_user'])) {
 
                             foreach (  $tysp['approval_user'] as &$v) {
