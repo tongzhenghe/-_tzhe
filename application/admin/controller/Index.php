@@ -564,7 +564,7 @@ class Index extends Common
         //支付方式
         $data = Db::name($table)->where('compid', $compid)->select();
 
-        wl_debug($data_type);
+        wl_debug($data);
 
         return view('', ['data' => $data, 'data_pay' => $data_type]);
 
