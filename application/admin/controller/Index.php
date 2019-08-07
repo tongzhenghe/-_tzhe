@@ -527,13 +527,11 @@ class Index extends Common
                         'time' => time(),
                     ];
 
-                    jsondebug($data);
-
                     if (empty($params['id'])) {
-                        $result = Db::name($table)->insert($data);
+                        $result = Db::name($table_type)->insert($data);
                     } else {
                         $id = intval($params['id']);
-                        $result = Db::name($table)->where('id', $id)->update($data);
+                        $result = Db::name($table_type)->where('id', $id)->update($data);
                     }
 
                     if ($result) {
