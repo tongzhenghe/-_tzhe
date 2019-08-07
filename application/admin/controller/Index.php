@@ -229,11 +229,10 @@ class Index extends Common
                                         $state_msg = '待审批';
                                         break;
 
-
+                                    case ($v['state'] == 3 ):
+                                        $state_msg = '已拒绝';
+                                        break;
                                 }
-
-
-
 
                                 $approval_user = Db::name('user')
                                     ->where('id', intval($v['appro_user_id']))
@@ -241,6 +240,8 @@ class Index extends Common
                                     ->where('compid', $compId)
                                     ->find();
                                 $v['approval_user_name'] = $approval_user['user_name'];
+                                $v['state_msg'] = $state_msg;
+
                             }
 
                         }
