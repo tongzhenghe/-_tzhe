@@ -203,7 +203,6 @@ class Index extends Common
                             $tysp['approval_user'][] = Db::name('appprostate')
                                 ->where('approval_id', intval($tysp['id']))
                                 ->order('sort asc')
-                                ->field('user_name')
                                 ->where('compid', $compId)
                                 ->find();
 
