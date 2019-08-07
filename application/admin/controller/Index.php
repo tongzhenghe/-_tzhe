@@ -572,6 +572,7 @@ class Index extends Common
         foreach ($data as &$v) {
             $user = Db::name('user a')
                 ->join('department b', 'a.department_id = b.id', 'left')
+                ->field('b.name department_name')
                 ->where('a.id', $v['send_user_id'])
                 ->find();
 
