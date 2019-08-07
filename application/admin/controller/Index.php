@@ -200,14 +200,13 @@ class Index extends Common
 
                         $tysp['create_time'] = timeTran($tysp['create_time']);
 
-                        wl_debug($tysp['id']);
-                            $tysp['approval_user'] = Db::name('appprostate')
+                            $tysp['approval_userss'] = Db::name('appprostate')
                                 ->where('approval_id', intval($tysp['id']))
                                 ->order('appro_sort asc')
                                 ->where('compid', $compId)
                                 ->select();
 
-                            wl_debug(  $tysp['approval_user']);
+                            wl_debug(  $tysp['approval_userss']);
 
                         if (!empty($tysp['approval_user'])) {
 
