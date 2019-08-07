@@ -197,20 +197,18 @@ class Index extends Common
 
                         //审批人员
                         $tysp['approval_user_name'] = $tysp['know_user_name'] = [];
+
                         $tysp['create_time'] = timeTran($tysp['create_time']);
-                        for ($i = 0; $i < count($tysp['approval_user_id']); $i++) {
 
-
-                            wl_debug($tysp);
-                            $tysp['approval_user_name'][] = Db::name('appprostate')
-
-                                ->where('approval_id', intval($tysp['approval_user_id'][$i]))
+                            $tysp['approval_user'][] = Db::name('appprostate')
+                                ->where('approval_id', intval($tysp['id']))
+                                ->order('sort asc')
                                 ->field('user_name')
                                 ->where('compid', $compId)
                                 ->find();
 
+                            wl_debug( $tysp['approval_user']);
 
-                        }
 
                         //抄送人
                         for ($i = 0; $i < count($tysp['know_user_id']); $i++) {
