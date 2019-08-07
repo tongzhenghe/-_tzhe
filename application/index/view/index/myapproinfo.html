@@ -390,8 +390,8 @@
                 <?php Endif;?>
                 <?php if(!empty($vo['agree_reason']['annex'])):;?>
                 <div class="msg-annex">
-                    <p  style="">附件</p>
-                    <span style="float: left;width: 12%; color: #999;">
+                    <p  style="float: left;width: 12%; color: #999;">附件</p>
+                    <span style="font-size: 12px;">
                         <a href="{$vo.agree_reason.annex.file}" style="color: #2196F3;">{$vo.agree_reason.annex.filename}<i style="color: #9ea0a3; margin-left: 11px">预览</i></a>
                     </span>
                 </div>
@@ -417,11 +417,10 @@
                 {/if}
 
                 {if !empty($vo.reject_reason.annex)}
-                <div class="msg-annex" style="margin-top: 13px;">
+                <div class="msg-annex">
                     <p  style="float: left;width: 12%; color: #999;">附件</p>
                     {$vo.reject_reason.annex}
-                    <span style="font-size: 12px; float: left;margin-left: 29px;">
-
+                    <span style="font-size: 12px;">
                         <a href="{$vo.reject_reason.annex.file}" style="color: #2196F3;">{$vo.reject_reason.annex.filename}<i style="color: #9ea0a3; margin-left: 11px">预览</i></a>
                     </span>
                     {/if}
