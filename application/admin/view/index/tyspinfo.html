@@ -57,6 +57,16 @@
     }
     .site-text a {color: #d8d8d8;}
     .layui-timeline{padding-left:46px;margin-top: 30px;}
+
+
+    .app-user{
+        width: 50px;
+        height: 50px;
+        background: red;
+        border-radius: 50%;
+        line-height: 50px;
+        text-align: -webkit-center;
+    }
 </style>
 <div class="layui-main site-inline">
 
@@ -147,13 +157,14 @@
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
                     <h3 class="layui-timeline-title">{$vo.state_msg}</h3>
-                    <p>{$vo.approval_user_name}</p>
-
+                    <p class="app-user">{$vo.approval_user_name}</p>
                     <div style="margin-left:49px;margin-top: 19px;width: 54%;">
-                        <p>{$vo.approval_user_name}</p>
+                        <p>附件</p>
                         <div class="annex-info"><span>名称：</span><a href="http://huamei.juhuiny.com/2019/08/c681b201908079318.doc"><span style="color: #2d8cf0;">尺寸大小.doc </span>点击预览 </a></div>
                         <div class="annex-info"><span>名称：</span><a href="http://huamei.juhuiny.com/2019/08/09832201908073064.doc"><span style="color: #2d8cf0;">呆狐网医生上下架明细.doc </span>点击预览 </a></div>
                     </div>
+
+
 
                 </div>
             </li>
