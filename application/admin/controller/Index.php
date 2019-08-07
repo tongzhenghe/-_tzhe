@@ -627,8 +627,6 @@ class Index extends Common
                                 }
 
 
-                                wl_debug($gzsp);
-
                                 //流程
                                 //待审批
 
@@ -669,6 +667,8 @@ class Index extends Common
                             }
 
                         }
+
+                        wl_debug($gzsp);
 
                         //抄送人
                         for ($i = 0; $i < count($gzsp['know_user_id']); $i++) {
