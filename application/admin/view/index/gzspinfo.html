@@ -117,9 +117,9 @@
         <h3 class="site-h3">审批基本内容</h3>
 
         {if !empty($gzsp.salary)}
-        {volist name="gzsp.salary" id="vo"}
+        {volist name="gzsp.salary" id="vo" key='k'}
         <div class="site-title">
-            <fieldset><legend><a name="use">工资明细1</a></legend></fieldset>
+            <fieldset><legend><a name="use">工资明细{$k}</a></legend></fieldset>
         </div>
         <dl>
             <dd class="site-text">
