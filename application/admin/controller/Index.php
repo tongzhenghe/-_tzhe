@@ -668,8 +668,6 @@ class Index extends Common
 
                         }
 
-                        wl_debug($gzsp);
-
                         //抄送人
                         for ($i = 0; $i < count($gzsp['know_user_id']); $i++) {
                             $gzsp['know_user_name'][] = Db::name('user')
@@ -681,6 +679,7 @@ class Index extends Common
 
                     }
 
+                    wl_debug($gzsp);
                     return view('gzspinfo', ['gzsp' => $gzsp]);
             }
 
