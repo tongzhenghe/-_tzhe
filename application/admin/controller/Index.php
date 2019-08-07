@@ -501,8 +501,8 @@ class Index extends Common
     //财务审批 =》 工资审批
     public  function salary()
     {
-        $table = 'salary_type';
-        $table_type = 'salary';
+        $table = 'salary';
+        $table_type = 'salary_type';
         $compid = Admin::getAdminId();
         $params = request()->param();
 
