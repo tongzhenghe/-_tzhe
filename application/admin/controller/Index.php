@@ -514,7 +514,7 @@ class Index extends Common
                 exit(iJson('' ));
             }
 
-            if (!empty($params['do']) && trim($params['do'])  ==  'addtype') {
+            if ($params['do'] == 'addtype') {
 
                 if (request()->isAjax()) {
 
@@ -553,11 +553,119 @@ class Index extends Common
 
             }
 
-            if (!empty($params['do']) && trim($params['do'])  ==  'select') {
+            if ($params['do'] == 'select') {
 
-                wl_debug(5433434);
+                    $id = intval($params['id']);
+                    wl_debug($id);
+
+                    $tysp = Db::name('general_approval')->where('id' , $id)->find();
+                    //content  create_time  appro_title detail  images  annex  send_department_id  send_user_id   approval_user_id（审批用户id）   know_user_id
+
+                    if (!empty($tysp)) {
+                        $tysp['images'] = unserialize($tysp['images']);
+                        $tysp['annex'] = unserialize($tysp['annex']);
+                        $tysp['approval_user_id'] = unserialize($tysp['approval_user_id']);
+                        $tysp['know_user_id'] = unserialize($tysp['know_user_id']);
+
+                        //审批人所属部门、 及所有审批人员、 抄送人员、 时间
+                        $send_department = Db::name('department')
+                            ->field('name send_department_name')
+                            ->where('id', $tysp['send_department_id'])
+                            ->where('compid', $compId)
+                            ->find();
+
+                        $send_user = Db::name('user')
+                            ->field('user_name send_user_name, tel user_tel')
+                            ->where('id', $tysp['send_user_id'])
+                            ->where('compid', $compId)
+                            ->find();
+
+                        $tysp['send_department_name'] = $send_department['send_department_name'];
+                        $tysp['send_user_name'] = $send_user['send_user_name'];
+                        $tysp['user_tel'] = $send_user['user_tel'];
+
+                        //审批人员
+                        $tysp['know_user_name'] = [];
+
+                        $tysp['create_time'] = timeTran($tysp['create_time']);
+
+                        $tysp['approval_user'] = Db::name('appprostate')
+                            ->where('approval_id', intval($tysp['id']))
+                            ->order('appro_sort asc')
+                            ->where('compid', $compId)
+                            ->select();
+
+                        if (!empty($tysp['approval_user'])) {
+
+                            foreach (  $tysp['approval_user'] as &$v) {
+
+                                if (!empty($v['reject_reason'])) {
+                                    $v['reject_reason'] = (array)json_decode($v['reject_reason']);
+                                    $v['reject_reason']['annex'] = (array)$v['reject_reason']['annex'];
+                                    $v['reject_reason']['pro_time'] = timeTran($v['reject_reason']['pro_time']);
+                                }
+
+                                if (!empty($v['agree_reason'])) {
+                                    $v['agree_reason'] = (array)json_decode($v['agree_reason']);
+                                    $v['agree_reason']['annex'] = (array)$v['agree_reason']['annex'];
+                                    $v['agree_reason']['pro_time'] = timeTran($v['agree_reason']['pro_time']);
+                                }
 
 
+
+                                //流程
+                                //待审批
+
+                                $state_msg = $color = '';
+
+                                switch (true) {
+                                    case ($v['state'] == 4 && $v['appro_sort'] == 1):
+                                        $state_msg = '待审批';
+                                        $color = '#b9bbbc';
+                                        break;
+
+                                    case ($v['state'] == 2 ):
+                                        $state_msg = '已同意';
+                                        $color = '#15bc83';
+                                        break;
+
+                                    case ($v['state'] == 1 ):
+                                        $state_msg = '待审批';
+                                        $color = '#b9bbbc';
+                                        break;
+
+                                    case ($v['state'] == 3 ):
+                                        $state_msg = '已拒绝';
+                                        $color = '#ff943e';
+                                        break;
+                                }
+
+                                $approval_user = Db::name('user')
+                                    ->where('id', intval($v['appro_user_id']))
+                                    ->field('user_name')
+                                    ->where('compid', $compId)
+                                    ->find();
+
+                                $v['approval_user_name'] = $approval_user['user_name'];
+                                $v['state_msg'] = $state_msg;
+                                $v['color'] = $color;
+
+                            }
+
+                        }
+
+                        //抄送人
+                        for ($i = 0; $i < count($tysp['know_user_id']); $i++) {
+                            $tysp['know_user_name'][] = Db::name('user')
+                                ->where('id', intval($tysp['know_user_id'][$i]))
+                                ->field('user_name')
+                                ->where('compid', $compId)
+                                ->find();
+                        }
+
+                    }
+
+                    return view('gzspinfo', ['tysp' => $tysp]);
             }
 
         }
@@ -608,6 +716,7 @@ class Index extends Common
             $v['photo'] = $user['photo'];
             $v['create_time'] = date('Y/m/d H:i:s', $v['create_time']);
         }
+
 
         return view('', ['data' => $data, 'data_type' => $data_type]);
 
