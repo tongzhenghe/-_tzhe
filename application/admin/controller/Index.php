@@ -604,8 +604,6 @@ class Index extends Common
         }
 
 
-        wl_debug($data);
-
         return view('', ['data' => $data, 'data_type' => $data_type]);
 
     }
