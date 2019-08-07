@@ -566,7 +566,7 @@ class Index extends Common
         //支付方式
         $data_pay = Db::name($table_type)->select();
         foreach ($data_pay as &$vs ) {
-            wl_debug($vs);
+            wl_debug($data_pay);
             $vs['time'] = date('Y/m/d H:i:s', $vs['time']);
         }
 
