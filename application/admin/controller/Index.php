@@ -604,7 +604,6 @@ class Index extends Common
             $v['photo'] = $user['photo'];
         }
 
-        wl_debug($data);
         return view('', ['data' => $data, 'data_type' => $data_type]);
 
     }
