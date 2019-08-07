@@ -205,8 +205,7 @@
     <div class="hui-list-text2"> <p> 所在部门</p><span>{$other_app_info.department_name}</span> </div>
     {if !empty($other_app_info.rows)}
     {foreach name="other_app_info.rows" item="v" key="k" }
-    <div class="hui-title detailed-title">工资明细{$k+1}
-        <span>{$v.title}</span>
+    <div class="hui-title detailed-title">工资明细{$k+1}<span>{$v.title}</span>
         <i class="fa fa-arrows-h hide{$k+1}" aria-hidden="true" style="font-size: 18px;float: right; line-height: 0;color: #2196f3;"></i>
         <i class="fa fa-arrows hide{$k+1}" aria-hidden="true" style="font-size: 18px;float: right; line-height: 0;color: #2196f3;display: none;"></i>
     </div>
