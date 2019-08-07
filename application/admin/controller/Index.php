@@ -509,7 +509,7 @@ class Index extends Common
         if (!empty($params['do'])) {
 
             if ( !empty($params['do']) && $params['do'] == '_state') {
-                $result =  Admin::changeState($table, $params);
+                $result =  Admin::changeState($table_type, $params);
                 if(!$result ) exit(false);
                 exit(iJson('' ));
             }
