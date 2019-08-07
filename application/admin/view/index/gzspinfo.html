@@ -144,12 +144,12 @@
             </dd>
         </dl>
 
-        {if !empty($vo.salary.image)}
+        {if !empty($vo.image)}
         <dl>
             <dd class="site-text">
                 <p><span>图片：</span>
                 <div>
-                {volist name="vo.salary.image" id="vo"}
+                {volist name="vo.image" id="vo"}
                <img src="{$vo}" width="63px"/>
                 {/volist}
                 </div>
@@ -158,13 +158,13 @@
         </dl>
     {/if}
 
-    {if !empty($vo.salary.annex)}
+    {if !empty($vo.annex)}
     <dl>
         <dd class="site-text">
             <p>
                 <span>附件：</span>
             <div>
-            {volist name="vo.salary.annex" id="vo"  key='k'}
+            {volist name="vo.annex" id="vo"  key='k'}
             <div class="annex-info"><span>附件{$k}：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename} </span>点击预览 </a></div>
             {/volist}
             </div>
