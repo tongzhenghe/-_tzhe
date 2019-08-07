@@ -60,7 +60,8 @@
     .layui-timeline-item {
         position: relative;
         padding-bottom: 20px;
-        width: 13%;
+        width: 8%;
+        float: left;
         margin-top: 29px;
     }
     .layui-timeline-item:before, hr {
@@ -69,28 +70,17 @@
 
     .layui-icon-right{
         position: absolute;
-        left: -30px;
+        left: -5px;
         top: 0;
         z-index: 10;
         width: 20px;
         height: 20px;
-        line-height: 50px;
+        line-height: 20px;
         background-color: #fff;
         color: #2d8cf0;
         border-radius: 50%;
         text-align: center;
         cursor: pointer;
-        font-size: 30px;
-    }
-
-    .layui-text p{
-        width: 50%;
-        text-align: -webkit-center;
-        background: #2893ff;
-        height: 50px;
-        color: white;
-        line-height: 49px;
-        border-radius: 50%;
     }
 </style>
 <div class="layui-main site-inline">
@@ -173,9 +163,9 @@
         <h3 class="site-h3">审批进度</h3>
         <ul class="layui-timeline">
             <!--发起人-->
-            <li class="layui-timeline-item" style="margin-right: 38px;">
+            <li class="layui-timeline-item">
                 <div class="layui-timeline-content layui-text">
-                    <p style="width: 88%;text-align: -webkit-center;margin-top: 10px; background: #3691f1de; border-radius: 5px; height: 30px; color: white;  line-height: 30px;"> {$tysp.send_user_name}(发起人)</p>
+                    <p> {$tysp.send_user_name}</p>
                 </div>
             </li>
            {if !empty($tysp.approval_user_name)}
