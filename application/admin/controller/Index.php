@@ -285,9 +285,6 @@ class Index extends Common
 
 
 
-
-
-
         //获取所有该公司的审批文件；
         $admin =  SystemAdmin::activeAdminInfoOrFail();
         $approval = Db::name('general_approval a')
@@ -312,6 +309,13 @@ class Index extends Common
 
     }
 
+
+    //工资审批
+    public  function  salarylist()
+    {
+
+        return view();
+    }
 
 
 
