@@ -116,22 +116,21 @@
             </p>
         </dd>
     </dl>
-
+        {if !empty($tysp.annex)}
     <dl>
         <dd class="site-text">
             <p><span>附件：</span>
-            {if !empty($tysp.annex)}
             <div>
             {volist name="tysp.annex" id="vo"}
             <div class="annex-info"><span>名称：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename} </span>点击预览 </a></div>
             {/volist}
             </div>
-            {else}
-            null
-            {/if}
             </p>
         </dd>
     </dl>
+        {else}
+        null
+        {/if}
     </div>
 
     <div class="rate_of_progress">
@@ -150,9 +149,9 @@
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
                     <h3 class="layui-timeline-title">{$vo.state_msg}</h3>
-                    <p>
-                        {$vo.approval_user_name}
-                    </p>
+                    <p>{$vo.approval_user_name}</p>
+                    <p></p>
+
                 </div>
             </li>
             {/volist}
