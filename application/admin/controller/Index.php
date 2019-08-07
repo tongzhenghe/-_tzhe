@@ -563,7 +563,6 @@ class Index extends Common
                     if (!empty($gzsp)) {
 
                         //多规格工资
-
                         $gzsp_specs = Db::name('salary')
                             ->where(['approvalid' => $gzsp['id'], 'compid' => $compid])
                             ->order('id desc')
@@ -575,14 +574,7 @@ class Index extends Common
                             $vs['annex'] = unserialize($vs['annex']);
                         }
 
-                        wl_debug($gzsp_specs);
-
-
                         $gzsp['salary'] = $gzsp_specs;
-
-
-
-
 
                         $gzsp['images'] = unserialize($gzsp['images']);
                         $gzsp['annex'] = unserialize($gzsp['annex']);
@@ -616,6 +608,9 @@ class Index extends Common
                             ->order('appro_sort asc')
                             ->where('compid', $compid)
                             ->select();
+
+
+                        wl_debug($gzsp);
 
                         if (!empty($gzsp['approval_user'])) {
 
@@ -665,7 +660,7 @@ class Index extends Common
                                 $approval_user = Db::name('user')
                                     ->where('id', intval($v['appro_user_id']))
                                     ->field('user_name')
-                                    ->where('compid', $compId)
+                                    ->where('compid', $compid)
                                     ->find();
 
                                 $v['approval_user_name'] = $approval_user['user_name'];
@@ -677,17 +672,17 @@ class Index extends Common
                         }
 
                         //抄送人
-                        for ($i = 0; $i < count($tysp['know_user_id']); $i++) {
-                            $tysp['know_user_name'][] = Db::name('user')
-                                ->where('id', intval($tysp['know_user_id'][$i]))
+                        for ($i = 0; $i < count($gzsp['know_user_id']); $i++) {
+                            $gzsp['know_user_name'][] = Db::name('user')
+                                ->where('id', intval($gzsp['know_user_id'][$i]))
                                 ->field('user_name')
-                                ->where('compid', $compId)
+                                ->where('compid', $compid)
                                 ->find();
                         }
 
                     }
 
-                    return view('gzspinfo', ['tysp' => $tysp]);
+                    return view('gzspinfo', ['gzsp' => $gzsp]);
             }
 
         }
