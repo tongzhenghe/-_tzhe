@@ -211,6 +211,16 @@ class Index extends Common
                             foreach (  $tysp['approval_user'] as &$v) {
                                 if (!empty($v['reject_reason'])) $v['reject_reason'] = (array)json_decode($v['reject_reason']);
                                 if (!empty($v['agree_reason'])) $v['agree_reason'] = (array)json_decode($v['agree_reason']);
+
+
+                                //流程
+                                wl_debug($v);
+
+
+
+
+
+
                                 $approval_user = Db::name('user')
                                     ->where('id', intval($v['approval_id']))
                                     ->field('user_name')
