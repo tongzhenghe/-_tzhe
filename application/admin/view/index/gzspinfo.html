@@ -98,14 +98,6 @@
     <div class="app-basic">
         <h3 class="site-h3">审批基本内容</h3>
 
-
-        <div class="layui-collapse">
-            <div class="layui-colla-item">
-                <h2 class="layui-colla-title">杜甫</h2>
-            </div>
-        </div>
-
-
         <dl>
             <dd class="site-text">
                 <p><span>审批类型：</span><div>{$gzsp.appro_title}</div></p>
@@ -141,7 +133,7 @@
                 </p>
             </dd>
         </dl>
-        {/if}
+    {/if}
 
     {if !empty($gzsp.annex)}
     <dl>
@@ -213,5 +205,5 @@
 
 </div>
 </div>
-<script>layui.use('element', function(){ var element = layui.element;});</script>
+
 {include file='include/static_js'}
