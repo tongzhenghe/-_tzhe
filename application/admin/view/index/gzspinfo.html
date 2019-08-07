@@ -116,8 +116,10 @@
     <div class="app-basic">
         <h3 class="site-h3">审批基本内容</h3>
 
+        {if !empty($gzsp.salary)}
+        {volist name="gzsp.salary" id="vo"}
         <div class="site-title">
-            <fieldset><legend><a name="use">明细1</a></legend></fieldset>
+            <fieldset><legend><a name="use">工资明细1</a></legend></fieldset>
         </div>
         <dl>
             <dd class="site-text">
@@ -132,22 +134,22 @@
 
         <dl>
             <dd class="site-text">
-                <p><span>内容：</span><div>{$gzsp.content}</div></p>
+                <p><span>标题：</span><div>{$gzsp.title}</div></p>
             </dd>
         </dl>
 
         <dl>
             <dd class="site-text">
-                <p><span>详情：</span><div>{$gzsp.detail}</div></p>
+                <p><span>详情：</span><div>{$vo.intro}</div></p>
             </dd>
         </dl>
 
-        {if !empty($gzsp.images)}
+        {if !empty($vo.salary.images)}
         <dl>
             <dd class="site-text">
                 <p><span>图片：</span>
                 <div>
-                {volist name="gzsp.images" id="vo"}
+                {volist name="vo.salary.images" id="vo"}
                <img src="{$vo}" width="63px"/>
                 {/volist}
                 </div>
@@ -156,13 +158,13 @@
         </dl>
     {/if}
 
-    {if !empty($gzsp.annex)}
+    {if !empty($vo.salary.annex)}
     <dl>
         <dd class="site-text">
             <p>
                 <span>附件：</span>
             <div>
-            {volist name="gzsp.annex" id="vo"  key='k'}
+            {volist name="vo.salary.annex" id="vo"  key='k'}
             <div class="annex-info"><span>附件{$k}：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename} </span>点击预览 </a></div>
             {/volist}
             </div>
@@ -170,6 +172,9 @@
         </dd>
     </dl>
     {/if}
+    {/volist}
+    {/if}
+
     </div>
 
     <div class="rate_of_progress">
