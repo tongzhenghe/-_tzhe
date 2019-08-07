@@ -119,7 +119,7 @@
         {if !empty($gzsp.salary)}
         {volist name="gzsp.salary" id="vo" key='k'}
         <div class="site-title">
-            <fieldset><legend><a name="use">工资明细{$k}</a></legend></fieldset>
+            <fieldset><legend><a name="use">明细{$k}</a></legend></fieldset>
         </div>
         <dl>
             <dd class="site-text">
@@ -144,12 +144,12 @@
             </dd>
         </dl>
 
-        {if !empty($vo.salary.images)}
+        {if !empty($vo.salary.image)}
         <dl>
             <dd class="site-text">
                 <p><span>图片：</span>
                 <div>
-                {volist name="vo.salary.images" id="vo"}
+                {volist name="vo.salary.image" id="vo"}
                <img src="{$vo}" width="63px"/>
                 {/volist}
                 </div>
