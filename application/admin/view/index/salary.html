@@ -168,8 +168,7 @@
 
                                         <td>
 
-                                            <a class="layui-btn layui-btn-xs" data-url="{:url('index/salary', ['do' => '_selectGz'])}">查看详情</a>
-
+                                            <a class="layui-btn layui-btn-xs select-data-gz" data-ids="{$vo.id}" data-do="select" onclick="$.fn.createModuleFrame('查看详情', '{:url(\'index/salary\', [\'do\' => \'select\', \'id\' => $vo.id])}');">查看详情</a>
                                             <a class="layui-btn layui-btn-danger layui-btn-xs delete-data" data-ids="{$vo.id}" data-url="{:url('index/salary', ['do' => '_delete'])}"  lay-event="del">删除</a>
 
                                         </td>
