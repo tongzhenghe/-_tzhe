@@ -503,6 +503,7 @@ class Index extends Common
     {
         $table = 'salary_type';
         $table_type = 'salary';
+        $compid = Admin::getAdminId();
         $params = request()->param();
 
         if (!empty($params['do'])) {
@@ -556,7 +557,7 @@ class Index extends Common
         }
 
         //类型
-        $data = Db::name($table)->select();
+        $data = Db::name($table)->where('compid', $compid)->select();
         wl_debug($data);
         foreach ($data as &$v ) {
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
@@ -687,29 +688,6 @@ class Index extends Common
 
             if (!empty($user_find['intro']))
                 $user_find['intro'] = unserialize($user_find['intro']);
-
-
-/*Array
-(
-    [comname] => admin
-    [password] => 21232f297a57a5a743894a0e4a801fc3
-    [state] => 1
-    [is_del] => 1
-    [create_time] => 1554013723
-    [update_time] =>
-    [icon] => http://pp4834un1.bkt.clouddn.com/2019/03/b6227201903319336.png
-    [id] => 1
-    [is_manage] => 1
-    [intro] =>
-)*/
-
-//用户名 不能改
-            //原密码
-            //新密码
-            //确认新密码
-            //选择图标
-            //简介
-
 
             return view('account_setting', [  'do'  => $do, 'user_find' => $user_find]);
         }
