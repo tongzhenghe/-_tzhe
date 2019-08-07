@@ -501,7 +501,7 @@ class Index extends Common
     //财务审批 =》 工资审批
     public  function salary()
     {
-        $table = 'salary';
+        $table = 'general_approval';
         $table_type = 'salary_type';
         $compid = Admin::getAdminId();
         $params = request()->param();
@@ -562,7 +562,10 @@ class Index extends Common
         }
 
         //支付方式
-        $data = Db::name($table)->where('compid', $compid)->select();
+        $data = Db::name($table)
+            ->where('compid', $compid)
+            ->where('appro_title', '工资审批')
+            ->select();
 
         wl_debug($data);
 
