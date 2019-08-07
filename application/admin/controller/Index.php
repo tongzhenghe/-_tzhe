@@ -213,7 +213,6 @@ class Index extends Common
                                 if (!empty($v['agree_reason'])) $v['agree_reason'] = (array)json_decode($v['agree_reason']);
                                 $v['approval_user'] = Db::name('user')
                                     ->where('id', intval($v['approval_id']))
-                                    ->order('appro_sort asc')
                                     ->field('user_name')
                                     ->where('compid', $compId)
                                     ->find();
