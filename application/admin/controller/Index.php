@@ -596,6 +596,7 @@ class Index extends Common
                 ->where('a.id', $compid)
                 ->where('b.id', $compid)
                 ->find();
+            wl_debug($user);
 
             $v['send_user_name'] = $user['user_name'];
             $v['state_msg'] =$state_msg;
