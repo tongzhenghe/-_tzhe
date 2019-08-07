@@ -208,7 +208,6 @@ class Index extends Common
 
                         if (!empty($tysp['approval_user'])) {
 
-                            wl_debug($tysp['approval_user']);
                             foreach (  $tysp['approval_user'] as &$v) {
                                 if (!empty($v['reject_reason'])) $v['reject_reason'] = (array)json_decode($v['reject_reason']);
                                 if (!empty($v['agree_reason'])) $v['agree_reason'] = (array)json_decode($v['agree_reason']);
@@ -221,6 +220,16 @@ class Index extends Common
                                     case ($v['state'] == 4 && $v['appro_sort'] == 1):
                                         $state_msg = '待审批';
                                         break;
+
+                                    case ($v['state'] == 2 ):
+                                        $state_msg = '已同意';
+                                        break;
+
+                                    case ($v['state'] == 1 ):
+                                        $state_msg = '待审批';
+                                        break;
+
+
                                 }
 
 
