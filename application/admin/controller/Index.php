@@ -594,7 +594,6 @@ class Index extends Common
                 ->field('a.user_name, b.name department_name')
                 ->where('a.id', $v['send_user_id'])
                 ->where('a.id', $compid)
-                ->where('b.id', $compid)
                 ->find();
             wl_debug($user);
 
