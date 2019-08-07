@@ -311,11 +311,12 @@ class Index extends Common
 
 
     //工资审批
-    public  function  salarylist()
-    {
-
-        return view();
-    }
+//    public  function  salarylist()
+//    {
+//
+//
+//        return view();
+//    }
 
 
 
@@ -499,7 +500,7 @@ class Index extends Common
 
     //财务审批 =》 工资审批
     public  function salary()
-    {
+    {wl_debug(11);
 
         $table = 'salary_type';
         $table_type = 'salary';
@@ -512,6 +513,7 @@ class Index extends Common
                 if(!$result ) exit(false);
                 exit(iJson('' ));
             }
+
 
             if (!empty($params['do']) && trim($params['do'])  ==  'addtype') {
 
