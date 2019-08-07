@@ -556,9 +556,9 @@ class Index extends Common
             if ($params['do'] == 'select') {
 
                     $id = intval($params['id']);
-                    wl_debug($id);
 
-                    $tysp = Db::name('general_approval')->where('id' , $id)->find();
+                    $gzsp = Db::name('general_approval')->where('id' , $id)->find();
+                    wl_debug($gzsp);
                     //content  create_time  appro_title detail  images  annex  send_department_id  send_user_id   approval_user_id（审批用户id）   know_user_id
 
                     if (!empty($tysp)) {
