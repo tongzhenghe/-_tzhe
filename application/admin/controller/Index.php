@@ -566,10 +566,6 @@ class Index extends Common
             ->where('appro_title', '工资审批')
             ->select();
 
-
-        //appnum{编号}、 send_user_id、 send_department_id、  审批状态、  （待审批、 完成审批、 拒绝审批）
-
-        wl_debug($data);
         foreach ($data as &$v) {
 
             //审批状态
@@ -603,6 +599,7 @@ class Index extends Common
             $v['color'] =$color;
             $v['department_name'] = $user['department_name'];
             $v['photo'] = $user['photo'];
+            $v['create_time'] = date('Y/m/d H:i:s', $v['create_time']);
         }
 
         return view('', ['data' => $data, 'data_type' => $data_type]);
