@@ -57,31 +57,6 @@
     }
     .site-text a {color: #d8d8d8;}
     .layui-timeline{padding-left:46px;margin-top: 30px;}
-    .layui-timeline-item {
-        position: relative;
-        padding-bottom: 20px;
-        width: 8%;
-        float: left;
-        margin-top: 29px;
-    }
-    .layui-timeline-item:before, hr {
-        background-color: unset;
-    }
-
-    .layui-icon-right{
-        position: absolute;
-        left: -5px;
-        top: 0;
-        z-index: 10;
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        background-color: #fff;
-        color: #2d8cf0;
-        border-radius: 50%;
-        text-align: center;
-        cursor: pointer;
-    }
 </style>
 <div class="layui-main site-inline">
 <div class="site-content">
@@ -162,22 +137,29 @@
     <div class="rate_of_progress">
         <h3 class="site-h3">审批进度</h3>
         <ul class="layui-timeline">
-            <!--发起人-->
-            <li class="layui-timeline-item">
-                <div class="layui-timeline-content layui-text">
-                    <p> {$tysp.send_user_name}</p>
-                </div>
-            </li>
+
            {if !empty($tysp.approval_user_name)}
             {volist name="tysp.approval_user_name" id="vo"}
             <li class="layui-timeline-item">
-                <i class="layui-icon layui-icon-right" style=""></i>
+                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
-                    <p>{$vo.user_name}</p>
+                    <h3 class="layui-timeline-title">8月18日</h3>
+                    <p>
+                        {$vo.user_name}
+                    </p>
                 </div>
             </li>
             {/volist}
             {/if}
+
+
+
+            <li class="layui-timeline-item">
+                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                <div class="layui-timeline-content layui-text">
+                    <div class="layui-timeline-title">过去</div>
+                </div>
+            </li>
         </ul>
     </div>
 
