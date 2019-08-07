@@ -247,7 +247,7 @@ class Index extends Common
                         }
 
                         //抄送人
-                        for ($v['state'] = 0; $i < count($tysp['know_user_id']); $i++) {
+                        for ($i = 0; $i < count($tysp['know_user_id']); $i++) {
                             $tysp['know_user_name'][] = Db::name('user')
                                 ->where('id', intval($tysp['know_user_id'][$i]))
                                 ->field('user_name')
