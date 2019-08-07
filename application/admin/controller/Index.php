@@ -561,6 +561,18 @@ class Index extends Common
                     //content  create_time  appro_title detail  images  annex  send_department_id  send_user_id   approval_user_id（审批用户id）   know_user_id
 
                     if (!empty($gzsp)) {
+
+                        //多规格工资
+
+                        wl_debug($gzsp);
+
+
+
+
+
+
+
+
                         $gzsp['images'] = unserialize($gzsp['images']);
                         $gzsp['annex'] = unserialize($gzsp['annex']);
                         $gzsp['approval_user_id'] = unserialize($gzsp['approval_user_id']);
@@ -594,7 +606,6 @@ class Index extends Common
                             ->where('compid', $compid)
                             ->select();
 
-                        wl_debug($gzsp);
                         if (!empty($gzsp['approval_user'])) {
 
                             foreach (  $gzsp['approval_user'] as &$v) {
