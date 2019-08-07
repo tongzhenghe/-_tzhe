@@ -127,7 +127,7 @@
         <dd class="site-text">
             <p><span>图片：</span>
             <div>
-            {volist name="tysp.images" id="vo"}
+            {volist name="gzsp.images" id="vo"}
            <img src="{$vo}" width="63px"/>
             {/volist}
             </div>
@@ -142,7 +142,7 @@
             <p>
                 <span>附件：</span>
             <div>
-            {volist name="tysp.annex" id="vo"  key='k'}
+            {volist name="gzsp.annex" id="vo"  key='k'}
             <div class="annex-info"><span>附件{$k}：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename} </span>点击预览 </a></div>
             {/volist}
             </div>
@@ -163,7 +163,7 @@
                 </div>
             </li>
            {if !empty($gzsp.approval_user)}
-            {volist name="tysp.approval_user" id="vo"}
+            {volist name="gzsp.approval_user" id="vo"}
             <li class="layui-timeline-item">
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
