@@ -566,7 +566,6 @@ class Index extends Common
                         $gzsp['approval_user_id'] = unserialize($gzsp['approval_user_id']);
                         $gzsp['know_user_id'] = unserialize($gzsp['know_user_id']);
 
-                        wl_debug($gzsp);
                         //审批人所属部门、 及所有审批人员、 抄送人员、 时间
                         $send_department = Db::name('department')
                             ->field('name send_department_name')
@@ -580,24 +579,25 @@ class Index extends Common
                             ->where('compid', $compid)
                             ->find();
 
-                        $tysp['send_department_name'] = $send_department['send_department_name'];
-                        $tysp['send_user_name'] = $send_user['send_user_name'];
-                        $tysp['user_tel'] = $send_user['user_tel'];
+                        $gzsp['send_department_name'] = $send_department['send_department_name'];
+                        $gzsp['send_user_name'] = $send_user['send_user_name'];
+                        $gzsp['user_tel'] = $send_user['user_tel'];
 
                         //审批人员
-                        $tysp['know_user_name'] = [];
+                        $gzsp['know_user_name'] = [];
 
-                        $tysp['create_time'] = timeTran($tysp['create_time']);
+                        $gzsp['create_time'] = timeTran($gzsp['create_time']);
 
-                        $tysp['approval_user'] = Db::name('appprostate')
-                            ->where('approval_id', intval($tysp['id']))
+                        $gzsp['approval_user'] = Db::name('appprostate')
+                            ->where('approval_id', intval($gzsp['id']))
                             ->order('appro_sort asc')
-                            ->where('compid', $compId)
+                            ->where('compid', $compid)
                             ->select();
 
-                        if (!empty($tysp['approval_user'])) {
+                        wl_debug($gzsp);
+                        if (!empty($gzsp['approval_user'])) {
 
-                            foreach (  $tysp['approval_user'] as &$v) {
+                            foreach (  $gzsp['approval_user'] as &$v) {
 
                                 if (!empty($v['reject_reason'])) {
                                     $v['reject_reason'] = (array)json_decode($v['reject_reason']);
