@@ -217,6 +217,7 @@ class Index extends Common
 
                     }
 
+                    wl_debug($tysp['approval_user_name']);
                     return view('tyspinfo', ['tysp' => $tysp]);
 
                 }
