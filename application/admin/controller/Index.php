@@ -558,26 +558,26 @@ class Index extends Common
                     $id = intval($params['id']);
 
                     $gzsp = Db::name('general_approval')->where('id' , $id)->find();
-                    wl_debug($gzsp);
                     //content  create_time  appro_title detail  images  annex  send_department_id  send_user_id   approval_user_id（审批用户id）   know_user_id
 
-                    if (!empty($tysp)) {
-                        $tysp['images'] = unserialize($tysp['images']);
-                        $tysp['annex'] = unserialize($tysp['annex']);
-                        $tysp['approval_user_id'] = unserialize($tysp['approval_user_id']);
-                        $tysp['know_user_id'] = unserialize($tysp['know_user_id']);
+                    if (!empty($gzsp)) {
+                        $gzsp['images'] = unserialize($gzsp['images']);
+                        $gzsp['annex'] = unserialize($gzsp['annex']);
+                        $gzsp['approval_user_id'] = unserialize($gzsp['approval_user_id']);
+                        $gzsp['know_user_id'] = unserialize($gzsp['know_user_id']);
 
+                        wl_debug($gzsp);
                         //审批人所属部门、 及所有审批人员、 抄送人员、 时间
                         $send_department = Db::name('department')
                             ->field('name send_department_name')
-                            ->where('id', $tysp['send_department_id'])
-                            ->where('compid', $compId)
+                            ->where('id', $gzsp['send_department_id'])
+                            ->where('compid', $compid)
                             ->find();
 
                         $send_user = Db::name('user')
                             ->field('user_name send_user_name, tel user_tel')
-                            ->where('id', $tysp['send_user_id'])
-                            ->where('compid', $compId)
+                            ->where('id', $gzsp['send_user_id'])
+                            ->where('compid', $compid)
                             ->find();
 
                         $tysp['send_department_name'] = $send_department['send_department_name'];
