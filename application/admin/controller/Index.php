@@ -199,11 +199,17 @@ class Index extends Common
                         $tysp['approval_user_name'] = $tysp['know_user_name'] = [];
                         $tysp['create_time'] = timeTran($tysp['create_time']);
                         for ($i = 0; $i < count($tysp['approval_user_id']); $i++) {
-                            $tysp['approval_user_name'][] = Db::name('user')
-                                ->where('id', intval($tysp['approval_user_id'][$i]))
+
+
+                            wl_debug($tysp);
+                            $tysp['approval_user_name'][] = Db::name('appprostate')
+
+                                ->where('approval_id', intval($tysp['approval_user_id'][$i]))
                                 ->field('user_name')
                                 ->where('compid', $compId)
                                 ->find();
+
+
                         }
 
                         //抄送人
