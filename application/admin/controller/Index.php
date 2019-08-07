@@ -209,8 +209,18 @@ class Index extends Common
                         if (!empty($tysp['approval_user'])) {
 
                             foreach (  $tysp['approval_user'] as &$v) {
-                                if (!empty($v['reject_reason'])) $v['reject_reason'] = (array)json_decode($v['reject_reason']);
-                                if (!empty($v['agree_reason'])) $v['agree_reason'] = (array)json_decode($v['agree_reason']);
+
+                                if (!empty($v['reject_reason'])) {
+                                    $v['reject_reason'] = (array)json_decode($v['reject_reason']);
+                                    $v['reject_reason']['annex'] = (array)$v['reject_reason']['annex'];
+                                }
+
+                                if (!empty($v['agree_reason'])) {
+                                    $v['agree_reason'] = (array)json_decode($v['agree_reason']);
+                                }
+
+
+
                                 //流程
                                 //待审批
 
@@ -258,6 +268,7 @@ class Index extends Common
 
                     }
 
+                    wl_debug($tysp);
                     return view('tyspinfo', ['tysp' => $tysp]);
 
                 }
