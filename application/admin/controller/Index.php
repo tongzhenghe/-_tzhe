@@ -217,6 +217,7 @@ class Index extends Common
                                 }
 
                                 if (!empty($v['agree_reason'])) {
+                                    wl_debug($v['agree_reason']['pro_time']);
                                     $v['agree_reason']['pro_time'] = timeTran($v['agree_reason']['pro_time']);
                                     $v['agree_reason'] = (array)json_decode($v['agree_reason']);
                                     $v['agree_reason']['annex'] = (array)$v['agree_reason']['annex'];
