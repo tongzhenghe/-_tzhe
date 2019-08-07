@@ -101,25 +101,25 @@
         </dd>
     </dl>
 
+        {if !empty($tysp.images)}
     <dl>
         <dd class="site-text">
             <p><span>图片：</span>
-            {if !empty($tysp.images)}
             <div>
             {volist name="tysp.images" id="vo"}
            <img src="{$vo}" width="63px"/>
             {/volist}
             </div>
-            {else}
-            null
-            {/if}
             </p>
         </dd>
     </dl>
-        {if !empty($tysp.annex)}
+    {/if}
+
+    {if !empty($tysp.annex)}
     <dl>
         <dd class="site-text">
-            <p><span>附件：</span>
+            <p>
+                <span>附件：</span>
             <div>
             {volist name="tysp.annex" id="vo"}
             <div class="annex-info"><span>名称：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename} </span>点击预览 </a></div>
@@ -128,9 +128,7 @@
             </p>
         </dd>
     </dl>
-        {else}
-        null
-        {/if}
+    {/if}
     </div>
 
     <div class="rate_of_progress">
