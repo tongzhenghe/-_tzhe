@@ -205,7 +205,6 @@ class Index extends Common
                                 ->where('compid', $compId)
                                 ->find();
                         }
-                        wl_debug( $tysp['approval_user_name']);
 
                         //抄送人
                         for ($i = 0; $i < count($tysp['know_user_id']); $i++) {
