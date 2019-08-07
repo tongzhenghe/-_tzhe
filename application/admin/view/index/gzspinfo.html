@@ -1,7 +1,5 @@
 {include file='include/static_css'}
 
-
-
 <style>
     .site-content {
         width: 100%;
@@ -96,45 +94,63 @@
             </dd>
         </dl>
     </div>
+
     <div class="app-basic">
         <h3 class="site-h3">审批基本内容</h3>
+
+
+        <div class="layui-collapse">
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">杜甫</h2>
+                <div class="layui-colla-content layui-show">内容区域</div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">李清照</h2>
+                <div class="layui-colla-content layui-show">内容区域</div>
+            </div>
+            <div class="layui-colla-item">
+                <h2 class="layui-colla-title">鲁迅</h2>
+                <div class="layui-colla-content layui-show">内容区域</div>
+            </div>
+        </div>
+
 
         <dl>
             <dd class="site-text">
                 <p><span>审批类型：</span><div>{$gzsp.appro_title}</div></p>
             </dd>
         </dl>
-    <dl>
-        <dd class="site-text">
-            <p><span>创建时间：</span><div>{$gzsp.create_time}</div></p>
-        </dd>
-    </dl>
+        <dl>
+            <dd class="site-text">
+                <p><span>创建时间：</span><div>{$gzsp.create_time}</div></p>
+            </dd>
+        </dl>
 
-    <dl>
-        <dd class="site-text">
-            <p><span>内容：</span><div>{$gzsp.content}</div></p>
-        </dd>
-    </dl>
+        <dl>
+            <dd class="site-text">
+                <p><span>内容：</span><div>{$gzsp.content}</div></p>
+            </dd>
+        </dl>
 
-    <dl>
-        <dd class="site-text">
-            <p><span>详情：</span><div>{$gzsp.detail}</div></p>
-        </dd>
-    </dl>
+        <dl>
+            <dd class="site-text">
+                <p><span>详情：</span><div>{$gzsp.detail}</div></p>
+            </dd>
+        </dl>
 
         {if !empty($gzsp.images)}
-    <dl>
-        <dd class="site-text">
-            <p><span>图片：</span>
-            <div>
-            {volist name="gzsp.images" id="vo"}
-           <img src="{$vo}" width="63px"/>
-            {/volist}
-            </div>
-            </p>
-        </dd>
-    </dl>
-    {/if}
+        <dl>
+            <dd class="site-text">
+                <p><span>图片：</span>
+                <div>
+                {volist name="gzsp.images" id="vo"}
+               <img src="{$vo}" width="63px"/>
+                {/volist}
+                </div>
+                </p>
+            </dd>
+        </dl>
+        {/if}
 
     {if !empty($gzsp.annex)}
     <dl>
@@ -206,5 +222,5 @@
 
 </div>
 </div>
-
+<script>layui.use('element', function(){ var element = layui.element;});</script>
 {include file='include/static_js'}
