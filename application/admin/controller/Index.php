@@ -500,8 +500,7 @@ class Index extends Common
 
     //财务审批 =》 工资审批
     public  function salary()
-    {wl_debug(11);
-
+    {
         $table = 'salary_type';
         $table_type = 'salary';
         $params = request()->param();
