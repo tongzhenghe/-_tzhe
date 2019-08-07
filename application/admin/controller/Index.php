@@ -514,7 +514,6 @@ class Index extends Common
                 exit(iJson('' ));
             }
 
-
             if (!empty($params['do']) && trim($params['do'])  ==  'addtype') {
 
                 if (request()->isAjax()) {
@@ -556,31 +555,21 @@ class Index extends Common
 
         }
 
-        $data = Db::name($table_type)->where('compid', $compid)->select();
+        $data_type = Db::name($table_type)->where('compid', $compid)->select();
 
-        foreach ($data as &$v ) {
+        foreach ($data_type as &$v ) {
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
 
         //支付方式
-        $data_pay = Db::name($table)->where('compid', $compid)->select();
+        $data = Db::name($table)->where('compid', $compid)->select();
 
-        return view('', ['data' => $data, 'data_pay' => $data_pay]);
+        wl_debug($data_type);
 
-    }
-
-
-
-    //支付方式
-    public  function  paytype()
-    {
-
-        return view();
-
-
-
+        return view('', ['data' => $data, 'data_pay' => $data_type]);
 
     }
+
 
 
     public  function  admin()
