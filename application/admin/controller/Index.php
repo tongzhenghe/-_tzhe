@@ -206,16 +206,20 @@ class Index extends Common
                                 ->where('compid', $compId)
                                 ->select();
 
-                            wl_debug($tysp['approval_user']);
                         if (!empty($tysp['approval_user'])) {
 
+                            wl_debug($tysp['approval_user']);
                             foreach (  $tysp['approval_user'] as &$v) {
                                 if (!empty($v['reject_reason'])) $v['reject_reason'] = (array)json_decode($v['reject_reason']);
                                 if (!empty($v['agree_reason'])) $v['agree_reason'] = (array)json_decode($v['agree_reason']);
                                 //流程
                                 //待审批
+
+                                $state_msg = '';
+
                                 switch (true) {
-                                    case ($v['state'] == 1 && $v['state'] == 2):
+                                    case ($v['state'] == 4 && $v['appro_sort'] == 1):
+                                        $state_msg = '待审批';
                                         break;
                                 }
 
