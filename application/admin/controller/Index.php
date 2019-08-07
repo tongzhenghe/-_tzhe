@@ -601,6 +601,7 @@ class Index extends Common
             $v['state_msg'] =$state_msg;
             $v['color'] =$color;
             $v['department_name'] = $user['department_name'];
+            $v['photo'] = $user['photo'];
         }
 
         wl_debug($data);
