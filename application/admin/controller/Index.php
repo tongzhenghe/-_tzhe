@@ -262,6 +262,7 @@ class Index extends Common
                                 $v['color'] = $color;
 
                             }
+                            wl_debug($approval_user);
 
                         }
 
