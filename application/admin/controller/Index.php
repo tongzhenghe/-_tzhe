@@ -214,8 +214,6 @@ class Index extends Common
 
 
                                 //流程
-                                wl_debug($v);
-
 
 
 
@@ -230,6 +228,8 @@ class Index extends Common
                             }
 
                         }
+
+                        wl_debug($tysp['approval_user']);
 
                         //抄送人
                         for ($i = 0; $i < count($tysp['know_user_id']); $i++) {
