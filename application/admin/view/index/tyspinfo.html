@@ -121,8 +121,8 @@
             <p>
                 <span>附件：</span>
             <div>
-            {volist name="tysp.annex" id="vo"}
-            <div class="annex-info"><span>名称：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename} </span>点击预览 </a></div>
+            {volist name="tysp.annex" id="vo"  item='k'}
+            <div class="annex-info"><span>名称{$k}：</span><a href="{$vo.file}"><span style="color: #2d8cf0;">{$vo.filename} </span>点击预览 </a></div>
             {/volist}
             </div>
             </p>
@@ -148,7 +148,11 @@
                 <div class="layui-timeline-content layui-text">
                     <h3 class="layui-timeline-title">{$vo.state_msg}</h3>
                     <p>{$vo.approval_user_name}</p>
-                    <p></p>
+
+                    <div>
+                        <div class="annex-info"><span>名称：</span><a href="http://huamei.juhuiny.com/2019/08/c681b201908079318.doc"><span style="color: #2d8cf0;">尺寸大小.doc </span>点击预览 </a></div>
+                        <div class="annex-info"><span>名称：</span><a href="http://huamei.juhuiny.com/2019/08/09832201908073064.doc"><span style="color: #2d8cf0;">呆狐网医生上下架明细.doc </span>点击预览 </a></div>
+                    </div>
 
                 </div>
             </li>
