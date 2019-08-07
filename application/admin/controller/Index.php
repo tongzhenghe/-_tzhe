@@ -570,8 +570,8 @@ class Index extends Common
                             ->select();
 
                         foreach ($gzsp_specs as &$vs) {
-                            wl_debug($vs['image']);
                             $vs['image'] = unserialize($vs['image']);
+                            wl_debug($vs['image']);
                             $vs['annex'] = unserialize($vs['annex']);
                         }
 
