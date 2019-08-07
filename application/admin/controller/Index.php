@@ -556,15 +556,14 @@ class Index extends Common
 
         }
 
-        //类型
-        $data = Db::name($table)->where('compid', $compid)->select();
+        $data = Db::name($table_type)->where('compid', $compid)->select();
 
         foreach ($data as &$v ) {
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
 
         //支付方式
-        $data_pay = Db::name($table_type)->where('compid', $compid)->select();
+        $data_pay = Db::name($table)->where('compid', $compid)->select();
 
         return view('', ['data' => $data, 'data_pay' => $data_pay]);
 
