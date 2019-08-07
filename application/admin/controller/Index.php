@@ -239,6 +239,7 @@ class Index extends Common
                                     ->field('user_name')
                                     ->where('compid', $compId)
                                     ->find();
+
                                 $v['approval_user_name'] = $approval_user['user_name'];
                                 $v['state_msg'] = $state_msg;
 
