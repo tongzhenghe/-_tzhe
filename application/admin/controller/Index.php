@@ -246,8 +246,6 @@ class Index extends Common
 
                         }
 
-                        wl_debug($tysp['approval_user']);
-
                         //抄送人
                         for ($v['state'] = 0; $i < count($tysp['know_user_id']); $i++) {
                             $tysp['know_user_name'][] = Db::name('user')
