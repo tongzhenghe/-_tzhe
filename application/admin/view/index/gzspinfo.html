@@ -84,17 +84,15 @@
 <div class="layui-main site-inline">
 
 <div class="site-content">
-    <h2 class="site-h1">审批编号：{$tysp.appnum}</h2>
-    <blockquote class="layui-elem-quote">
-        将时间抽象到二维平面，垂直呈现一段从过去到现在的故事。
-    </blockquote>
+    <h2 class="site-h1">审批编号：{$gzsp.appnum}</h2>
+    <blockquote class="layui-elem-quote">将时间抽象到二维平面，垂直呈现一段从过去到现在的故事。</blockquote>
 
     <div class="app-userinfo">
         <h3 class="site-h3">发起人信息</h3>
         <dl>
             <dd class="site-text">
-                <p><span>姓名：</span><div>{$tysp.send_user_name}（{$tysp.send_department_name}）</div></p>
-                <p><span>联系方式：</span><div>{$tysp.user_tel}</div></p>
+                <p><span>姓名：</span><div>{$gzsp.send_user_name}（{$gzsp.send_department_name}）</div></p>
+                <p><span>联系方式：</span><div>{$gzsp.user_tel}</div></p>
             </dd>
         </dl>
     </div>
@@ -103,28 +101,28 @@
 
         <dl>
             <dd class="site-text">
-                <p><span>审批类型：</span><div>{$tysp.appro_title}</div></p>
+                <p><span>审批类型：</span><div>{$gzsp.appro_title}</div></p>
             </dd>
         </dl>
     <dl>
         <dd class="site-text">
-            <p><span>创建时间：</span><div>{$tysp.create_time}</div></p>
+            <p><span>创建时间：</span><div>{$gzsp.create_time}</div></p>
         </dd>
     </dl>
 
     <dl>
         <dd class="site-text">
-            <p><span>内容：</span><div>{$tysp.content}</div></p>
+            <p><span>内容：</span><div>{$gzsp.content}</div></p>
         </dd>
     </dl>
 
     <dl>
         <dd class="site-text">
-            <p><span>详情：</span><div>{$tysp.detail}</div></p>
+            <p><span>详情：</span><div>{$gzsp.detail}</div></p>
         </dd>
     </dl>
 
-        {if !empty($tysp.images)}
+        {if !empty($gzsp.images)}
     <dl>
         <dd class="site-text">
             <p><span>图片：</span>
@@ -138,7 +136,7 @@
     </dl>
     {/if}
 
-    {if !empty($tysp.annex)}
+    {if !empty($gzsp.annex)}
     <dl>
         <dd class="site-text">
             <p>
@@ -161,10 +159,10 @@
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
                     <h5 class="layui-timeline-title" style="color:#9ea0a3;;">(发起人)</h5>
-                    <p class="fq-m">{$tysp.send_user_name}</p>
+                    <p class="fq-m">{$gzsp.send_user_name}</p>
                 </div>
             </li>
-           {if !empty($tysp.approval_user)}
+           {if !empty($gzsp.approval_user)}
             {volist name="tysp.approval_user" id="vo"}
             <li class="layui-timeline-item">
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
@@ -193,7 +191,7 @@
             {/if}
 
             <!--审批完成-->
-            {if $tysp.approval_state == 2}
+            {if $gzsp.approval_state == 2}
             <li class="layui-timeline-item">
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
