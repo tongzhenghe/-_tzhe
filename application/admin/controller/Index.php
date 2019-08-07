@@ -610,8 +610,6 @@ class Index extends Common
                             ->select();
 
 
-                        wl_debug($gzsp);
-
                         if (!empty($gzsp['approval_user'])) {
 
                             foreach (  $gzsp['approval_user'] as &$v) {
@@ -629,6 +627,7 @@ class Index extends Common
                                 }
 
 
+                                wl_debug($gzsp);
 
                                 //流程
                                 //待审批
