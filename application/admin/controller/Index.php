@@ -579,7 +579,8 @@ class Index extends Common
                 ->find();
 
 
-            $data['user'] = $user;
+            $data['send_user_name'] = $user['user_name'];
+            $data['department_name'] = $user['department_name'];
         }
         wl_debug($data);
 
