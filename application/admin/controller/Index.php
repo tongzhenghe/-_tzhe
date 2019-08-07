@@ -603,8 +603,6 @@ class Index extends Common
             $v['department_name'] = $user['department_name'];
         }
 
-
-        wl_debug($data);
         return view('', ['data' => $data, 'data_type' => $data_type]);
 
     }
