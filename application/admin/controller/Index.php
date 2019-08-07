@@ -574,7 +574,7 @@ class Index extends Common
                             $vs['annex'] = unserialize($vs['annex']);
                         }
 
-                        wl_debug($gzsp_specs);
+                        wl_debug(unserialize('a:1:{i:0;s:55:"http://huamei.juhuiny.com/2019/08/556d7201908071841.png";}'));
 
 
                         $gzsp['salary'] = $gzsp_specs;
