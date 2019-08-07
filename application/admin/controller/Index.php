@@ -578,9 +578,8 @@ class Index extends Common
                 ->where('b.id', $compid)
                 ->find();
 
-
-            $data['send_user_name'] = $user['user_name'];
-            $data['department_name'] = $user['department_name'];
+            $v['send_user_name'] = $user['user_name'];
+            $v['department_name'] = $user['department_name'];
         }
         wl_debug($data);
 
