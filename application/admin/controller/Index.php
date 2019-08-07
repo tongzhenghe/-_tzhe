@@ -216,12 +216,8 @@ class Index extends Common
                                     ->field('user_name')
                                     ->where('compid', $compId)
                                     ->find();
-                                $v['approval_user'] = $approval_user['user_name'];
+                                $v['approval_user_name'] = $approval_user['user_name'];
                             }
-
-                            wl_debug($tysp['approval_user']);
-
-
 
                         }
                             wl_debug( $tysp['approval_user']);
