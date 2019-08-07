@@ -653,6 +653,10 @@ class Index extends Common
                                         $state_msg = '已拒绝';
                                         $color = '#ff943e';
                                         break;
+                                        case ($v['state'] == 5 ):
+                                        $state_msg = '已撤销';
+                                        $color = '#fee151';
+                                        break;
                                 }
 
                                 $approval_user = Db::name('user')
