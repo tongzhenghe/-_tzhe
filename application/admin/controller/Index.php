@@ -558,11 +558,11 @@ class Index extends Common
 
         //类型
         $data = Db::name($table)->where('compid', $compid)->select();
-        wl_debug($data);
 
         foreach ($data as &$v ) {
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
+        wl_debug($data);
 
         //支付方式
         $data_pay = Db::name($table_type)->where('compid', $compid)->select();
