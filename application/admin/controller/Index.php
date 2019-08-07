@@ -569,6 +569,7 @@ class Index extends Common
 
         //appnum{编号}、 send_user_id、 send_department_id、  审批状态、  （待审批、 完成审批、 拒绝审批）
 
+        wl_debug($data);
         foreach ($data as &$v) {
 
             //审批状态
