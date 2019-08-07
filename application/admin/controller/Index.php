@@ -561,15 +561,19 @@ class Index extends Common
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
 
-        //支付方式
         $data = Db::name($table)
             ->where('compid', $compid)
             ->where('appro_title', '工资审批')
             ->select();
 
+
         wl_debug($data);
 
-        return view('', ['data' => $data, 'data_pay' => $data_type]);
+
+
+
+
+        return view('', ['data' => $data, 'data_type' => $data_type]);
 
     }
 
