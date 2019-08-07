@@ -564,8 +564,12 @@ class Index extends Common
 
                         //多规格工资
 
-                        wl_debug($gzsp);
+                        $gzsp_specs = Db::name('salary')
+                            ->where(['approvalid' => $gzsp['id'], 'compid' => $compid])
+                            ->order('id desc')
+                            ->select();
 
+                        wl_debug($gzsp_specs);
 
 
 
