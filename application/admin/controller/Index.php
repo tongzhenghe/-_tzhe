@@ -569,6 +569,7 @@ class Index extends Common
                             ->order('id desc')
                             ->select();
 
+                        $gzsp['salary'] = $gzsp_specs;
                         wl_debug($gzsp_specs);
 
 
