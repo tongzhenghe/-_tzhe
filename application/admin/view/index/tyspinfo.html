@@ -138,7 +138,6 @@
     <div class="rate_of_progress">
         <h3 class="site-h3">审批进度</h3>
         <ul class="layui-timeline">
-
            {if !empty($tysp.approval_user_name)}
             {volist name="tysp.approval_user_name" id="vo"}
             <li class="layui-timeline-item">
@@ -152,15 +151,6 @@
             </li>
             {/volist}
             {/if}
-
-
-
-            <li class="layui-timeline-item">
-                <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-                <div class="layui-timeline-content layui-text">
-                    <div class="layui-timeline-title">过去</div>
-                </div>
-            </li>
         </ul>
     </div>
 
