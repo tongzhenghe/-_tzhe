@@ -569,10 +569,15 @@ class Index extends Common
                             ->order('id desc')
                             ->select();
 
+                        foreach ($gzsp_specs as &$vs) {
+                            $vs['image'] = unserialize($vs['image']);
+                            $vs['annex'] = unserialize($vs['annex']);
+                        }
+
+                        wl_debug($gzsp_specs);
+
+
                         $gzsp['salary'] = $gzsp_specs;
-                        wl_debug($gzsp);
-
-
 
 
 
