@@ -211,11 +211,13 @@ class Index extends Common
                             foreach (  $tysp['approval_user'] as &$v) {
 
                                 if (!empty($v['reject_reason'])) {
+                                    $v['reject_reason']['pro_time'] = timeTran($v['reject_reason']['pro_time']);
                                     $v['reject_reason'] = (array)json_decode($v['reject_reason']);
                                     $v['reject_reason']['annex'] = (array)$v['reject_reason']['annex'];
                                 }
 
                                 if (!empty($v['agree_reason'])) {
+                                    $v['agree_reason']['pro_time'] = timeTran($v['agree_reason']['pro_time']);
                                     $v['agree_reason'] = (array)json_decode($v['agree_reason']);
                                     $v['agree_reason']['annex'] = (array)$v['agree_reason']['annex'];
 
