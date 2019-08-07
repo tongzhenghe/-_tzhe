@@ -206,8 +206,6 @@ class Index extends Common
                                 ->where('compid', $compId)
                                 ->select();
 
-                            wl_debug(  $tysp['approval_userss']);
-
                         if (!empty($tysp['approval_user'])) {
 
                             foreach (  $tysp['approval_user'] as &$v) {
@@ -216,13 +214,8 @@ class Index extends Common
 
 
                                 //流程
-
-
-
-
-
                                 $approval_user = Db::name('user')
-                                    ->where('id', intval($v['approval_id']))
+                                    ->where('id', intval($v['appro_user_id']))
                                     ->field('user_name')
                                     ->where('compid', $compId)
                                     ->find();
