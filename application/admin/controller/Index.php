@@ -567,6 +567,19 @@ class Index extends Common
             ->select();
 
 
+        //appnum{编号}、 send_user_id、 send_department_id、  审批状态、  （谁在待审批、 完成审批、 拒绝审批）
+
+        foreach ($data as &$v) {
+            $user = Db::name('user a')
+                ->join('department b', 'a.department_id = b.id', 'left')
+                ->where('a.id', $v['send_user_id'])
+                ->find();
+
+
+            wl_debug($user);
+
+
+        }
         wl_debug($data);
 
 
