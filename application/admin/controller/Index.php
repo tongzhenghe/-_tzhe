@@ -211,9 +211,9 @@ class Index extends Common
                             foreach (  $tysp['approval_user'] as &$v) {
 
                                 if (!empty($v['reject_reason'])) {
-                                    $v['reject_reason']['pro_time'] = timeTran($v['reject_reason']['pro_time']);
                                     $v['reject_reason'] = (array)json_decode($v['reject_reason']);
                                     $v['reject_reason']['annex'] = (array)$v['reject_reason']['annex'];
+                                    $v['reject_reason']['pro_time'] = timeTran($v['reject_reason']['pro_time']);
                                 }
 
                                 if (!empty($v['agree_reason'])) {
@@ -227,23 +227,27 @@ class Index extends Common
                                 //流程
                                 //待审批
 
-                                $state_msg = '';
+                                $state_msg = $color = '';
 
                                 switch (true) {
                                     case ($v['state'] == 4 && $v['appro_sort'] == 1):
                                         $state_msg = '待审批';
+                                        $color = '#b9bbbc';
                                         break;
 
                                     case ($v['state'] == 2 ):
                                         $state_msg = '已同意';
+                                        $color = '#15bc83';
                                         break;
 
                                     case ($v['state'] == 1 ):
                                         $state_msg = '待审批';
+                                        $color = '#b9bbbc';
                                         break;
 
                                     case ($v['state'] == 3 ):
                                         $state_msg = '已拒绝';
+                                        $color = '#ff943e';
                                         break;
                                 }
 
@@ -255,6 +259,7 @@ class Index extends Common
 
                                 $v['approval_user_name'] = $approval_user['user_name'];
                                 $v['state_msg'] = $state_msg;
+                                $v['color'] = $color;
 
                             }
 
