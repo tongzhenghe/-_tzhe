@@ -134,7 +134,6 @@
     </dl>
     </div>
 
-
     <div class="rate_of_progress">
         <h3 class="site-h3">审批进度</h3>
         <ul class="layui-timeline">
@@ -145,12 +144,12 @@
                     <p>{$tysp.send_user_name}(发起人)</p>
                 </div>
             </li>
-           {if !empty($tysp.approval_user_name)}
-            {volist name="tysp.approval_user_name" id="vo"}
+           {if !empty($tysp.approval_user)}
+            {volist name="tysp.approval_user" id="vo"}
             <li class="layui-timeline-item">
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
-                    <h3 class="layui-timeline-title">8月18日</h3>
+                    <h3 class="layui-timeline-title">{$vo.state_msg}</h3>
                     <p>
                         {$vo.user_name}
                     </p>
