@@ -591,7 +591,7 @@ class Index extends Common
 
             $user = Db::name('user a')
                 ->join('department b', 'a.department_id = b.id', 'left')
-                ->field('a.user_name, b.name department_name')
+                ->field('a.user_name, a.photo, b.name department_name')
                 ->where('a.id', $v['send_user_id'])
                 ->where('a.compid', $compid)
                 ->where('b.compid', $compid)
@@ -603,6 +603,7 @@ class Index extends Common
             $v['department_name'] = $user['department_name'];
         }
 
+        wl_debug($data);
         return view('', ['data' => $data, 'data_type' => $data_type]);
 
     }
