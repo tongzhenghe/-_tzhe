@@ -574,6 +574,7 @@ class Index extends Common
                             $vs['annex'] = unserialize($vs['annex']);
                         }
 
+                        // title、 typeid、 intro、 image、 annex、 salary_money、
                         $gzsp['salary'] = $gzsp_specs;
 
                         $gzsp['images'] = unserialize($gzsp['images']);
@@ -679,6 +680,7 @@ class Index extends Common
 
                     }
 
+                    wl_debug($gzsp);
                     return view('gzspinfo', ['gzsp' => $gzsp]);
             }
 
