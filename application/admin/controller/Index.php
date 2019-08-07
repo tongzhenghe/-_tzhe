@@ -557,6 +557,7 @@ class Index extends Common
 
         //类型
         $data = Db::name($table)->select();
+        wl_debug($data);
         foreach ($data as &$v ) {
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
