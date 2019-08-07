@@ -206,14 +206,22 @@ class Index extends Common
                                 ->where('compid', $compId)
                                 ->select();
 
+                            wl_debug($tysp['approval_user']);
                         if (!empty($tysp['approval_user'])) {
 
                             foreach (  $tysp['approval_user'] as &$v) {
                                 if (!empty($v['reject_reason'])) $v['reject_reason'] = (array)json_decode($v['reject_reason']);
                                 if (!empty($v['agree_reason'])) $v['agree_reason'] = (array)json_decode($v['agree_reason']);
-
-
                                 //流程
+                                //待审批
+                                switch (true) {
+                                    case ($v['state'] == 1 && $v['state'] == 2):
+                                        break;
+                                }
+
+
+
+
                                 $approval_user = Db::name('user')
                                     ->where('id', intval($v['appro_user_id']))
                                     ->field('user_name')
@@ -227,7 +235,7 @@ class Index extends Common
                         wl_debug($tysp['approval_user']);
 
                         //抄送人
-                        for ($i = 0; $i < count($tysp['know_user_id']); $i++) {
+                        for ($v['state'] = 0; $i < count($tysp['know_user_id']); $i++) {
                             $tysp['know_user_name'][] = Db::name('user')
                                 ->where('id', intval($tysp['know_user_id'][$i]))
                                 ->field('user_name')
