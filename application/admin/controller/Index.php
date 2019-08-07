@@ -567,9 +567,28 @@ class Index extends Common
             ->select();
 
 
-        //appnum{编号}、 send_user_id、 send_department_id、  审批状态、  （谁在待审批、 完成审批、 拒绝审批）
+        //appnum{编号}、 send_user_id、 send_department_id、  审批状态、  （待审批、 完成审批、 拒绝审批）
 
         foreach ($data as &$v) {
+
+            //审批状态
+            $state_msg =  $color = '';
+            switch ($v['approval_state']) {
+                case 1 :
+                    $state_msg = '待审批';
+                    $color = '#b9bbbc';
+                    break;
+                case 2 :
+                    $state_msg = '审批完成';
+                    $color = '#15bc83';
+                    break;
+                 case 3 :
+                    $state_msg = '被驳回';
+                    $color = '#ff9846';
+                    break;
+
+            }
+
             $user = Db::name('user a')
                 ->join('department b', 'a.department_id = b.id', 'left')
                 ->field('a.user_name, b.name department_name')
@@ -579,13 +598,13 @@ class Index extends Common
                 ->find();
 
             $v['send_user_name'] = $user['user_name'];
+            $v['state_msg'] =$state_msg;
+            $v['color'] =$color;
             $v['department_name'] = $user['department_name'];
         }
+
+
         wl_debug($data);
-
-
-
-
 
         return view('', ['data' => $data, 'data_type' => $data_type]);
 
