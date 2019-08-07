@@ -588,11 +588,13 @@ class Index extends Common
                     break;
 
             }
-
+]
+            wl_debug($compid);
             $user = Db::name('user a')
                 ->join('department b', 'a.department_id = b.id', 'left')
                 ->field('a.user_name, b.name department_name')
                 ->where('a.id', $v['send_user_id'])
+                ->where('a.id', $compid)
                 ->find();
             wl_debug($user);
 
