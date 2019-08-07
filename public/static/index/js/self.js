@@ -838,8 +838,9 @@ $(function () {
             //需要数据： 此条审批id、 类型、  请求接口；
             var approval_type = $this.attr('data-item')
                 , approval_id = $this.attr('data-id')
+                , app_user_id = $this.attr('data-user-id')
                 ,url = $this.attr('data-url');
-            formData = {approval_type:approval_type,approval_id:approval_id};
+            formData = {app_user_id:app_user_id, approval_type:approval_type,approval_id:approval_id};
             $.fn.setRequest2(formData, url );
 
 
