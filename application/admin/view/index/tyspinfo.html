@@ -158,8 +158,8 @@
             <li class="layui-timeline-item">
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
-                    <h3 class="layui-timeline-title">{$vo.state_msg}</h3>
-                    <p class="app-user"><span>{$vo.approval_user_name}</span><span>{if !empty($vo.agree_reason)}{$vo.agree_reason.pro_time}{/if}{if !empty($vo.reject_reason)}{$vo.reject_reason.pro_time}{/if}</span></p>
+                    <h3 class="layui-timeline-title">{$vo.state_msg}<span>{if !empty($vo.agree_reason)}{$vo.agree_reason.pro_time}{/if}{if !empty($vo.reject_reason)}{$vo.reject_reason.pro_time}{/if}</span></h3>
+                    <p class="app-user">{$vo.approval_user_name}</p>
 
                     {if !empty($vo.agree_reason)}
                     <div style="margin-left:49px;margin-top: 19px;width: 54%;">
