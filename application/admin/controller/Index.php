@@ -211,13 +211,13 @@ class Index extends Common
                             foreach (  $tysp['approval_user'] as &$v) {
                                 if (!empty($v['reject_reason'])) $v['reject_reason'] = (array)json_decode($v['reject_reason']);
                                 if (!empty($v['agree_reason'])) $v['agree_reason'] = (array)json_decode($v['agree_reason']);
-                                $v['approval_user'] = Db::name('user')
+                                $approval_user = Db::name('user')
                                     ->where('id', intval($v['approval_id']))
                                     ->field('user_name')
                                     ->where('compid', $compId)
                                     ->find();
+                                $v['approval_user'] = $approval_user['user_name'];
                             }
-
 
                             wl_debug($tysp['approval_user']);
 
