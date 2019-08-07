@@ -196,7 +196,7 @@ class Index extends Common
                         $tysp['user_tel'] = $send_user['user_tel'];
 
                         //审批人员
-                        $tysp['approval_user_name'] = $tysp['know_user_name'] = [];
+                        $tysp['know_user_name'] = [];
 
                         $tysp['create_time'] = timeTran($tysp['create_time']);
 
@@ -206,6 +206,25 @@ class Index extends Common
                                 ->where('compid', $compId)
                                 ->select();
 
+                        if (!empty($tysp['approval_user'])) {
+
+                            foreach (  $tysp['approval_user'] as &$v) {
+                                if (!empty($v['reject_reason'])) $v['reject_reason'] = (array)json_decode($v['reject_reason']);
+                                if (!empty($v['agree_reason'])) $v['agree_reason'] = (array)json_decode($v['agree_reason']);
+                                $v['approval_user'] = Db::name('user')
+                                    ->where('id', intval($v['approval_id']))
+                                    ->order('appro_sort asc')
+                                    ->field('user_name')
+                                    ->where('compid', $compId)
+                                    ->find();
+                            }
+
+
+                            wl_debug($tysp['approval_user']);
+
+
+
+                        }
                             wl_debug( $tysp['approval_user']);
 
 
