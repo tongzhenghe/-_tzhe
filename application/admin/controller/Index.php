@@ -527,7 +527,7 @@ class Index extends Common
                         'time' => time(),
                     ];
 
-                    jsondebug($params);
+                    jsondebug($data);
 
                     if (empty($params['id'])) {
                         $result = Db::name($table)->insert($data);
