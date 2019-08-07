@@ -200,7 +200,7 @@ class Index extends Common
 
                         $tysp['create_time'] = timeTran($tysp['create_time']);
 
-                            $tysp['approval_userss'] = Db::name('appprostate')
+                            $tysp['approval_user'] = Db::name('appprostate')
                                 ->where('approval_id', intval($tysp['id']))
                                 ->order('appro_sort asc')
                                 ->where('compid', $compId)
