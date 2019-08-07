@@ -553,6 +553,13 @@ class Index extends Common
 
             }
 
+            if (!empty($params['do']) && trim($params['do'])  ==  'select') {
+
+                wl_debug(5433434);
+
+
+            }
+
         }
 
         $data_type = Db::name($table_type)->where('compid', $compid)->select();
