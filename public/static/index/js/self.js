@@ -993,5 +993,5 @@ function preview(obj) {
 }
 
 function  call_admin() {
-   window.location.href='0937-2620655';
+   window.location.href='tel://0937-2620655';
 }
