@@ -993,5 +993,5 @@ function preview(obj) {
 }
 
 function  call_admin() {
-    alert(3444)
+   window.location.href='0937-2620655';
 }
