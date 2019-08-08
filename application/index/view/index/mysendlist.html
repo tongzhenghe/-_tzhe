@@ -97,7 +97,7 @@
                 <span style="color: #f25643;">{$vo.wait_user.user_name} 审批中 </span>
                 {elseif !empty($vo.reject_user)}
                 <span style="color: #f25643;">  审批驳回</span>
-                {if $vo.end_pro_user.state == 5}
+                {elseif $vo.end_pro_user.state == 5}
                 <span style="color: #f25643;">  {$vo.user_name}已撤销</span>
                 {/if}
                 {/if}
