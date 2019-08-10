@@ -423,10 +423,10 @@ class Index extends Common
             //详情页
             if ($params['do'] == 'select') {
 
-                wl_debug(434);
                 $id = intval($params['id']);
 
-                $gzsp = Db::name('general_approval')->where('id' , $id)->find();
+                $sg = Db::name($table)->where('id' , $id)->find();
+                wl_debug($sg);
 
                 if (!empty($gzsp)) {
 
