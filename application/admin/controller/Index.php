@@ -324,14 +324,16 @@ class Index extends Common
     //采购--》采购报销
     public  function  procurement()
     {
-        $table = 'procurement_type';
+        $procurement_type_table = 'procurement_type';
+        $table  = 'general_approval';
         $table_pay = 'paytype';
+        $compid =  Admin::getAdminId();
         $params = request()->param();
 
         if (!empty($params['do'])) {
 
             if ( !empty($params['do']) && $params['do'] == '_state') {
-                $result =  Admin::changeState($table, $params);
+                $result =  Admin::changeState($procurement_type_table, $params);
                 if(!$result ) exit(false);
                 exit(iJson('' ));
             }
@@ -342,7 +344,7 @@ class Index extends Common
 
                     $data  = [
                         'state' =>1,
-                        'compid' => Admin::getAdminId(),
+                        'compid' => $compid,
                         'name' => trim($params['name']),
                         'sort' => intval($params['sort']),
                         'intro' => trim($params['intro']),
@@ -350,10 +352,10 @@ class Index extends Common
                     ];
 
                     if (empty($params['id'])) {
-                        $result = Db::name($table)->insert($data);
+                        $result = Db::name($procurement_type_table)->insert($data);
                     } else {
                         $id = intval($params['id']);
-                        $result = Db::name($table)->where('id', $id)->update($data);
+                        $result = Db::name($procurement_type_table)->where('id', $id)->update($data);
                     }
 
                     if ($result) {
@@ -365,7 +367,7 @@ class Index extends Common
 
                 $row = [];
                 if (!empty($params['id'])) {
-                    $row = Db::name($table)->where('id', intval($params['id']))->find();
+                    $row = Db::name($procurement_type_table)->where('id', intval($params['id']))->find();
                 }
 
                 return view('addprocurement_type', [
@@ -421,7 +423,7 @@ class Index extends Common
         }
 
         //采购类型
-        $data_type = Db::name($table)->select();
+        $data_type = Db::name($procurement_type_table)->select();
         foreach ($data_type as &$v ) {
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
@@ -431,6 +433,55 @@ class Index extends Common
         foreach ($data_pay as &$vs ) {
             $vs['time'] = date('Y/m/d H:i:s', $vs['time']);
         }
+
+        //审批列表
+        $procurement_type = Db::name($procurement_type_table)->where('compid', $compid)->select();
+
+        foreach ($data_type as &$v ) {
+            $v['time'] = date('Y/m/d H:i:s', $v['time']);
+        }
+
+        $data = Db::name($table)
+            ->where('compid', $compid)
+            ->where('appro_title', '采购审批')
+            ->select();
+
+        foreach ($data as &$v) {
+            //审批状态
+            $state_msg =  $color = '';
+            switch ($v['approval_state']) {
+                case 1 :
+                    $state_msg = '待审批';
+                    $color = '#b9bbbc';
+                    break;
+                case 2 :
+                    $state_msg = '审批完成';
+                    $color = '#15bc83';
+                    break;
+                case 3 :
+                    $state_msg = '被驳回';
+                    $color = '#ff9846';
+                    break;
+
+            }
+
+            $user = Db::name('user a')
+                ->join('department b', 'a.department_id = b.id', 'left')
+                ->field('a.user_name, a.photo, b.name department_name')
+                ->where('a.id', $v['send_user_id'])
+                ->where('a.compid', $compid)
+                ->where('b.compid', $compid)
+                ->find();
+
+            $v['send_user_name'] = $user['user_name'];
+            $v['state_msg'] =$state_msg;
+            $v['color'] =$color;
+            $v['department_name'] = $user['department_name'];
+            $v['photo'] = $user['photo'];
+            $v['create_time'] = date('Y/m/d H:i:s', $v['create_time']);
+        }
+
+        wl_debug($data);
 
         return view('', ['data_type' => $data_type, 'data_pay' => $data_pay]);
 
