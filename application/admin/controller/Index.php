@@ -479,7 +479,10 @@ class Index extends Common
             $v['department_name'] = $user['department_name'];
             $v['photo'] = $user['photo'];
             $v['create_time'] = date('Y/m/d H:i:s', $v['create_time']);
+
         }
+
+        wl_debug($data);
 
         return view('', ['data_type' => $data_type, 'data_pay' => $data_pay]);
 
