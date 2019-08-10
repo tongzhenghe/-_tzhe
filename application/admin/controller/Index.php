@@ -682,6 +682,7 @@ class Index extends Common
 
                     }
 
+                    wl_debug($gzsp);
                     return view('gzspinfo', ['gzsp' => $gzsp]);
             }
 
