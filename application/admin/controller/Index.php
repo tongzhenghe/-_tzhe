@@ -482,7 +482,6 @@ class Index extends Common
 
         }
 
-        wl_debug($procurement_data);
         return view('', ['procurement_data' => $procurement_data, 'data_type' => $data_type, 'data_pay' => $data_pay]);
 
     }
