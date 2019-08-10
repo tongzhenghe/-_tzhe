@@ -437,7 +437,7 @@ class Index extends Common
         //审批列表
         $procurement_type = Db::name($procurement_type_table)->where('compid', $compid)->select();
 
-        foreach ($data_type as &$v ) {
+        foreach ($procurement_type as &$v ) {
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
 
