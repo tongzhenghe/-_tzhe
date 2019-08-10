@@ -150,7 +150,7 @@
                 <p><span>图片：</span>
                 <div>
                 {volist name="vo.image" id="vo"}
-               <img src="{$vo}" width="63px"/>
+               <img src="{$vo}" onclick="preview(this)" width="63px"/>
                 {/volist}
                 </div>
                 </p>
@@ -200,7 +200,7 @@
                         {if !empty($vo.agree_reason.img_file)}
                         <p style="width: 7%;float: left;margin-right: 7px;">图片:</p>
                         <div class="annex-info">
-                        <img src="{$vo.agree_reason.img_file}" width="63px">
+                        <img src="{$vo.agree_reason.img_file}" onclick="preview(this);" width="63px">
                         </div>
                         {/if}
                         {if !empty($vo.agree_reason.annex)}
