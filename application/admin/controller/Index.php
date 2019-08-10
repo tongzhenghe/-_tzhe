@@ -473,12 +473,12 @@ class Index extends Common
                 ->where('b.compid', $compid)
                 ->find();
 
-            $v['send_user_name'] = $user['user_name'];
-            $v['state_msg'] =$state_msg;
-            $v['color'] =$color;
-            $v['department_name'] = $user['department_name'];
-            $v['photo'] = $user['photo'];
-            $v['create_time'] = date('Y/m/d H:i:s', $v['create_time']);
+//            $v['send_user_name'] = $user['user_name'];
+//            $v['state_msg'] =$state_msg;
+//            $v['color'] =$color;
+//            $v['department_name'] = $user['department_name'];
+//            $v['photo'] = $user['photo'];
+//            $v['create_time'] = date('Y/m/d H:i:s', $v['create_time']);
         }
 
         wl_debug($data);
