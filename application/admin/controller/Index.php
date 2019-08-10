@@ -421,8 +421,8 @@ class Index extends Common
         }
 
         //采购类型
-        $data = Db::name($table)->select();
-        foreach ($data as &$v ) {
+        $data_type = Db::name($table)->select();
+        foreach ($data_type as &$v ) {
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
 
@@ -432,8 +432,7 @@ class Index extends Common
             $vs['time'] = date('Y/m/d H:i:s', $vs['time']);
         }
 
-        wl_debug($data);
-        return view('', ['data' => $data, 'data_pay' => $data_pay]);
+        return view('', ['data_type' => $data_type, 'data_pay' => $data_pay]);
 
     }
 
