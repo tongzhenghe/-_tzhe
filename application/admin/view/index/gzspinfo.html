@@ -213,9 +213,39 @@
                             <span style="color: #2d8cf0;">{$vo.agree_reason.agree_reason} </span>
                         </div>
                         {/if}
-
                     </div>
                     {/if}
+
+
+                    <!--拒绝-->
+                    {if !empty($vo.reject_reason)}
+                    <div style="margin-left:49px;margin-top: 19px;width: 54%;">
+                        {if !empty($vo.reject_reason.img_file)}
+                        <p style="width: 7%;float: left;margin-right: 7px;">图片:</p>
+                        <div class="annex-info">
+                            <img src="{$vo.reject_reason.img_file}" onclick="preview(this);" width="63px">
+                        </div>
+                        {/if}
+                        {if !empty($vo.reject_reason.annex)}
+                        <div class="annex-info"><span>附件：</span><a href="{$vo.reject_reason.annex.file}">
+                            <span style="color: #2d8cf0;">{$vo.reject_reason.annex.filename} </span>下载 </a>
+                        </div>
+                        {/if}
+                        {if !empty($vo.reject_reason.agree_reason)}
+                        <div class="annex-info"><span>留言：</span>
+                            <span style="color: #2d8cf0;">{$vo.reject_reason.reject_reason} </span>
+                        </div>
+                        {/if}
+                    </div>
+                    {/if}
+
+
+
+
+
+
+
+
                 </div>
             </li>
             {/volist}
