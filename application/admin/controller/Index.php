@@ -558,7 +558,6 @@ class Index extends Common
                     $id = intval($params['id']);
 
                     $gzsp = Db::name('general_approval')->where('id' , $id)->find();
-                    //content  create_time  appro_title detail  images  annex  send_department_id  send_user_id   approval_user_id（审批用户id）   know_user_id
 
                     if (!empty($gzsp)) {
 
@@ -574,7 +573,6 @@ class Index extends Common
                             $vs['annex'] = unserialize($vs['annex']);
                         }
 
-                        // title、 typeid、 intro、 image、 annex、 salary_money、
                         $gzsp['salary'] = $gzsp_specs;
 
                         $gzsp['images'] = unserialize($gzsp['images']);
@@ -684,6 +682,7 @@ class Index extends Common
 
                     }
 
+                    wl_debug($gzsp);
                     return view('gzspinfo', ['gzsp' => $gzsp]);
             }
 
