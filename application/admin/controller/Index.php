@@ -378,13 +378,13 @@ class Index extends Common
             }
 
             /*支付方式*/
-            if ( !empty($params['do']) && $params['do'] == '_state_pay') {
+            if ($params['do'] == '_state_pay') {
                 $result =  Admin::changeState($table_pay, $params);
                 if(!$result ) exit(false);
                 exit(iJson('' ));
             }
 
-            if (trim($params['do'])  ==  'addpaytype') {
+            if ($params['do'] == 'addpaytype') {
 
                 if (request()->isAjax()) {
 
@@ -419,6 +419,141 @@ class Index extends Common
 
                 return view('addpaytype', [ 'do' => '_'.trim($params['do']), 'row_paytype' => $row_paytype]);
             }
+
+            //详情页
+            if ($params['do'] == 'select') {
+
+                wl_debug(434);
+                $id = intval($params['id']);
+
+                $gzsp = Db::name('general_approval')->where('id' , $id)->find();
+
+                if (!empty($gzsp)) {
+
+                    //多规格工资
+                    $gzsp_specs = Db::name('salary')
+                        ->where(['approvalid' => $gzsp['id'], 'compid' => $compid])
+                        ->order('id desc')
+                        ->select();
+
+                    foreach ($gzsp_specs as &$vs) {
+                        $vs['image'] = unserialize($vs['image']);
+                        $vs['image'] = unserialize($vs['image']);
+                        $vs['annex'] = unserialize($vs['annex']);
+                    }
+
+                    $gzsp['salary'] = $gzsp_specs;
+
+                    $gzsp['images'] = unserialize($gzsp['images']);
+                    $gzsp['annex'] = unserialize($gzsp['annex']);
+                    $gzsp['approval_user_id'] = unserialize($gzsp['approval_user_id']);
+                    $gzsp['know_user_id'] = unserialize($gzsp['know_user_id']);
+
+                    //审批人所属部门、 及所有审批人员、 抄送人员、 时间
+                    $send_department = Db::name('department')
+                        ->field('name send_department_name')
+                        ->where('id', $gzsp['send_department_id'])
+                        ->where('compid', $compid)
+                        ->find();
+
+                    $send_user = Db::name('user')
+                        ->field('user_name send_user_name, tel user_tel')
+                        ->where('id', $gzsp['send_user_id'])
+                        ->where('compid', $compid)
+                        ->find();
+
+                    $gzsp['send_department_name'] = $send_department['send_department_name'];
+                    $gzsp['send_user_name'] = $send_user['send_user_name'];
+                    $gzsp['user_tel'] = $send_user['user_tel'];
+
+                    //审批人员
+                    $gzsp['know_user_name'] = [];
+
+                    $gzsp['create_time'] = timeTran($gzsp['create_time']);
+
+                    $gzsp['approval_user'] = Db::name('appprostate')
+                        ->where('approval_id', intval($gzsp['id']))
+                        ->order('appro_sort asc')
+                        ->where('compid', $compid)
+                        ->select();
+
+
+                    if (!empty($gzsp['approval_user'])) {
+
+                        foreach (  $gzsp['approval_user'] as &$v) {
+
+                            if (!empty($v['reject_reason'])) {
+                                $v['reject_reason'] = (array)json_decode($v['reject_reason']);
+                                $v['reject_reason']['annex'] = (array)$v['reject_reason']['annex'];
+                                $v['reject_reason']['pro_time'] = timeTran($v['reject_reason']['pro_time']);
+                            }
+
+                            if (!empty($v['agree_reason'])) {
+                                $v['agree_reason'] = (array)json_decode($v['agree_reason']);
+                                $v['agree_reason']['annex'] = (array)$v['agree_reason']['annex'];
+                                $v['agree_reason']['pro_time'] = timeTran($v['agree_reason']['pro_time']);
+                            }
+
+
+                            //流程
+                            //待审批
+
+                            $state_msg = $color = '';
+
+                            switch (true) {
+                                case ($v['state'] == 4 && $v['appro_sort'] == 1):
+                                    $state_msg = '待审批';
+                                    $color = '#b9bbbc';
+                                    break;
+
+                                case ($v['state'] == 2 ):
+                                    $state_msg = '已同意';
+                                    $color = '#15bc83';
+                                    break;
+
+                                case ($v['state'] == 1 ):
+                                    $state_msg = '待审批';
+                                    $color = '#b9bbbc';
+                                    break;
+
+                                case ($v['state'] == 3 ):
+                                    $state_msg = '已拒绝';
+                                    $color = '#ff943e';
+                                    break;
+                                case ($v['state'] == 5 ):
+                                    $state_msg = '已撤销';
+                                    $color = '#fee151';
+                                    break;
+                            }
+
+                            $approval_user = Db::name('user')
+                                ->where('id', intval($v['appro_user_id']))
+                                ->field('user_name')
+                                ->where('compid', $compid)
+                                ->find();
+
+                            $v['approval_user_name'] = $approval_user['user_name'];
+                            $v['state_msg'] = $state_msg;
+                            $v['color'] = $color;
+
+                        }
+
+                    }
+
+                    //抄送人
+                    for ($i = 0; $i < count($gzsp['know_user_id']); $i++) {
+                        $gzsp['know_user_name'][] = Db::name('user')
+                            ->where('id', intval($gzsp['know_user_id'][$i]))
+                            ->field('user_name')
+                            ->where('compid', $compid)
+                            ->find();
+                    }
+
+                }
+
+                return view('gzspinfo', ['gzsp' => $gzsp]);
+            }
+            //详情页 -End
 
         }
 
