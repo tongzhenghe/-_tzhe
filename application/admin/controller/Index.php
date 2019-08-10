@@ -441,7 +441,6 @@ class Index extends Common
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
 
-        wl_debug($table);
         $data = Db::name($table)
             ->where('compid', $compid)
             ->where('appro_title', '采购审批')
