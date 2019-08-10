@@ -324,6 +324,7 @@ class Index extends Common
     //采购--》采购报销
     public  function  procurement()
     {
+        $procurement = 'procurement';
         $procurement_type_table = 'procurement_type';
         $table  = 'general_approval';
         $table_pay = 'paytype';
@@ -426,61 +427,60 @@ class Index extends Common
                 $id = intval($params['id']);
 
                 $sg = Db::name($table)->where('id' , $id)->find();
-                wl_debug($sg);
 
-                if (!empty($gzsp)) {
+                if (!empty($sg)) {
 
                     //多规格工资
-                    $gzsp_specs = Db::name('salary')
-                        ->where(['approvalid' => $gzsp['id'], 'compid' => $compid])
+                    $sg_specs = Db::name($procurement)
+                        ->where(['approvalid' => $sg['id'], 'compid' => $compid])
                         ->order('id desc')
                         ->select();
 
-                    foreach ($gzsp_specs as &$vs) {
+                    foreach ($sg_specs as &$vs) {
                         $vs['image'] = unserialize($vs['image']);
                         $vs['image'] = unserialize($vs['image']);
                         $vs['annex'] = unserialize($vs['annex']);
                     }
 
-                    $gzsp['salary'] = $gzsp_specs;
+                    $sg['procurement'] = $sg_specs;
 
-                    $gzsp['images'] = unserialize($gzsp['images']);
-                    $gzsp['annex'] = unserialize($gzsp['annex']);
-                    $gzsp['approval_user_id'] = unserialize($gzsp['approval_user_id']);
-                    $gzsp['know_user_id'] = unserialize($gzsp['know_user_id']);
+                    $sg['images'] = unserialize($sg['images']);
+                    $sg['annex'] = unserialize($sg['annex']);
+                    $sg['approval_user_id'] = unserialize($sg['approval_user_id']);
+                    $sg['know_user_id'] = unserialize($sg['know_user_id']);
 
                     //审批人所属部门、 及所有审批人员、 抄送人员、 时间
                     $send_department = Db::name('department')
                         ->field('name send_department_name')
-                        ->where('id', $gzsp['send_department_id'])
+                        ->where('id', $sg['send_department_id'])
                         ->where('compid', $compid)
                         ->find();
 
                     $send_user = Db::name('user')
                         ->field('user_name send_user_name, tel user_tel')
-                        ->where('id', $gzsp['send_user_id'])
+                        ->where('id', $sg['send_user_id'])
                         ->where('compid', $compid)
                         ->find();
 
-                    $gzsp['send_department_name'] = $send_department['send_department_name'];
-                    $gzsp['send_user_name'] = $send_user['send_user_name'];
-                    $gzsp['user_tel'] = $send_user['user_tel'];
+                    $sg['send_department_name'] = $send_department['send_department_name'];
+                    $sg['send_user_name'] = $send_user['send_user_name'];
+                    $sg['user_tel'] = $send_user['user_tel'];
 
                     //审批人员
-                    $gzsp['know_user_name'] = [];
+                    $sg['know_user_name'] = [];
 
-                    $gzsp['create_time'] = timeTran($gzsp['create_time']);
+                    $sg['create_time'] = timeTran($sg['create_time']);
 
-                    $gzsp['approval_user'] = Db::name('appprostate')
-                        ->where('approval_id', intval($gzsp['id']))
+                    $sg['approval_user'] = Db::name('appprostate')
+                        ->where('approval_id', intval($sg['id']))
                         ->order('appro_sort asc')
                         ->where('compid', $compid)
                         ->select();
 
 
-                    if (!empty($gzsp['approval_user'])) {
+                    if (!empty($sg['approval_user'])) {
 
-                        foreach (  $gzsp['approval_user'] as &$v) {
+                        foreach (  $sg['approval_user'] as &$v) {
 
                             if (!empty($v['reject_reason'])) {
                                 $v['reject_reason'] = (array)json_decode($v['reject_reason']);
@@ -541,9 +541,9 @@ class Index extends Common
                     }
 
                     //抄送人
-                    for ($i = 0; $i < count($gzsp['know_user_id']); $i++) {
-                        $gzsp['know_user_name'][] = Db::name('user')
-                            ->where('id', intval($gzsp['know_user_id'][$i]))
+                    for ($i = 0; $i < count($sg['know_user_id']); $i++) {
+                        $sg['know_user_name'][] = Db::name('user')
+                            ->where('id', intval($sg['know_user_id'][$i]))
                             ->field('user_name')
                             ->where('compid', $compid)
                             ->find();
@@ -551,7 +551,8 @@ class Index extends Common
 
                 }
 
-                return view('gzspinfo', ['gzsp' => $gzsp]);
+                wl_debug($sg);
+                return view('sginfo', ['sg' => $sg]);
             }
             //详情页 -End
 
