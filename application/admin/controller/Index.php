@@ -481,8 +481,6 @@ class Index extends Common
             $v['create_time'] = date('Y/m/d H:i:s', $v['create_time']);
         }
 
-
-        wl_debug($data);
         return view('', ['data_type' => $data_type, 'data_pay' => $data_pay]);
 
     }
