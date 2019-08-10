@@ -443,7 +443,7 @@ class Index extends Common
 
         $procurement_data = Db::name($table)
             ->where('compid', $compid)
-            ->where('appro_title', '采购审批')
+            ->where('appro_title', '申购')
             ->select();
 
         foreach ($procurement_data as &$v) {
