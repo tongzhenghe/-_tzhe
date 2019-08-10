@@ -321,7 +321,7 @@ class Index extends Common
 
 
 
-    //财务报销--》采购报销
+    //采购--》采购报销
     public  function  procurement()
     {
         $table = 'procurement_type';
@@ -375,7 +375,6 @@ class Index extends Common
 
             }
 
-
             /*支付方式*/
             if ( !empty($params['do']) && $params['do'] == '_state_pay') {
                 $result =  Admin::changeState($table_pay, $params);
@@ -419,7 +418,6 @@ class Index extends Common
                 return view('addpaytype', [ 'do' => '_'.trim($params['do']), 'row_paytype' => $row_paytype]);
             }
 
-
         }
 
         //采购类型
@@ -434,6 +432,7 @@ class Index extends Common
             $vs['time'] = date('Y/m/d H:i:s', $vs['time']);
         }
 
+        wl_debug($data);
         return view('', ['data' => $data, 'data_pay' => $data_pay]);
 
     }
