@@ -441,12 +441,12 @@ class Index extends Common
             $v['time'] = date('Y/m/d H:i:s', $v['time']);
         }
 
-        $data = Db::name($table)
+        $procurement_data = Db::name($table)
             ->where('compid', $compid)
             ->where('appro_title', '采购审批')
             ->select();
 
-        foreach ($data as &$v) {
+        foreach ($procurement_data as &$v) {
             //审批状态
             $state_msg =  $color = '';
             switch ($v['approval_state']) {
@@ -482,7 +482,7 @@ class Index extends Common
 
         }
 
-        wl_debug($data);
+        wl_debug($procurement_data);
 
         return view('', ['data_type' => $data_type, 'data_pay' => $data_pay]);
 
