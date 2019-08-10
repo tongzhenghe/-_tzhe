@@ -446,6 +446,9 @@ class Index extends Common
             ->where('appro_title', '采购审批')
             ->select();
 
+        wl_debug($data);
+
+
         foreach ($data as &$v) {
             //审批状态
             $state_msg =  $color = '';
@@ -465,13 +468,13 @@ class Index extends Common
 
             }
 
-            $user = Db::name('user a')
-                ->join('department b', 'a.department_id = b.id', 'left')
-                ->field('a.user_name, a.photo, b.name department_name')
-                ->where('a.id', $v['send_user_id'])
-                ->where('a.compid', $compid)
-                ->where('b.compid', $compid)
-                ->find();
+//            $user = Db::name('user a')
+//                ->join('department b', 'a.department_id = b.id', 'left')
+//                ->field('a.user_name, a.photo, b.name department_name')
+//                ->where('a.id', $v['send_user_id'])
+//                ->where('a.compid', $compid)
+//                ->where('b.compid', $compid)
+//                ->find();
 
 //            $v['send_user_name'] = $user['user_name'];
 //            $v['state_msg'] =$state_msg;
@@ -481,7 +484,6 @@ class Index extends Common
 //            $v['create_time'] = date('Y/m/d H:i:s', $v['create_time']);
         }
 
-        wl_debug($data);
 
         return view('', ['data_type' => $data_type, 'data_pay' => $data_pay]);
 
