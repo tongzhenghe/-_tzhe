@@ -231,11 +231,12 @@
             <div class="hui-list-text2"><p>金额</p> <span>{$v.r_money}</span></div>
             <div class="hui-list-text2"><p>明细</p> <span>{$v.intro}</span></div>
             {if !empty($v.image)}
-            <div class="hui-list-text2"><p>图片</p> <span>
-            {foreach name="v.image" item="vim"}
-            <img src="{$vim}"  onclick="preview(this);"/>
-            {/foreach}
-            </span>
+            <div class="hui-list-text2"><p>图片</p>
+                <div class="img-demo" style="   width: 271px;">
+                    {foreach name="v.image" item="vim"}
+                    <img src="{$vim}" class="imgs"/>
+                    {/foreach}
+            </div>
             </div>
             {/if}
             <div class="hui-list-text2"><p>附件</p>
