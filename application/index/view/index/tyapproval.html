@@ -399,7 +399,6 @@
         //     console.log(  $(val).children(".childs").prevObject.children(0).children(".childs"))
         //     $(val).children(".childs").prevObject.children(0).children(".childs").remove();
         // }
-
             $(this).prev().remove();
             $(this).remove();
 
@@ -471,8 +470,7 @@
 
         loves =[];
 
-        hui('#loves').find('input').each(function(cObj) {
-
+        hui('#loves').children().find('input').each(function(cObj) {
 
             if(cObj.checked) {
                 loves.push(cObj.value);
