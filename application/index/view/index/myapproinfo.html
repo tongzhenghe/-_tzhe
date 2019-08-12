@@ -35,14 +35,17 @@
     }
 
     .hui-list-text2 img{
-        width: 33%;
+
+        width: 44%;
+
         margin-top: 3px;
         float: left;
+
         margin-left: 1px;
-        height: 49px;
+
        }
 
-    .hui-list-text{      line-height: 77px;  border: none;  color:#3c3b3b; font-size: 14px;}
+    .hui-list-text{      line-height: 77px;  border: none;  color:#3c3b3b;;  margin-left: 16px; font-size: 14px;}
 
     .title{    font-size: 16px;font-weight: 400;}
 
@@ -52,7 +55,6 @@
         border-radius: 50px;
         width: 50px;
         line-height: 50px;
-        margin-left: 12px;
         height: 50px;}
 
 
@@ -60,7 +62,7 @@
 
     .hui-list-icons{
         height: 51px;
-        width: 78px;
+        width: 51px;
     }
 
     .hui-speed-dial-icons{
@@ -191,13 +193,11 @@
             <div class="hui-list-text2"><p>金额</p> <span>{$v.pro_price}</span></div>
             <div class="hui-list-text2"><p>明细</p> <span>{$v.intro}</span></div>
             {if !empty($v.image)}
-            <div class="hui-list-text2"><p>图片</p>
-
-                <div class="img-demo" style="   width: 235px;">
-                    {foreach name="v.image" item="vim"}
-                    <img src="{$vim}" class="imgs"/>
-                    {/foreach}
-                </div>
+            <div class="hui-list-text2"><p>图片</p> <span>
+            {foreach name="v.image" item="vim"}
+            <img src="{$vim}"  onclick="preview(this)"/>
+            {/foreach}
+            </span>
             </div>
             {/if}
             <div class="hui-list-text2"><p>附件</p>
@@ -233,12 +233,11 @@
             <div class="hui-list-text2"><p>金额</p> <span>{$v.r_money}</span></div>
             <div class="hui-list-text2"><p>明细</p> <span>{$v.intro}</span></div>
             {if !empty($v.image)}
-            <div class="hui-list-text2"><p>图片</p>
-                <div class="img-demo" style="   width: 271px;">
-                    {foreach name="v.image" item="vim"}
-                    <img src="{$vim}" class="imgs"/>
-                    {/foreach}
-            </div>
+            <div class="hui-list-text2"><p>图片</p> <span>
+            {foreach name="v.image" item="vim"}
+            <img src="{$vim}"  onclick="preview(this);"/>
+            {/foreach}
+            </span>
             </div>
             {/if}
             <div class="hui-list-text2"><p>附件</p>
