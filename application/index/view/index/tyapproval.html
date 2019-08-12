@@ -213,9 +213,9 @@
 
         {volist name="vo" id="vv" key="kk"}
 
-        <a href="javascript:selectTodo('{$vv.user_name}');"  id="loves" class="check_click">
+        <a href="javascript:selectTodo('{$vv.user_name}');" class="check_click">
 
-            <div class="hui-form-radios">
+            <div class="hui-form-radios" id="loves">
 
                 <input type="checkbox" value="{$vv.id}" data-name="{$vv.user_name}"  name="user_id[]" id="c{$vv.id}" /><label for="c{$vv.id}"></label>
 
@@ -399,6 +399,7 @@
         //     console.log(  $(val).children(".childs").prevObject.children(0).children(".childs"))
         //     $(val).children(".childs").prevObject.children(0).children(".childs").remove();
         // }
+
             $(this).prev().remove();
             $(this).remove();
 
@@ -470,7 +471,8 @@
 
         loves =[];
 
-        hui('#loves').children().find('input').each(function(cObj) {
+        hui('#loves').find('input').each(function(cObj) {
+
 
             if(cObj.checked) {
                 loves.push(cObj.value);
