@@ -288,7 +288,7 @@
                             <span style="color: #15bc83; font-size: 14px;">审批通过</span>
 
                             {elseif($vo.appro_content.approval_state == 3)}
-                             <span style="color: #f25643; font-size: 14px;">{$vo.next_appro_user_name.user_name}被驳回</span>
+                             <span style="color: #f25643; font-size: 14px;">被{$vo.next_appro_user_name.user_name}驳回</span>
                             {else}
                             <span style="color: #f25643; font-size: 14px;"> {$vo.next_appro_user_name.user_name}审批中..</span>
 
