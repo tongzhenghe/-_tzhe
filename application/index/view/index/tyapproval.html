@@ -213,9 +213,9 @@
 
         {volist name="vo" id="vv" key="kk"}
 
-        <a href="javascript:selectTodo('{$vv.user_name}');" class="check_click">
+        <a href="javascript:selectTodo('{$vv.user_name}');"  id="loves" class="check_click">
 
-            <div class="hui-form-radios" id="loves">
+            <div class="hui-form-radios">
 
                 <input type="checkbox" value="{$vv.id}" data-name="{$vv.user_name}"  name="user_id[]" id="c{$vv.id}" /><label for="c{$vv.id}"></label>
 
