@@ -153,7 +153,7 @@
         <div class="hui-list-text2"><p>类型</p> <span>{$v.type_name}</span></div>
         <div class="hui-list-text2"><p>金额</p> <span>{$v.salary_money}</span></div>
         <div class="hui-list-text2"><p>明细</p> <span>{$v.intro}</span></div>
-            {if !empty($v.image)}
+        {if !empty($v.image)}
         <div class="hui-list-text2"><p>图片</p> <span>
             {foreach name="v.image" item="vim"}
             <img src="{$vim}" class="imgs"/>
