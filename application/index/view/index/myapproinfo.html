@@ -156,7 +156,7 @@
             {if !empty($v.image)}
         <div class="hui-list-text2"><p>图片</p> <span>
             {foreach name="v.image" item="vim"}
-            <img src="{$vim}"  onclick="preview(this)"/>
+            <img src="{$vim}" class="img"/>
             {/foreach}
             </span>
         </div>
@@ -357,7 +357,7 @@
                 <?php Endif;?>
             </div>
             <div class="hui-list-text">
-            <span style="    color: #c7c7c7;font-size: 12px;">
+            <span style="color:#c7c7c7;font-size: 12px;">
                 {if !in_array($vo.pro_state, [2, 3])}
                 {if $vo.pro_state == 4 && $vo.appro_sort == 1 || $vo.pro_state == 1}
                <span>已等待{$vo.agree_reason.pro_time}</span>
