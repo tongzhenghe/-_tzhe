@@ -550,7 +550,6 @@ class Index extends Common
 
                 }
 
-                wl_debug($sg);
                 return view('sginfo', ['sg' => $sg]);
             }
             //详情页 -End
