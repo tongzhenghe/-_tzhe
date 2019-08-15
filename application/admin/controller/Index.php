@@ -428,7 +428,6 @@ class Index extends Common
 
                 $sg = Db::name($table)->where('id' , $id)->find();
 
-                wl_debug($sg);
                 if (!empty($sg)) {
 
                     //多规格工资
@@ -436,6 +435,8 @@ class Index extends Common
                         ->where(['approvalid' => $sg['id'], 'compid' => $compid])
                         ->order('id desc')
                         ->select();
+
+                    wl_debug($sg_specs);
 
                     foreach ($sg_specs as &$vs) {
                         $vs['image'] = unserialize($vs['image']);
