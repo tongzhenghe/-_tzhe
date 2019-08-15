@@ -493,8 +493,6 @@ class Index extends Common
                                 $v['agree_reason']['pro_time'] = timeTran($v['agree_reason']['pro_time']);
                             }
 
-
-                            wl_debug($sg);
                             //流程
                             //待审批
                             $state_msg = $color = '';
