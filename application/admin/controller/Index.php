@@ -438,7 +438,6 @@ class Index extends Common
 
                     foreach ($sg_specs as &$vs) {
                         $vs['image'] = unserialize($vs['image']);
-                        $vs['image'] = unserialize($vs['image']);
                         $vs['annex'] = unserialize($vs['annex']);
                     }
 
