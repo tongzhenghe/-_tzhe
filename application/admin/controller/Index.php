@@ -477,6 +477,7 @@ class Index extends Common
                         ->select();
 
 
+                    wl_debug($sg['approval_user']);
                     if (!empty($sg['approval_user'])) {
 
                         foreach (  $sg['approval_user'] as &$v) {
@@ -496,7 +497,6 @@ class Index extends Common
 
                             //流程
                             //待审批
-
                             $state_msg = $color = '';
 
                             switch (true) {
