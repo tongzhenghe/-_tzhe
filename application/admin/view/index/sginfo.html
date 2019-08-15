@@ -117,7 +117,7 @@
         <h3 class="site-h3">审批基本内容</h3>
 
         {if !empty($sg.salary)}
-        {volist name="gzsp.salary" id="vo" key='k'}
+        {volist name="sg.salary" id="vo" key='k'}
         <div class="site-title">
             <fieldset><legend><a name="use">明细{$k}</a></legend></fieldset>
         </div>
@@ -188,7 +188,7 @@
                 </div>
             </li>
            {if !empty($sg.approval_user)}
-            {volist name="gzsp.approval_user" id="vo"}
+            {volist name="sg.approval_user" id="vo"}
             <li class="layui-timeline-item">
                 <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                 <div class="layui-timeline-content layui-text">
