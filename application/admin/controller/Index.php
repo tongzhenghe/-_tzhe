@@ -443,8 +443,6 @@ class Index extends Common
 
                     $sg['procurement'] = $sg_specs;
 
-                    wl_debug($sg);
-
                     $sg['images'] = unserialize($sg['images']);
                     $sg['annex'] = unserialize($sg['annex']);
                     $sg['approval_user_id'] = unserialize($sg['approval_user_id']);
