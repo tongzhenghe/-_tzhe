@@ -436,8 +436,6 @@ class Index extends Common
                         ->order('id desc')
                         ->select();
 
-                    wl_debug($sg_specs);
-
                     foreach ($sg_specs as &$vs) {
                         $vs['image'] = unserialize($vs['image']);
                         $vs['image'] = unserialize($vs['image']);
@@ -445,6 +443,8 @@ class Index extends Common
                     }
 
                     $sg['procurement'] = $sg_specs;
+
+                    wl_debug($sg);
 
                     $sg['images'] = unserialize($sg['images']);
                     $sg['annex'] = unserialize($sg['annex']);
